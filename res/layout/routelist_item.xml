@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.mauricelam.transit.RouteListItem xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/routeListItem"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:gravity="center_vertical|fill_horizontal"
+    android:orientation="horizontal"
+    android:padding="5sp" >
+
+    <ImageView
+        android:id="@+id/routeitem_bubble"
+        android:layout_width="15dp"
+        android:layout_height="15dp"
+        android:clickable="false"
+        android:longClickable="false"
+        android:src="@drawable/route_bubble" >
+    </ImageView>
+
+    <TextView
+        android:id="@+id/routeitem_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingBottom="2sp"
+        android:paddingLeft="5sp"
+        android:paddingTop="2sp"
+        android:shadowColor="#FFFFFFFF"
+        android:shadowDx="0"
+        android:shadowDy="1"
+        android:shadowRadius="1"
+        android:text="Route"
+        android:textSize="16sp" >
+    </TextView>
+
+    <TextView
+        android:id="@+id/routeitem_time"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:gravity="right"
+        android:shadowColor="#FFFFFFFF"
+        android:shadowDx="0"
+        android:shadowDy="1"
+        android:shadowRadius="1"
+        android:text="N mins" >
+    </TextView>
+
+</com.mauricelam.transit.RouteListItem>

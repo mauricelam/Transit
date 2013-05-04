@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android" >
+
+    <item
+        android:id="@+id/tripplanner"
+        android:icon="@drawable/ic_menu_tripplanner"
+        android:title="@string/menu_tripplanner"
+        android:titleCondensed="@string/menu_tripplanner">
+    </item>
+    <item
+        android:id="@+id/cards"
+        android:icon="@drawable/ic_menu_cards"
+        android:title="@string/menu_cards"
+        android:titleCondensed="@string/menu_cards">
+    </item>
+    <item
+        android:id="@+id/settings"
+        android:icon="@drawable/ic_menu_preferences"
+        android:title="@string/menu_settings"
+        android:titleCondensed="@string/menu_settings">
+    </item>
+
+</menu>

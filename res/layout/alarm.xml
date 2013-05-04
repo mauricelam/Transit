@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+  xmlns:android="http://schemas.android.com/apk/res/android"
+  android:layout_width="200dp" android:padding="10dp" android:layout_height="wrap_content" android:orientation="vertical">
+<TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:id="@+id/alarm_dialogtext" android:text="Your bus is coming in a few minutes" android:layout_marginBottom="20dp"></TextView>
+
+<LinearLayout android:id="@+id/LinearLayout01" android:layout_height="wrap_content" android:layout_width="fill_parent" android:gravity="center_horizontal"><Button android:layout_height="wrap_content" android:id="@+id/alarm_buttonok" android:layout_gravity="left" android:onClick="startApp" android:text="view" style="@android:style/Widget.Button.Inset" android:layout_weight="0.5" android:layout_width="0dp"></Button><Button android:layout_height="wrap_content" android:id="@+id/alarm_buttoncancel" android:layout_gravity="right" android:onClick="dismiss" android:text="close" style="@android:style/Widget.Button.Inset" android:layout_weight="0.5" android:layout_width="0dp"></Button>
+</LinearLayout>
+</LinearLayout>

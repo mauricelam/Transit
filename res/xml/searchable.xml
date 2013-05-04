@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<searchable xmlns:android="http://schemas.android.com/apk/res/android"
+	android:hint="@string/search_hint" android:label="@string/app_name"
+	android:searchSuggestSelection=" ?" android:searchSuggestIntentAction="android.intent.action.VIEW"
+	android:searchSuggestAuthority="com.mauricelam.transit.Suggester"
+	android:searchSuggestThreshold="0" android:includeInGlobalSearch="true"
+	android:searchSettingsDescription="@string/suggest_label"
+	android:queryAfterZeroResults="true">
+</searchable>

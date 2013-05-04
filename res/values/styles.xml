@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+<style name="DarkText" parent="android:style/Theme.NoTitleBar"><item name="android:textColor">#FF333333</item>
+</style>
+<style name="GreyText"><item name="android:textColor">#FF999999</item>
+</style>
+<style name="Cards" parent="android:style/Theme.Light.NoTitleBar">
+    <item name="android:textColor">#FF333333</item>
+    <item name="android:windowBackground">@color/background_gray</item>
+    <item name="android:scrollbarThumbVertical">@drawable/scrollthumb</item>
+</style>
+<color name="darken">#11000033</color>
+<color name="lighten">#55DDDDFF</color>
+<color name="darkgrey">#FF333333</color>
+<style name="Stopsearch" parent="android:style/Theme.NoTitleBar">
+    <item name="android:windowBackground">@drawable/searchwood_repeat</item>
+</style>
+<color name="lighten_white">#55DDDDDD</color>
+</resources>

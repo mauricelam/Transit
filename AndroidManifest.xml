@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+          package="com.mauricelam.transit"
+          android:versionCode="15"
+          android:versionName="2.9">
+
+    <uses-sdk
+            android:minSdkVersion="8"
+            android:targetSdkVersion="15"/>
+
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION">
+    </uses-permission>
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION">
+    </uses-permission>
+    <uses-permission android:name="android.permission.INTERNET">
+    </uses-permission>
+    <uses-permission android:name="android.permission.VIBRATE">
+    </uses-permission>
+
+    <uses-feature
+            android:name="android.hardware.touchscreen"
+            android:required="true">
+    </uses-feature>
+
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+
+    <uses-feature
+            android:name="android.hardware.location"
+            android:required="false"/>
+    <uses-feature
+            android:name="android.hardware.location.gps"
+            android:required="false"/>
+    <uses-feature
+            android:name="android.hardware.location.network"
+            android:required="false"/>
+
+    <application
+            android:name="TransitApplication"
+            android:icon="@drawable/icon"
+            android:label="@string/app_name"
+            android:theme="@android:style/Theme.NoTitleBar">
+        <meta-data
+                android:name="android.app.default_searchable"
+                android:value=".StopSearch">
+        </meta-data>
+
+        <uses-library
+                android:name="com.google.android.maps"
+                android:required="false"/>
+
+        <provider
+                android:name="Suggester"
+                android:authorities="com.mauricelam.transit.Suggester">
+        </provider>
+
+        <activity android:name=".Settings">
+        </activity>
+
+        <receiver android:name=".AlarmReceiver">
+        </receiver>
+
+        <activity
+                android:name=".AlarmNotification"
+                android:theme="@android:style/Theme.Dialog">
+        </activity>
+        <activity android:name=".About">
+        </activity>
+        <activity
+                android:name="StopSearch"
+                android:theme="@style/Stopsearch">
+            <intent-filter>
+                <action android:name="android.intent.action.SEARCH">
+                </action>
+                <action android:name="android.intent.action.VIEW">
+                </action>
+                <action android:name="android.intent.action.SEND"/>
+
+                <category android:name="android.intent.category.DEFAULT"/>
+
+                <data android:mimeType="text/plain"/>
+            </intent-filter>
+
+            <meta-data
+                    android:name="android.app.searchable"
+                    android:resource="@xml/searchable">
+            </meta-data>
+        </activity>
+        <activity
+                android:name="LocationList"
+                android:theme="@style/Stopsearch">
+        </activity>
+
+        <receiver android:name=".Updater">
+            <intent-filter>
+                <action android:name="android.net.conn.CONNECTIVITY_CHANGE"/>
+            </intent-filter>
+        </receiver>
+
+        <activity
+                android:name="Cards"
+                android:clearTaskOnLaunch="true"
+                android:theme="@style/Cards">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+        </activity>
+        <activity android:name="Flags">
+        </activity>
+
+        <service android:name="UpdateService">
+        </service>
+
+        <activity android:name=".PlacesMap">
+        </activity>
+    </application>
+
+</manifest>

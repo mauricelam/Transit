@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:moreviews="http://moreviews.mauricelam.com" >
+
+    <PreferenceCategory
+        android:key="cat_general"
+        android:title="General settings" >
+        <com.mauricelam.moreviews.SeekBarPreference
+            android:defaultValue="1"
+            android:key="foregroundInterval"
+            android:max="60"
+            android:summary="Time between foreground updates"
+            moreviews:units=" mins"
+            android:title="Foreground update interval"
+            moreviews:min="1" />
+
+        <ListPreference
+            android:defaultValue="30"
+            android:entries="@array/bg_interval"
+            android:entryValues="@array/bg_interval_value"
+            android:key="backgroundInterval"
+            android:persistent="true"
+            android:summary="Time between background updates"
+            android:title="Background Update interval" />
+    </PreferenceCategory>
+    <PreferenceCategory
+        android:key="cat_alarm"
+        android:title="Alarm settings" >
+        <CheckBoxPreference
+            android:defaultValue="false"
+            android:enabled="true"
+            android:key="obtrusive"
+            android:summary="Shows pop up dialog for bus alarm"
+            android:title="Obtrusive alarm" >
+        </CheckBoxPreference>
+    </PreferenceCategory>
+
+</PreferenceScreen>

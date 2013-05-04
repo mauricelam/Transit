@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical" >
+
+    <LinearLayout
+        android:id="@+id/linearLayout1"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:background="#77553021"
+        android:paddingBottom="5dp"
+        android:paddingLeft="0dp"
+        android:paddingRight="5dp"
+        android:paddingTop="5dp" >
+
+        <com.mauricelam.moreviews.StateImageButton
+            android:id="@+id/stopsearch_backbtn"
+            android:layout_width="wrap_content"
+            android:layout_height="42dp"
+            android:background="#00000000"
+            android:onClick="back"
+            android:paddingLeft="3dp"
+            android:paddingRight="3dp"
+            android:src="@drawable/back"
+            android:textColor="#77AAAAAA"
+            android:textColorHighlight="#AAFFFFFF" />
+
+        <EditText
+            android:id="@+id/stopsearch_searchbox"
+            android:layout_width="0dp"
+            android:layout_height="42dp"
+            android:layout_weight="1"
+            android:background="@drawable/searchbox_bg"
+            android:hint="@string/search_hint"
+            android:imeOptions="actionSearch"
+            android:inputType="text"
+            android:padding="8dp" />
+
+        <ImageButton
+            android:id="@+id/stopsearch_searchbtn"
+            android:layout_width="42dp"
+            android:layout_height="42dp"
+            android:background="@drawable/searchbtn_bg"
+            android:contentDescription="@string/search"
+            android:onClick="search"
+            android:padding="0dp"
+            android:src="@drawable/search" />
+    </LinearLayout>
+
+    <View
+        android:id="@+id/divider"
+        android:layout_width="wrap_content"
+        android:layout_height="1px"
+        android:background="#22FFFFFF" />
+
+    <View
+        android:id="@+id/View01"
+        android:layout_width="wrap_content"
+        android:layout_height="1px"
+        android:background="#88000000" />
+
+    <ListView
+        android:id="@+id/stopsearch_list"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:cacheColorHint="#00000000"
+        android:divider="@drawable/divider_dark"
+        android:dividerHeight="2px"
+        android:listSelector="@drawable/listselector_dark"
+        android:textFilterEnabled="false" >
+    </ListView>
+
+</LinearLayout>

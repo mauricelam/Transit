@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu
+  xmlns:android="http://schemas.android.com/apk/res/android">
+<item android:id="@+id/search" android:titleCondensed="@string/menu_search" android:title="@string/menu_search" android:icon="@drawable/ic_menu_search"></item>
+
+<item android:id="@+id/refresh" android:title="@string/menu_refresh" android:titleCondensed="@string/menu_refresh" android:icon="@drawable/ic_menu_refresh"></item><item android:id="@+id/tripplanner" android:titleCondensed="@string/menu_tripplanner" android:title="@string/menu_tripplanner" android:icon="@drawable/ic_menu_tripplanner"></item><item android:id="@+id/favorite" android:titleCondensed="Favorite" android:title="Favorite" android:icon="@drawable/ic_menu_star"></item><item android:id="@+id/settings" android:titleCondensed="@string/menu_settings" android:icon="@drawable/ic_menu_preferences" android:title="@string/menu_settings"></item>
+
+
+
+</menu>

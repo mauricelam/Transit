@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:moreviews="http://moreviews.mauricelam.com" >
+
+    <PreferenceCategory
+        android:key="cat_general"
+        android:title="General settings" >
+        <CheckBoxPreference
+            android:defaultValue="true"
+            android:key="gps"
+            android:summaryOff="Not suggesting stops by location"
+            android:summaryOn="Suggesting stops based on location"
+            android:title="Nearby Stops" >
+        </CheckBoxPreference>
+        <CheckBoxPreference
+            android:defaultValue="false"
+            android:key="backgroundupdate"
+            android:summaryOff="Background update disabled"
+            android:summaryOn="Background update on WiFi"
+            android:title="Background Update" />
+        <CheckBoxPreference
+            android:defaultValue="true"
+            android:key="showmaps"
+            android:summary="Shows maps of the current stop"
+            android:title="Show Map" />
+    </PreferenceCategory>
+    <PreferenceCategory
+        android:key="cat_alarm"
+        android:title="Alarm settings" >
+        <CheckBoxPreference
+            android:defaultValue="true"
+            android:disableDependentsState="false"
+            android:key="alarm"
+            android:summaryOff="Bus alarm disabled"
+            android:summaryOn="Tap on route to set alarm"
+            android:title="Bus alarm" >
+        </CheckBoxPreference>
+        <CheckBoxPreference
+            android:defaultValue="true"
+            android:dependency="alarm"
+            android:enabled="true"
+            android:key="insist"
+            android:summary="Repeat the alarm until response"
+            android:title="Repeating alarm" >
+        </CheckBoxPreference>
+
+        <com.mauricelam.moreviews.SeekBarPreference
+            android:defaultValue="5"
+            android:key="alarmAhead"
+            android:max="10"
+            android:summary="Time to alarm before the bus arrives"
+            moreviews:min="1"
+            moreviews:units=" mins"
+            android:title="Alarm ahead" />
+    </PreferenceCategory>
+    <PreferenceCategory
+        android:key="cat_about"
+        android:title="About" >
+        <Preference
+            android:key="about"
+            android:title="About Transit" >
+        </Preference>
+    </PreferenceCategory>
+
+</PreferenceScreen>

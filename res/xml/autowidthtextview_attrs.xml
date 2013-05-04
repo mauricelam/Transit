@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+<declare-styleable name="AutowidthTextView">
+
+<attr name="targetWidth" format="integer"/>
+<attr name="maxSize" format="integer"/>
+
+</declare-styleable>
+
+</resources>

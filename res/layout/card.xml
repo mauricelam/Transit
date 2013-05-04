@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:paddingBottom="10dp"
+    android:paddingLeft="10dp"
+    android:paddingRight="10dp"
+    android:paddingTop="0dp" >
+
+    <ImageView
+        android:id="@+id/background"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:src="@drawable/card_background" />
+
+    <include.AutowidthTextView
+        android:id="@+id/main_stopname"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="30dp"
+        android:layout_marginRight="30dp"
+        android:layout_marginTop="3dp"
+        android:gravity="center_vertical|center_horizontal"
+        android:lines="1"
+        android:minHeight="45dp"
+        android:paddingBottom="4dp"
+        android:paddingTop="4dp"
+        android:shadowColor="#FFFFFFFF"
+        android:shadowDx="0"
+        android:shadowDy="1"
+        android:shadowRadius="1"
+        android:text="@string/apptitle"
+        android:textSize="22dp"
+        android:textStyle="bold" />
+
+    <ListView
+        android:id="@android:id/list"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_alignParentRight="true"
+        android:layout_below="@+id/main_stopname"
+        android:layout_marginBottom="15dp"
+        android:background="@android:color/transparent"
+        android:cacheColorHint="#00000000"
+        android:divider="@drawable/divider"
+        android:dividerHeight="2px"
+        android:fadeScrollbars="true"
+        android:headerDividersEnabled="false"
+        android:listSelector="@drawable/listselector"
+        tools:listitem="@layout/routelist_item" >
+
+    </ListView>
+
+    <ImageView
+        android:id="@+id/bookmark"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="12dp"
+        android:clickable="true"
+        android:onClick="bookmarkHint"
+        android:paddingBottom="5dp"
+        android:paddingLeft="5dp"
+        android:paddingRight="5dp"
+        android:src="@drawable/bookmark" />
+
+    <LinearLayout
+        android:id="@+id/main_loadingbox"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/main_stopname"
+        android:gravity="center_vertical|center_horizontal"
+        android:paddingTop="30dp"
+        android:visibility="gone" >
+
+        <com.mauricelam.moreviews.VerticalLoader
+            android:id="@+id/ProgressBar01"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp" />
+
+        <TextView
+            android:id="@+id/TextView01"
+            style="@style/GreyText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="fill_vertical|fill_horizontal"
+            android:shadowColor="#FFFFFFFF"
+            android:shadowDx="0"
+            android:shadowDy="1"
+            android:shadowRadius="1"
+            android:text="@string/loading_schedule" />
+    </LinearLayout>
+
+</RelativeLayout>

@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:gravity="center_vertical|center_horizontal"
+    android:orientation="horizontal"
+    android:padding="5dp" >
+
+    <com.mauricelam.moreviews.VerticalLoader
+        android:id="@+id/stoplist_loader"
+        android:layout_width="30dp"
+        android:layout_height="50dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:progress="1" android:paddingTop="5dp" android:paddingBottom="5dp"/>
+
+    <TextView
+        android:id="@+id/stoplist_loading_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/loading_stops"
+        android:textColor="#FF666666" >
+    </TextView>
+
+    <TextView
+        android:id="@+id/stoplist_poweredby"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="places search is powered by "
+        android:textColor="#FF666666"
+        android:textSize="11dp" android:visibility="gone">
+    </TextView>
+
+    <ImageView
+        android:id="@+id/stoplist_google"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/google" android:visibility="gone" android:paddingTop="5dp" android:paddingBottom="5dp">
+    </ImageView>
+
+    <ViewStub
+        android:id="@+id/stoplist_noresultstub"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" android:inflatedId="@+id/stoplist_noresult" android:layout="@layout/stoplist_noresult"/>
+
+</LinearLayout>

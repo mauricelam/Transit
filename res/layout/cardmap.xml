@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:transit="http://schemas.android.com/apk/res/com.mauricelam.transit"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:gravity="right"
+    android:orientation="vertical" >
+
+    <com.mauricelam.transit.ShadowMapImageView
+        android:id="@+id/map"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/lighten_white"
+        android:contentDescription="@string/map_of_the_stop"
+        transit:heightRatio="0.3"
+        transit:markerColor="blue"
+        transit:zoom="17" />
+
+    <com.mauricelam.moreviews.VerticalLoader
+        android:id="@+id/main_loadwheel"
+        android:layout_width="5dp"
+        android:layout_height="15dp"
+        android:layout_alignParentRight="true"
+        android:layout_below="@+id/map"
+        android:layout_marginRight="2dp"
+        android:layout_marginTop="1dp" />
+
+    <TextView
+        android:id="@+id/main_updated"
+        style="@style/GreyText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignWithParentIfMissing="true"
+        android:layout_below="@+id/map"
+        android:layout_toLeftOf="@+id/main_loadwheel"
+        android:paddingRight="5dp"
+        android:shadowColor="#FFFFFFFF"
+        android:shadowDx="0"
+        android:shadowDy="1"
+        android:shadowRadius="1"
+        android:textSize="12dp" />
+
+</RelativeLayout>

@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="view_schedule">View schedule</string>
+    <string name="loading_schedule">Loading schedule…</string>
+    <string name="menu_schedule">Schedule</string>
+    <string name="about_artwork">Other artworks are created by me and I shall retain all rights to these creations. If you wish to use these icons, please email mauriceprograms@gmail.com to seek written permission. </string>
+    <string name="about_icons">Some menu icons and status bar notification icons are from Android OS. </string>
+    <string name="about_long">Transit is created by Maurice Lam. The app is aimed to provide convenience to all of us who live, study or work in Champaign-Urbana. This is not an official app from CUMTD. The bus times are provided by the StopWatch system from CUMTD, and this app only serves as a portal to let you view the information and provide additional features. The alarm sound is created by Benboncan of the freesound project. Places search is powered by Google Local Search. Some menu icons and status bar notification icons are from Android OS. The other artwork are created by me and I shall retain all rights to these icons. If you wish to use these icons, please email lam25@illinois.edu to seek written permission. </string>
+    <string name="loading_stops">Loading bus stops…</string>
+    <string name="loading_places">Loading places…</string>
+    <string name="menu_refresh">Refresh</string>
+    <string name="menu_settings">Settings</string>
+    <string name="menu_search">Search</string>
+    <string name="suggest_label">MTD Stops</string>
+    <string name="app_name">Transit</string>
+    <string name="search_hint">Search stop name</string>
+    <string name="about_creator">Transit is created by Maurice Lam. </string>
+    <string name="about_aim">The app is aimed to provide convenience to all of us who live, study or work in Champaign-Urbana. </string>
+    <string name="about_stopwatch">The bus arrival times are provided by the STOPwatch system from CUMTD, and this app only serves as a portal to let you view the information and provide additional features. </string>
+    <string name="about_alarm">The alarm sound is created by Benboncan of The Freesound Project. </string>
+    <string name="about_places">Places search is powered by Google Local Search. </string>
+    <string name="menu_tripplanner">Trip Planner</string>
+    <string name="stopsearch_noresult">Your search returned no results</string>
+    <string name="stopsearch_noresult_line2">Please refine your search and try again</string>
+    <string name="about_flags">Flags</string>
+    <string name="about_tagline">Real time bus info for CUMTD</string>
+    <string name="apptitle">Transit - CUMTD</string>
+    <string name="map_of_the_stop">Map of the stop</string>
+    <string name="search">Search</string>
+    <string name="s_nearby">Nearby</string>
+    <string name="s_place">Place</string>
+    <string name="s_recent">Recent</string>
+    <string name="s_stop">Stop</string>
+    <string name="s_unknown">Unknown</string>
+    <string-array name="bg_interval">
+        <item >15 minutes</item>
+        <item >30 minutes</item>
+        <item >1 hour</item>
+    </string-array>
+    <string-array name="bg_interval_value">
+        <item >15</item>
+        <item >30</item>
+        <item >60</item>
+    </string-array>
+        <string name="menu_cards">Cards</string>
+        <string name="stopsearch_back">&lt; Back</string>
+        <color name="background_gray">#FF333333</color>
+
+</resources>

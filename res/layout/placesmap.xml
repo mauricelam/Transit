@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/LinearLayout1"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent" >
+
+    <com.mauricelam.bettermaps.BetterMapView
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/mapview"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:apiKey="0xCJ-ZhPZxxidYNdLaoRPkAIT4QX5zR2SNc81CQ"
+        android:clickable="true" />
+
+    <LinearLayout
+        android:id="@+id/linearLayout1"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:background="#CC000000"
+        android:paddingBottom="5dp"
+        android:paddingLeft="0dp"
+        android:paddingRight="5dp"
+        android:paddingTop="5dp" >
+
+        <com.mauricelam.moreviews.StateImageButton
+            android:id="@+id/stopsearch_backbtn"
+            android:layout_width="wrap_content"
+            android:layout_height="42dp"
+            android:background="#00000000"
+            android:onClick="back"
+            android:paddingLeft="3dp"
+            android:paddingRight="3dp"
+            android:src="@drawable/back"
+            android:textColor="#77AAAAAA"
+            android:textColorHighlight="#AAFFFFFF" />
+
+        <TextView
+            android:id="@+id/title"
+            android:layout_width="0dp"
+            android:layout_height="fill_parent"
+            android:gravity="left|center_vertical"
+            android:text="Stops nearby"
+            android:textSize="18sp" android:maxLines="1" android:fadingEdge="horizontal" android:fadingEdgeLength="5dp" android:layout_weight="1"/>
+
+        <com.mauricelam.moreviews.VerticalLoader
+            android:id="@+id/ProgressBar01"
+            android:layout_width="15dp"
+            android:layout_height="40dp"
+            android:progress="1" android:visibility="gone"/>
+
+    </LinearLayout>
+
+</RelativeLayout>

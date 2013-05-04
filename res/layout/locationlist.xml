@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical" >
+
+    <LinearLayout
+        android:id="@+id/linearLayout1"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:background="#77553021"
+        android:paddingBottom="5dp"
+        android:paddingLeft="0dp"
+        android:paddingRight="5dp"
+        android:paddingTop="5dp" >
+
+        <com.mauricelam.moreviews.StateImageButton
+            android:id="@+id/stopsearch_backbtn"
+            android:layout_width="wrap_content"
+            android:layout_height="42dp"
+            android:background="#00000000"
+            android:onClick="back"
+            android:paddingLeft="3dp"
+            android:paddingRight="3dp"
+            android:src="@drawable/back"
+            android:textColor="#77AAAAAA"
+            android:textColorHighlight="#AAFFFFFF" />
+
+        <TextView
+            android:id="@+id/title"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:fadingEdge="horizontal"
+            android:fadingEdgeLength="5dp"
+            android:gravity="left|center_vertical"
+            android:text="Stops nearby"
+            android:textSize="18sp" />
+    </LinearLayout>
+
+    <View
+        android:id="@+id/divider"
+        android:layout_width="wrap_content"
+        android:layout_height="1px"
+        android:background="#22FFFFFF" />
+
+    <View
+        android:id="@+id/View01"
+        android:layout_width="wrap_content"
+        android:layout_height="1px"
+        android:background="#88000000" />
+
+    <LinearLayout
+        android:id="@+id/locationlist_loadingbox"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:gravity="center_vertical|center_horizontal"
+        android:padding="30dp" >
+
+        <com.mauricelam.moreviews.VerticalLoader
+            android:id="@+id/ProgressBar01"
+            android:layout_width="30dp"
+            android:layout_height="50dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:progress="1" />
+
+        <TextView
+            android:id="@+id/TextView01"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/loading_stops"
+            android:textColor="#FF666666" >
+        </TextView>
+    </LinearLayout>
+
+    <ListView
+        android:id="@+id/locationlist_list"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:cacheColorHint="#00000000"
+        android:divider="@drawable/divider_dark"
+        android:dividerHeight="2px"
+        android:fadeScrollbars="true"
+        android:listSelector="@drawable/listselector_dark" >
+    </ListView>
+
+</LinearLayout>
