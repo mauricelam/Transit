@@ -21,12 +21,6 @@ public class Settings extends PreferenceActivity implements
 	@Override
 	public void onSharedPreferenceChanged(SharedPreferences sharedPreferences,
 			String key) {
-		if(key.equals("backgroundupdate")){
-//			if(sharedPreferences.getBoolean("backgroundupdate", true))
-//				Updater.toForeground(this);
-//			else
-//				Updater.toBackground(this);
-		}
 	}
 
 	private void setAboutClick() {

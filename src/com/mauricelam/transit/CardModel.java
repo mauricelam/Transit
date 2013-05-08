@@ -183,8 +183,6 @@ public class CardModel {
 		loadVisible = visible;
 		if (delegate != null) {
 			delegate.setLoadVisible(visible);
-		} else {
-//			Log.w(TAG, "cannot set load visible: delegate is null");
 		}
 	}
 }

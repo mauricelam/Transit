@@ -87,33 +87,25 @@
         </activity>
         <activity
                 android:name="LocationList"
-                android:theme="@style/Stopsearch">
-        </activity>
+                android:theme="@style/Stopsearch" />
 
         <receiver android:name=".Updater">
             <intent-filter>
                 <action android:name="android.net.conn.CONNECTIVITY_CHANGE"/>
             </intent-filter>
         </receiver>
-
         <activity
                 android:name="Cards"
                 android:clearTaskOnLaunch="true"
                 android:theme="@style/Cards">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
-
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
-        <activity android:name="Flags">
-        </activity>
-
-        <service android:name="UpdateService">
-        </service>
-
-        <activity android:name=".PlacesMap">
-        </activity>
+        <activity android:name="Flags" />
+        <activity android:name="PlacesMap" />
+        <service android:name="UpdateService" />
     </application>
 
 </manifest>

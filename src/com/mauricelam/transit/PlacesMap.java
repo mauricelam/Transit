@@ -25,8 +25,7 @@ import com.mauricelam.transit.stopdatabase.StopDatabase;
 public class PlacesMap extends MapActivity implements LocationListDelegate {
 	private static final String TAG = "Transit PlacesMap";
 
-	private LocationListModel model;
-	private String query;
+    private String query;
 	private OverlayList stopList;
 
 	@Override
@@ -57,7 +56,7 @@ public class PlacesMap extends MapActivity implements LocationListDelegate {
 			mapView.centerMe(true);
 		}
 
-		model = new LocationListModel(this);
+        LocationListModel model = new LocationListModel(this);
 		model.getAllStops();
 		VerticalLoader loader = (VerticalLoader) findViewById(R.id.ProgressBar01);
 		loader.setVisibility(View.VISIBLE);
@@ -141,7 +140,7 @@ public class PlacesMap extends MapActivity implements LocationListDelegate {
 		mapView.getBetterController().setCenter(new GeoPoint(lat, lng));
 
 		TextView title = (TextView) findViewById(R.id.title);
-		if (bigText != null && bigText != "") {
+		if (bigText != null && bigText.length() > 0) {
 			title.setText(bigText);
 		}
 	}

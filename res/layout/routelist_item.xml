@@ -13,8 +13,9 @@
         android:layout_height="15dp"
         android:clickable="false"
         android:longClickable="false"
-        android:src="@drawable/route_bubble" >
-    </ImageView>
+        android:src="@drawable/route_bubble"
+        android:contentDescription="@string/accessibility_routebubble"
+    />
 
     <TextView
         android:id="@+id/routeitem_name"
@@ -40,7 +41,7 @@
         android:shadowDx="0"
         android:shadowDy="1"
         android:shadowRadius="1"
-        android:text="N mins" >
+        android:text="\? mins" >
     </TextView>
 
 </com.mauricelam.transit.RouteListItem>

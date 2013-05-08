@@ -1,6 +1,5 @@
 package com.mauricelam.transit;
 
-import include.GeoPoint;
 import android.content.Context;
 import android.graphics.LinearGradient;
 import android.graphics.Shader;
@@ -8,8 +7,8 @@ import android.graphics.drawable.ShapeDrawable;
 import android.graphics.drawable.StateListDrawable;
 import android.graphics.drawable.shapes.RectShape;
 import android.util.AttributeSet;
-
 import com.mauricelam.moreviews.StopMapImageView;
+import include.GeoPoint;
 
 public class ShadowMapImageView extends StopMapImageView {
 
@@ -33,18 +32,16 @@ public class ShadowMapImageView extends StopMapImageView {
 	private ShapeDrawable.ShaderFactory normalShadowShader = new ShapeDrawable.ShaderFactory() {
 		@Override
 		public Shader resize(int width, int height) {
-			LinearGradient gradient = new LinearGradient(0, 0, 0, height, new int[] { 0x33000000, 0x00000000,
-					0x00000000, 0x11000000 }, new float[] { 0.0f, 0.04f, 0.97f, 1.0f }, Shader.TileMode.CLAMP);
-			return gradient;
+            return new LinearGradient(0, 0, 0, height, new int[] { 0x33000000, 0x00000000,
+                    0x00000000, 0x11000000 }, new float[] { 0.0f, 0.04f, 0.97f, 1.0f }, Shader.TileMode.CLAMP);
 		}
 	};
 	
 	private ShapeDrawable.ShaderFactory hoverShadowShader = new ShapeDrawable.ShaderFactory() {
 		@Override
 		public Shader resize(int width, int height) {
-			LinearGradient gradient = new LinearGradient(0, 0, 0, height, new int[] { 0x33000000, 0x11000000,
-					0x11000000, 0x14000000 }, new float[] { 0.0f, 0.04f, 0.97f, 1.0f }, Shader.TileMode.CLAMP);
-			return gradient;
+            return new LinearGradient(0, 0, 0, height, new int[] { 0x33000000, 0x11000000,
+                    0x11000000, 0x14000000 }, new float[] { 0.0f, 0.04f, 0.97f, 1.0f }, Shader.TileMode.CLAMP);
 		}
 	};
 	

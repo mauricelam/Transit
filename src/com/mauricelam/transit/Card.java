@@ -1,5 +1,6 @@
 package com.mauricelam.transit;
 
+import android.support.v4.app.FragmentManager;
 import include.AutowidthTextView;
 import include.GeoPoint;
 import include.Helper;
@@ -462,9 +463,8 @@ public class Card extends ListFragment implements CardModel.CardDelegate {
 	}
 
 	private void refreshLoadBoxVisibility() {
-		int visibility = (cardModel.getLoadVisibility() && !cardModel.getListVisibility()) ? View.VISIBLE
-				: View.GONE;
-		LinearLayout box = (LinearLayout) root.findViewById(R.id.main_loadingbox);
+		int visibility = (cardModel.getLoadVisibility() && !cardModel.getListVisibility()) ? View.VISIBLE : View.GONE;
+		LinearLayout box = (LinearLayout) root.findViewById(R.id.loadingbox);
 		box.setVisibility(visibility);
 	}
 
@@ -533,11 +533,13 @@ public class Card extends ListFragment implements CardModel.CardDelegate {
 			if (cardModel != null && cardModel.getModel() != null) {
 				Route[] routes = cardModel.getModel().getRoutes();
 				if (position < 0 || position > routes.length) {
-					Helper.createToast(context, "Cannot create alarm");
+//					Helper.createToast(context, "Cannot create alarm");
 					return;
 				}
-
-				AlarmController.sharedInstance().addAlarm(routes[position - 1]);
+                Route route = routes[position - 1];
+                FragmentManager fm = getFragmentManager();
+                RouteDialog routeDialog = RouteDialog.newInstance(route, cardModel.getModel().getStop());
+                routeDialog.show(fm, "fragment_route");
 			} else {
 				Log.w(TAG, "cardModel or cardModel getModel is null");
 				if (context != null)

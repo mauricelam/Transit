@@ -4,6 +4,10 @@
     <string name="view_schedule">View schedule</string>
     <string name="loading_schedule">Loading schedule…</string>
     <string name="menu_schedule">Schedule</string>
+    <string name="alarm_buscoming">Your bus is coming in a few minutes</string>
+    <string name="alarm_btn_view">view</string>
+    <string name="alarm_btn_close">close</string>
+    <string name="accessibility_routebubble">Route</string>
     <string name="about_artwork">Other artworks are created by me and I shall retain all rights to these creations. If you wish to use these icons, please email mauriceprograms@gmail.com to seek written permission. </string>
     <string name="about_icons">Some menu icons and status bar notification icons are from Android OS. </string>
     <string name="about_long">Transit is created by Maurice Lam. The app is aimed to provide convenience to all of us who live, study or work in Champaign-Urbana. This is not an official app from CUMTD. The bus times are provided by the StopWatch system from CUMTD, and this app only serves as a portal to let you view the information and provide additional features. The alarm sound is created by Benboncan of the freesound project. Places search is powered by Google Local Search. Some menu icons and status bar notification icons are from Android OS. The other artwork are created by me and I shall retain all rights to these icons. If you wish to use these icons, please email lam25@illinois.edu to seek written permission. </string>

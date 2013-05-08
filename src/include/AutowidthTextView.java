@@ -11,22 +11,16 @@ public class AutowidthTextView extends TextView {
 
 	public AutowidthTextView(Context context) {
 		super(context);
-		initialize();
 	}
 
 	public AutowidthTextView(Context context, AttributeSet attrs) {
 		super(context, attrs);
-		initialize();
 	}
 
 	@Override
 	protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
 		super.onMeasure(widthMeasureSpec, heightMeasureSpec);
-		// int padding = Helper.convertDip2Pixels(getContext(), 65);
 		setTargetWidth(MeasureSpec.getSize(widthMeasureSpec) - 5);
-	}
-
-	private void initialize() {
 	}
 
 	public void setTargetWidth(int targetWidth) {

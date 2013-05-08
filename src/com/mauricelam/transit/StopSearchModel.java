@@ -22,13 +22,11 @@ public class StopSearchModel {
 	private Stop[] recentStops;
 	private Stop[] nearbyStops;
 	private Stop[] stopList;
-//	private String stopQuery;
 	private Place[] places;
-//	private String placesQuery;
 	private StopSearchDelegate delegate;
 
 	public interface StopSearchDelegate {
-		public void searchResultsReady(String query, Stop[] stops);
+		public void searchResultsReady(String query, Stop[] stops, boolean fromServer);
 
 		public void placesReady(String query, Place[] places);
 	}
@@ -36,6 +34,10 @@ public class StopSearchModel {
 	public StopSearchModel(StopSearchDelegate delegate) {
 		this.delegate = delegate;
 	}
+
+    public void setDelegate (StopSearchDelegate delegate) {
+        this.delegate = delegate;
+    }
 
 	/**
 	 * Searches for stops given the text.
@@ -45,7 +47,7 @@ public class StopSearchModel {
 			return;
         List<Stop> stops = StopDatabase.sharedInstance().searchStop(query);
         stopList = stops.toArray(new Stop[stops.size()]);
-        delegate.searchResultsReady(query, stopList);
+        delegate.searchResultsReady(query, stopList, false);
         new LoadStopTask().execute(query);
 	}
 
@@ -134,10 +136,6 @@ public class StopSearchModel {
 		return stops.toArray(new Stop[stops.size()]);
 	}
 
-//	public Stop[] getLoadedRecentStops() {
-//		return recentStops;
-//	}
-
 	public Stop[] getLoadedNearbyStops(String filter) {
 		if (filter == null)
 			return nearbyStops;
@@ -152,10 +150,6 @@ public class StopSearchModel {
         return stops.toArray(new Stop[stops.size()]);
 	}
 
-//	public Stop[] getLoadedNearbyStops() {
-//		return nearbyStops;
-//	}
-
 	public Stop[] getLoadedStops(String filter) {
 		if (filter == null)
 			return stopList;
@@ -169,10 +163,6 @@ public class StopSearchModel {
         }
 		return stops.toArray(new Stop[stops.size()]);
 	}
-
-//	public Stop[] getLoadedStops() {
-//		return stopList;
-//	}
 
 	public Place[] getLoadedPlaces(String filter) {
 		if (filter == null)
@@ -193,23 +183,9 @@ public class StopSearchModel {
 		return output.toArray(new Place[output.size()]);
 	}
 
-//	public Place[] getLoadedPlaces() {
-//		return places;
-//	}
-//
-//	public String getStopQuery(){
-//		return stopQuery;
-//	}
-//
-//	public String getPlacesQuery(){
-//		return placesQuery;
-//	}
-
 	public void clearSearch() {
 		stopList = null;
-//		stopQuery = null;
 		places = null;
-//		placesQuery = null;
 	}
 
 	/**
@@ -237,14 +213,12 @@ public class StopSearchModel {
 		protected String doInBackground(String... params) {
 			String escQuery = Uri.encode(params[0]);
 			stopList = Connector.getStopsByName(escQuery);
-//			stopList = StopDatabase.sharedInstance().getStopsByName(params[0]);
-//			stopQuery = params[0];
 			return params[0];
 		}
 
 		@Override
 		protected void onPostExecute(String query) {
-			delegate.searchResultsReady(query, stopList);
+			delegate.searchResultsReady(query, stopList, true);
 		}
 	}
 
@@ -253,7 +227,6 @@ public class StopSearchModel {
 		protected String doInBackground(String... params) {
 			String escQuery = Uri.encode(params[0]);
 			places = Connector.getPlaces(escQuery);
-//			placesQuery = params[0];
 			return params[0];
 		}
 

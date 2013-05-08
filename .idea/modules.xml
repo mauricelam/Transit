@@ -1,7 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ProjectModuleManager">
-    <modules />
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/../BetterMaps2/BetterMaps2.iml" filepath="$PROJECT_DIR$/../BetterMaps2/BetterMaps2.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../MoreViews/MoreViews.iml" filepath="$PROJECT_DIR$/../MoreViews/MoreViews.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../MultiFingerGestureDetector2/MultiFingerGestureDetector2.iml" filepath="$PROJECT_DIR$/../MultiFingerGestureDetector2/MultiFingerGestureDetector2.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../SwitchCompatLibrary/SwitchCompatLibrary.iml" filepath="$PROJECT_DIR$/../SwitchCompatLibrary/SwitchCompatLibrary.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Transit.iml" filepath="$PROJECT_DIR$/Transit.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../android-mapviewballoons/android-mapviewballoons.iml" filepath="$PROJECT_DIR$/../android-mapviewballoons/android-mapviewballoons.iml" />
+    </modules>
   </component>
 </project>
 

@@ -20,7 +20,7 @@ import android.util.Log;
  * 
  */
 public class AlarmReceiver extends BroadcastReceiver {
-	static final int ALARMEXISTID = 2;
+
 	static final int ALARMID = 1;
 
 	/**
@@ -34,27 +34,24 @@ public class AlarmReceiver extends BroadcastReceiver {
 
 		String action = intent.getAction();
 		if (action.equals(Intent.ACTION_DELETE)) {
+            // Called by this class to stop notification automatically when the bus arrives
 			removeNotification(nm);
-			AlarmController.sharedInstance().clearAlarm();
 		} else if (action.equals(Intent.ACTION_INSERT)) {
-			Log.i("AlarmReceiver", "Remove old notification");
+            // Called by Alarm class when an alarm is fired
 			removeNotification(nm);
-			cancelPreviousNotification(nm);
+            String routeTrip = intent.getStringExtra("routeTrip");
 			String routeName = intent.getStringExtra("routeName");
 			if (Pref.getBoolean("obtrusive", false))
 				startObtrusiveAlert(context, routeName);
-			createNotification(context, nm);
-			AlarmController.sharedInstance().clearAlarm();
+			createNotification(context, nm, routeName);
+            AlarmController.sharedInstance().removeAlarm(routeTrip);
 			setRemoveNotification(context);
 		}
 	}
 
 	/**
 	 * Starts the activity of the popup dialog to make sure the user does not
-	 * miss the bus
-	 * 
-	 * @param context
-	 * @param routeName
+	 * miss the bus.
 	 */
 	private void startObtrusiveAlert(Context context, String routeName) {
 		Intent intent = new Intent(context, AlarmNotification.class);
@@ -66,8 +63,6 @@ public class AlarmReceiver extends BroadcastReceiver {
 
 	/**
 	 * Removes the notification from the status bar (because the bus has gone)
-	 * 
-	 * @param nm
 	 */
 	private void removeNotification(NotificationManager nm) {
 		nm.cancel(ALARMID);
@@ -77,8 +72,6 @@ public class AlarmReceiver extends BroadcastReceiver {
 	 * Set the notification to be destroyed once the bus arrived, a.k.a. 5
 	 * minutes after the broadcast is received. This is done by sending another
 	 * broadcast to this class with ACTION_DELETE.
-	 * 
-	 * @param context
 	 */
 	private void setRemoveNotification(Context context) {
 		Intent alarmIntent = new Intent(context, AlarmReceiver.class);
@@ -93,19 +86,15 @@ public class AlarmReceiver extends BroadcastReceiver {
 
 	/**
 	 * Creates the notification on the status bar for the alarm.
-	 * 
-	 * @param context
-	 * @param nm
 	 */
-	private void createNotification(Context context, NotificationManager nm) {
-		nm.cancel(ALARMEXISTID);
+	private void createNotification(Context context, NotificationManager nm, String routeName) {
 		int timeAhead = Pref.getInt("alarmAhead", 5);
 
 		Notification notification = new Notification(R.drawable.notify_alert,
 				"Bus arriving in " + timeAhead + " minutes",
 				System.currentTimeMillis());
 		String contentTitle = "Bus coming in " + timeAhead + " mins";
-		String contentText = "Click here to remove the alarm";
+		String contentText = routeName;
 
 		// create the intent when the notification is clicked
 		Intent notificationIntent = new Intent(context, Cards.class);
@@ -115,8 +104,7 @@ public class AlarmReceiver extends BroadcastReceiver {
 		PendingIntent contentIntent = PendingIntent.getActivity(context, 0,
 				notificationIntent, flags);
 
-		notification.setLatestEventInfo(context, contentTitle, contentText,
-				contentIntent);
+		notification.setLatestEventInfo(context, contentTitle, contentText, contentIntent);
 
 		// set the flags
 		// notification.flags |= Notification.FLAG_NO_CLEAR;
@@ -127,23 +115,12 @@ public class AlarmReceiver extends BroadcastReceiver {
 			notification.flags |= Notification.FLAG_ONLY_ALERT_ONCE;
 
 		// set the notification to play a custom sound
-		notification.sound = Uri
-				.parse("android.resource://com.maurice.transit/" + R.raw.alert);
+		notification.sound = Uri.parse("android.resource://com.maurice.transit/" + R.raw.alert);
 		// set the notification to vibrate
 		notification.defaults |= Notification.DEFAULT_VIBRATE;
 		// notification.defaults |= Notification.DEFAULT_LIGHTS;
 
 		nm.notify(ALARMID, notification);
-	}
-
-	/**
-	 * Removes the previous notification showing an alarm is set (set in
-	 * Card.java)
-	 * 
-	 * @param nm
-	 */
-	private void cancelPreviousNotification(NotificationManager nm) {
-		nm.cancel(ALARMEXISTID);
 	}
 
 }

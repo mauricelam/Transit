@@ -1,9 +1,7 @@
 package com.mauricelam.transit;
 
-import android.content.ContentValues;
 import android.content.Context;
 import android.content.SearchRecentSuggestionsProvider;
-import android.net.Uri;
 import android.provider.SearchRecentSuggestions;
 
 public class Suggester extends SearchRecentSuggestionsProvider {
@@ -16,11 +14,6 @@ public class Suggester extends SearchRecentSuggestionsProvider {
 	public Suggester() {
 		setupSuggestions(AUTHORITY, MODE);
 		currentProvider = this;
-	}
-	
-	@Override
-	public Uri insert(Uri uri, ContentValues values) {
-		return super.insert(uri, values);
 	}
 	
 	public static void saveRecentQuery(Context context, String line, String line2){

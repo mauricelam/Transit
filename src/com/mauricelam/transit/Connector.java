@@ -3,6 +3,7 @@ package com.mauricelam.transit;
 import android.util.Log;
 import include.GeoPoint;
 import include.Helper;
+import include.Http;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -13,9 +14,8 @@ import java.util.ArrayList;
 import java.util.Date;
 
 public class Connector {
-//	private static final String CACHE_UNCHANGED = "cache_unchanged";
 	private static final String TAG = "Transit Connector";
-	public static final String SERVER_ADDRESS = "http://projects.mauricelam.com/mtd3/";
+	public static final String SERVER_ADDRESS = "http://projects.mauricelam.com/mtdbeta/";
 	public static final String FALLBACK_SERVER_ADDRESS = "http://transit.hostizzo.com/mtd3/";
 
 	// The number of trials before using fallback server
@@ -46,7 +46,7 @@ public class Connector {
 	 * Call this when the alternate connection is successful. Should only be
 	 * called by Helper.
 	 */
-	public static void alternateSuccess() {
+	private static void alternateSuccess() {
 		if (fallbackExpire != 0 && new Date().getTime() > fallbackExpire) {
 			fallbackExpire = 0;
 			numberOfFailure = 0;
@@ -63,40 +63,20 @@ public class Connector {
 	public static String getAllStops(String hash) {
 		String address = "allstops.php";
 		String params = "hash=" + hash + "&source=map";
-		return Helper.restString(address, params);
+		return Http.restString(address, params);
 	}
 
     public static JSONObject getSchedule(int stopcode, String refererrer) {
         String address = "getschedule.php";
         String params = "c=" + stopcode + "&r=" + refererrer;
-        return Helper.restJSONObject(address, params);
+        return Http.restJSONObject(address, params);
     }
 
 	static Stop[] getNearbyStops(GeoPoint location, int limit) {
 		String address = "getnearby.php";
 		String params = "lat=" + location.getLatitudeE6() + "&lng=" + location.getLongitudeE6()
 				+ "&limit=" + limit;
-		JSONArray jArray = Helper.restJSONArray(address, params);
-		if (jArray == null)
-			return null;
-		int arrayLength = jArray.length();
-		Stop[] stops = new Stop[arrayLength];
-		for (int i = 0; i < arrayLength; i++) {
-			try {
-				JSONObject jObj = jArray.getJSONObject(i);
-				stops[i] = Stop.stopFromJSON(jObj);
-			} catch (Exception e) {
-				Log.e(TAG, e.getMessage());
-			}
-		}
-		return stops;
-	}
-
-	static Stop[] suggestStops(GeoPoint location) {
-		String address = "suggest.php";
-		String postString = "lat=" + location.getLatitudeE6() + "&lng=" + location.getLongitudeE6()
-				+ "&limit=2";
-		JSONArray jArray = Helper.restJSONArray(address, postString);
+		JSONArray jArray = Http.restJSONArray(address, params);
 		if (jArray == null)
 			return null;
 		int arrayLength = jArray.length();
@@ -115,7 +95,7 @@ public class Connector {
 	static Stop[] getStopsByName(String query) {
 		String address = "getstops.php";
 		String postString = "text=" + query;
-		JSONArray jArray = Helper.restJSONArray(address, postString);
+		JSONArray jArray = Http.restJSONArray(address, postString);
 		if (jArray == null)
 			return null;
 		int arrayLength = jArray.length();
@@ -131,11 +111,28 @@ public class Connector {
 		return stops;
 	}
 
+    static Trip getTripInfo(String tripId, Stop stop) {
+        String address = "trip.php";
+        try {
+            String params = "trip=" + URLEncoder.encode(tripId, "UTF-8") + "&stop=" + URLEncoder.encode(stop.getQuery(), "UTF-8");
+            JSONObject jObj = Http.restJSONObject(address, params);
+            if (jObj == null)
+                return null;
+            return Trip.tripFromJSON(jObj);
+        } catch (UnsupportedEncodingException e) {
+            Log.w(TAG, "Unsupported encoding " + e.getMessage());
+            return null;
+        } catch (JSONException e) {
+            Log.w(TAG, "JSON exception " + e.getMessage());
+            return null;
+        }
+    }
+
 	static Stop getStopByPlatformName(String platformName) {
 		String address = "decodemap.php";
 		try {
 			String params = "text=" + URLEncoder.encode(platformName, "UTF-8");
-			JSONObject jObj = Helper.restJSONObject(address, params);
+			JSONObject jObj = Http.restJSONObject(address, params);
 			if (jObj == null)
 				return null;
             return Stop.stopFromJSON(jObj);
@@ -178,13 +175,25 @@ public class Connector {
         }
 
 		String params = "c=" + codes.toString() + "&r=" + referrers.toString();
-        return Helper.restJSONObject(address, params);
-	}
+        return getJSONObject(address, params);
+    }
+
+    private static JSONObject getJSONObject(String address, String params) {
+        String[] serverAddresses = getServerAddresses();
+        JSONObject stopInfos = Http.restJSONObject(serverAddresses[0] + address, params);
+        if (stopInfos == null) {
+            stopInfos = Http.restJSONObject(serverAddresses[1], params);
+            if (stopInfos != null) {
+                alternateSuccess();
+            }
+        }
+        return stopInfos;
+    }
 
 	static Place[] getPlaces(String query) {
 		String address = "getplaces.php";
 		String postString = "place=" + query;
-		JSONArray jArray = Helper.restJSONArray(address, postString);
+		JSONArray jArray = Http.restJSONArray(address, postString);
 		if (jArray == null)
 			return null;
 		int arrayLength = jArray.length();

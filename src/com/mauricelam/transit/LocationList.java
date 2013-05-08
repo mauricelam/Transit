@@ -25,8 +25,7 @@ import com.mauricelam.transit.stoplistitems.StopListItem;
 import com.mauricelam.transit.stoplistitems.StopListStop;
 
 public class LocationList extends Activity implements LocationListDelegate {
-	private LocationListModel model;
-	private ArrayList<StopListItem> items = new ArrayList<StopListItem>(0);
+    private ArrayList<StopListItem> items = new ArrayList<StopListItem>(0);
 	private String query;
 
 	@Override
@@ -43,7 +42,7 @@ public class LocationList extends Activity implements LocationListDelegate {
 		TextView title = (TextView) findViewById(R.id.title);
 		title.setText("Stops near " + intent.getStringExtra("bigText"));
 
-		model = new LocationListModel(this);
+        LocationListModel model = new LocationListModel(this);
 		model.getNearbyStops(location);
 
 		ListView list = (ListView) findViewById(R.id.locationlist_list);
@@ -94,13 +93,12 @@ public class LocationList extends Activity implements LocationListDelegate {
 	}
 
 	private OnClickListener getNormalListener(final Stop stop) {
-		OnClickListener normalClickListener = new OnClickListener() {
-			@Override
-			public void onClick(View arg0) {
-				selectStop(stop);
-			}
-		};
-		return normalClickListener;
+        return new OnClickListener() {
+            @Override
+            public void onClick(View arg0) {
+                selectStop(stop);
+            }
+        };
 	}
 
 	private void selectStop(Stop stop) {

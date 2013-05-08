@@ -1,12 +1,12 @@
 package com.mauricelam.transit;
 
+import android.support.v4.app.FragmentActivity;
 import include.GeoPoint;
 import include.Helper;
 
 import java.util.ArrayList;
 import java.util.Locale;
 
-import android.app.Activity;
 import android.app.SearchManager;
 import android.content.Context;
 import android.content.Intent;
@@ -52,16 +52,18 @@ import com.mauricelam.transit.stoplistitems.StopListStop;
  * @author Maurice Lam
  * 
  */
-public class StopSearch extends Activity {
+public class StopSearch extends FragmentActivity {
 	private static final String TAG = "Transit StopSearch";
 	private StopSearchModel model;
 	private StopListAdapter adapter;
 
+    private static final int EMPTY = 0;
 	private static final int FILTERED = 1;
 	private static final int SEARCHING = 2;
 	private static final int SERVER = 4;
 	private static final int DONE = 8;
-	private int searchState = DONE;
+    private static final int NORESULT = 16;
+	private int searchState = EMPTY;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -86,43 +88,59 @@ public class StopSearch extends Activity {
 			}
 		}
 
-		model = (StopSearchModel) getLastNonConfigurationInstance();
-		if (model == null) {
-			model = new StopSearchModel(modelDelegate);
-		}
+        ListView list = (ListView) findViewById(R.id.stopsearch_list);
+        list.setOnItemClickListener(clickListener);
+        list.setOnScrollListener(hideKeyboardOnScroll);
+        inflateFooter();
+        list.addFooterView(footer);
+        setFooter(FOOTER_NONE);
 
-		TextView searchBox = (TextView) findViewById(R.id.stopsearch_searchbox);
-		searchBox.setOnEditorActionListener(searchOnReturnKey);
-		searchBox.addTextChangedListener(searchOnTheFly);
-
-		ListView list = (ListView) findViewById(R.id.stopsearch_list);
-		list.setOnItemClickListener(clickListener);
-		list.setOnScrollListener(hideKeyboardOnScroll);
-		inflateFooter();
-		list.addFooterView(footer);
-		setFooter(NONE);
-
-		if (intent.getAction() != null && intent.getAction().equals(Intent.ACTION_SEARCH)) {
-			searchBox.setText(intent.getStringExtra(SearchManager.QUERY));
-			search(null);
-		} else {
-			model.loadNearbyStops();
-			model.loadRecentStops(18);
-			populateList(null);
-		}
-
-		// to prevent a weird bug where locale is null
-		Configuration config = getResources().getConfiguration();
-		if (config.locale == null)
-			config.locale = Locale.getDefault();
+        // to prevent a weird bug where locale is null
+        Configuration config = getResources().getConfiguration();
+        if (config.locale == null)
+            config.locale = Locale.getDefault();
 	}
 
-	@Override
-	public Object onRetainNonConfigurationInstance() {
-		return model;
-	}
+    @Override
+    protected void onPostCreate(Bundle savedInstanceState) {
+        super.onPostCreate(savedInstanceState);
+        TextView searchBox = (TextView) findViewById(R.id.stopsearch_searchbox);
+        searchBox.setOnEditorActionListener(searchOnReturnKey);
+        searchBox.addTextChangedListener(searchOnTheFly);
 
-	@Override
+        model = (StopSearchModel) getLastCustomNonConfigurationInstance();
+        if (model == null) {
+            model = new StopSearchModel(modelDelegate);
+            Intent intent = getIntent();
+            if (intent.getAction() != null && intent.getAction().equals(Intent.ACTION_SEARCH)) {
+                searchBox.setText(intent.getStringExtra(SearchManager.QUERY));
+                search(null);
+            } else {
+                model.loadNearbyStops();
+                model.loadRecentStops(18);
+                populateList(null);
+            }
+        } else {
+            model.setDelegate(modelDelegate);
+            populateList(null);
+        }
+        if (savedInstanceState != null) {
+            setSearchState(savedInstanceState.getInt("searchState", EMPTY));
+        }
+    }
+
+    @Override
+    public Object onRetainCustomNonConfigurationInstance() {
+        return model;
+    }
+
+    @Override
+    protected void onSaveInstanceState(Bundle outState) {
+        super.onSaveInstanceState(outState);
+        outState.putInt("searchState", searchState);
+    }
+
+    @Override
 	public boolean onSearchRequested() {
 		// this is the search activity, no point to search in it
 		TextView searchBox = (TextView) findViewById(R.id.stopsearch_searchbox);
@@ -131,27 +149,47 @@ public class StopSearch extends Activity {
 		return false;
 	}
 
+    private void setSearchState (int searchState) {
+        this.searchState = searchState;
+        switch (searchState) {
+            case EMPTY:
+                setFooter(FOOTER_NONE);
+                break;
+            case FILTERED:
+                setFooter(FOOTER_NONE);
+                break;
+            case SEARCHING:
+                populateList(null);
+                setFooter(FOOTER_LOADSTOP);
+                break;
+            case SERVER:
+                setFooter(FOOTER_LOADPLACE);
+                break;
+            case DONE:
+                setFooter(FOOTER_GOOGLE);
+                break;
+            case NORESULT:
+                setFooter(FOOTER_NOTFOUND);
+                break;
+        }
+    }
+
 	public void quickSearch() {
-		setFooter(NONE);
-		// replaceListFooter(null);
+//        Log.d("Transit", "Quick search");
 		if (getQuery().length() == 0) {
 			model.clearSearch(); // remove search results if empty string
 		} else {
 			typeSearchHandler.removeCallbacks(searchRunnable);
 			typeSearchHandler.postDelayed(searchRunnable, 800);
 		}
-		searchState = FILTERED;
+        setSearchState(FILTERED);
 		populateList(null);
 	}
 
 	public void search(View view) {
-		String query = getQuery();
-		if (query.length() != 0 && searchState != SEARCHING) {
-			showStopsLoading();
-			model.searchStop(query);
-			searchState = SEARCHING;
-			Log.d(TAG, "manual invocation of search function, query: " + query);
-		} else {
+//        Log.d("Transit", "Full search");
+        boolean searchSuccessful = search();
+		if (!searchSuccessful) {
 			populateList(null);
 		}
 
@@ -159,6 +197,17 @@ public class StopSearch extends Activity {
 		// focus to the ListView
 		findViewById(R.id.stopsearch_list).requestFocus();
 	}
+
+    private boolean search () {
+        String query = getQuery();
+        if (query != null && query.length() > 0 && searchState == FILTERED) {
+            setSearchState(SEARCHING);
+            model.searchStop(query);
+            Log.d("", "auto search, query: " + query);
+            return true;
+        }
+        return false;
+    }
 
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
@@ -331,15 +380,6 @@ public class StopSearch extends Activity {
 		return box.getText().toString();
 	}
 
-	// private void replaceListFooter(View footer) {
-	// ListView list = (ListView) findViewById(R.id.stopsearch_list);
-	// if (listFooter != null)
-	// list.removeFooterView(listFooter);
-	// listFooter = footer;
-	// if (footer != null)
-	// list.addFooterView(listFooter);
-	// }
-
 	private void setKeyboardVisible(boolean visible) {
 		InputMethodManager in = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
 		TextView searchBox = (TextView) findViewById(R.id.stopsearch_searchbox);
@@ -348,11 +388,6 @@ public class StopSearch extends Activity {
 		else
 			in.hideSoftInputFromWindow(searchBox.getApplicationWindowToken(),
 					InputMethodManager.HIDE_NOT_ALWAYS);
-	}
-
-	private void showStopsLoading() {
-		setFooter(LOADSTOP);
-		populateList(null);
 	}
 
 	private void populateList(String query) {
@@ -372,7 +407,7 @@ public class StopSearch extends Activity {
 		if (query != null && currentString.equals(query))
 			currentString = null; // do not filter if from server
 
-		Log.d(TAG, "list filter: " + currentString);
+//		Log.d(TAG, "list filter: " + currentString);
 
 		Stop[] stops = model.getLoadedStops(currentString);
 		if (stops != null)
@@ -382,9 +417,10 @@ public class StopSearch extends Activity {
 			StopListPlace.appendToItemList(items, this, places);
 
 		// show "no result" prompt when no result is found
-		if (items.size() == 0 && searchState == DONE && getQuery().length() > 0)
-			setFooter(NOTFOUND);
-		// replaceListFooter(getNoResultsView());
+        if (items.size() == 0 && searchState == DONE && getQuery().length() > 0) {
+            setSearchState(NORESULT);
+//            setFooter(FOOTER_NOTFOUND);
+        }
 
 		setAdapterItems(items);
 	}
@@ -406,11 +442,11 @@ public class StopSearch extends Activity {
 		footer = inflater.inflate(R.layout.stoplist_footer, null);
 	}
 
-	private static final int NONE = 0;
-	private static final int LOADSTOP = 1;
-	private static final int LOADPLACE = 2;
-	private static final int GOOGLE = 3;
-	private static final int NOTFOUND = 4;
+	private static final int FOOTER_NONE = 0;
+	private static final int FOOTER_LOADSTOP = 1;
+	private static final int FOOTER_LOADPLACE = 2;
+	private static final int FOOTER_GOOGLE = 3;
+	private static final int FOOTER_NOTFOUND = 4;
 
 	private void setFooter(int state) {
 		if (footer == null) {
@@ -425,9 +461,9 @@ public class StopSearch extends Activity {
 		ViewStub noResultStub = (ViewStub) footer.findViewById(R.id.stoplist_noresultstub);
 		View noResult = footer.findViewById(R.id.stoplist_noresult);
 
-		int progressVisible = (state == LOADSTOP || state == LOADPLACE) ? View.VISIBLE : View.GONE;
-		int googleVisible = (state == GOOGLE) ? View.VISIBLE : View.GONE;
-		int noResultsVisible = (state == NOTFOUND) ? View.VISIBLE : View.GONE;
+		int progressVisible = (state == FOOTER_LOADSTOP || state == FOOTER_LOADPLACE) ? View.VISIBLE : View.GONE;
+		int googleVisible = (state == FOOTER_GOOGLE) ? View.VISIBLE : View.GONE;
+		int noResultsVisible = (state == FOOTER_NOTFOUND) ? View.VISIBLE : View.GONE;
 		loader.setVisibility(progressVisible);
 		loadingText.setVisibility(progressVisible);
 		poweredBy.setVisibility(googleVisible);
@@ -438,9 +474,9 @@ public class StopSearch extends Activity {
 			noResult.setVisibility(noResultsVisible);
 
 		TextView tv = (TextView) footer.findViewById(R.id.stoplist_loading_label);
-		if (state == LOADSTOP) {
+		if (state == FOOTER_LOADSTOP) {
 			tv.setText(this.getString(R.string.loading_stops));
-		} else if (state == LOADPLACE) {
+		} else if (state == FOOTER_LOADPLACE) {
 			tv.setText(this.getString(R.string.loading_places));
 		}
 	}
@@ -473,7 +509,7 @@ public class StopSearch extends Activity {
 
 		@Override
 		public void beforeTextChanged(CharSequence s, int start, int count, int after) {
-		}
+        }
 
 		@Override
 		public void onTextChanged(CharSequence s, int start, int before, int count) {
@@ -484,31 +520,23 @@ public class StopSearch extends Activity {
 	private Runnable searchRunnable = new Runnable() {
 		@Override
 		public void run() {
-			String query = getQuery();
-			if (query != null && query.length() > 0 && searchState == FILTERED) {
-				showStopsLoading();
-				model.searchStop(query);
-				searchState = SEARCHING;
-				Log.d("", "auto search, query: " + query);
-			}
+			search();
 		}
 	};
 	private StopSearchDelegate modelDelegate = new StopSearchDelegate() {
 
 		@Override
-		public void searchResultsReady(String query, Stop[] stops) {
-			setFooter(LOADPLACE);
-			// replaceListFooter(getPlacesLoadingView());
-			searchState = SERVER;
+		public void searchResultsReady(String query, Stop[] stops, boolean fromServer) {
 			populateList(query);
-			model.searchPlaces(getQuery());
+            if (fromServer) {
+                setSearchState(SERVER);
+                model.searchPlaces(getQuery());
+            }
 		}
 
 		@Override
 		public void placesReady(String query, Place[] places) {
-			setFooter(GOOGLE);
-			// replaceListFooter(getGoogleView());
-			searchState = DONE;
+            setSearchState(DONE);
 			populateList(query);
 		}
 

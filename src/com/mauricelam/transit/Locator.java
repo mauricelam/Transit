@@ -49,8 +49,6 @@ public class Locator {
 				Log.e(TAG, "Network not found?");
 			}
 			lastRequest = System.currentTimeMillis();
-		} else {
-			// Log.d(TAG, "Location suggestions is turned off");
 		}
 	}
 

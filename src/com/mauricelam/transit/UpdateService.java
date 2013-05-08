@@ -15,17 +15,15 @@ public class UpdateService extends IntentService {
 	public static final int UPDATEERROR = 3;
 	public static final String UPDATEDACTION = "com.mauricelam.transit.actions.UPDATED";
 
-//	private int cardCount = -1;
-
 	public UpdateService() {
 		super("Transit UpdateService");
 	}
 
 	@Override
 	protected void onHandleIntent(Intent intent) {
-		Log.v(TAG, "Update service intent received");
 		boolean forced = intent.getBooleanExtra("forced", false);
-		updateModel(forced);
+        Log.v(TAG, "Update service intent received, forced: " + forced);
+        updateModel(forced);
 	}
 
 	private void updateModel(boolean forced) {

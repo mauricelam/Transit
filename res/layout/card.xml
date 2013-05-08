@@ -12,7 +12,9 @@
         android:id="@+id/background"
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
-        android:src="@drawable/card_background" />
+        android:src="@drawable/card_background"
+        android:contentDescription=""
+        />
 
     <include.AutowidthTextView
         android:id="@+id/main_stopname"
@@ -64,35 +66,47 @@
         android:paddingBottom="5dp"
         android:paddingLeft="5dp"
         android:paddingRight="5dp"
-        android:src="@drawable/bookmark" />
+        android:src="@drawable/bookmark"
+        android:contentDescription="Bookmark this stop"
+        />
 
-    <LinearLayout
-        android:id="@+id/main_loadingbox"
-        android:layout_width="fill_parent"
+    <com.mauricelam.moreviews.Loader
+        android:id="@+id/loadingbox"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/main_stopname"
-        android:gravity="center_vertical|center_horizontal"
         android:paddingTop="30dp"
-        android:visibility="gone" >
+        android:visibility="gone"
+        android:layout_below="@id/main_stopname"
+        android:text="@string/loading_schedule"
+        android:textAppearance="@style/GreyShadowText"
+            />
+    <!--<LinearLayout-->
+        <!--android:id="@+id/loadingbox"-->
+        <!--android:layout_width="fill_parent"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:layout_below="@id/main_stopname"-->
+        <!--android:gravity="center_vertical|center_horizontal"-->
+        <!--android:paddingTop="30dp"-->
+        <!--android:visibility="gone" >-->
 
-        <com.mauricelam.moreviews.VerticalLoader
-            android:id="@+id/ProgressBar01"
-            android:layout_width="30dp"
-            android:layout_height="30dp"
-            android:layout_marginLeft="5dp"
-            android:layout_marginRight="5dp" />
+        <!--<com.mauricelam.moreviews.VerticalLoader-->
+            <!--android:id="@+id/ProgressBar01"-->
+            <!--android:layout_width="30dp"-->
+            <!--android:layout_height="30dp"-->
+            <!--android:layout_marginLeft="5dp"-->
+            <!--android:layout_marginRight="5dp" />-->
 
-        <TextView
-            android:id="@+id/TextView01"
-            style="@style/GreyText"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:gravity="fill_vertical|fill_horizontal"
-            android:shadowColor="#FFFFFFFF"
-            android:shadowDx="0"
-            android:shadowDy="1"
-            android:shadowRadius="1"
-            android:text="@string/loading_schedule" />
-    </LinearLayout>
+        <!--<TextView-->
+            <!--android:id="@+id/TextView01"-->
+            <!--style="@style/GreyText"-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:gravity="fill_vertical|fill_horizontal"-->
+            <!--android:shadowColor="#FFFFFFFF"-->
+            <!--android:shadowDx="0"-->
+            <!--android:shadowDy="1"-->
+            <!--android:shadowRadius="1"-->
+            <!--android:text="@string/loading_schedule" />-->
+    <!--</LinearLayout>-->
 
 </RelativeLayout>

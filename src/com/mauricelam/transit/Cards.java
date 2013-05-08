@@ -1,20 +1,8 @@
 package com.mauricelam.transit;
 
-import include.GeoPoint;
-import include.Helper;
-
-import java.util.ArrayList;
-
-import android.app.AlarmManager;
 import android.app.AlertDialog;
-import android.app.NotificationManager;
-import android.app.PendingIntent;
-import android.content.BroadcastReceiver;
-import android.content.Context;
-import android.content.DialogInterface;
+import android.content.*;
 import android.content.DialogInterface.OnClickListener;
-import android.content.Intent;
-import android.content.IntentFilter;
 import android.content.res.Resources;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
@@ -30,9 +18,12 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
-
 import com.mauricelam.moreviews.MenuButton;
 import com.mauricelam.moreviews.PageControl;
+import include.GeoPoint;
+import include.Helper;
+
+import java.util.ArrayList;
 
 /**
  * Cards is the activity that manages all the cards. The cards are arranged in a
@@ -143,7 +134,7 @@ public class Cards extends FragmentActivity {
 //		Log.v(TAG, "new intent: " + intent.toString());
 		if (intent.hasExtra("alarm")) {
 			Log.i(TAG, "onNewIntent: This intent is called from alarm exist notification");
-			showAlarmDialog(intent.getStringExtra("alarmRouteName"), intent.getStringExtra("alarm"));
+			showAlarmDialog(intent.getStringExtra("alarmRouteTrip"), intent.getStringExtra("alarm"));
 			intent.removeExtra("alarm");
 		}
 		if (intent.hasExtra("stopCode")) {
@@ -402,20 +393,15 @@ public class Cards extends FragmentActivity {
 			}
 			Log.d(TAG, "adapterCount: " + adapter.getCount());
 			pager.setCurrentItem(adapter.getCount() - 1, false);
+            refreshAll(true);
 		}
 	}
 
-	private void showAlarmDialog(final String routeName, String alarmString) {
+	private void showAlarmDialog(final String routeTrip, String alarmString) {
 		OnClickListener onRemoveClick = new OnClickListener() {
 			@Override
 			public void onClick(DialogInterface dialog, int which) {
-				PendingIntent alarmPendingIntent = Alarm.createAlarmPendingIntent(routeName);
-				AlarmManager am = (AlarmManager) getSystemService(ALARM_SERVICE);
-				am.cancel(alarmPendingIntent);
-				NotificationManager nm = (NotificationManager) Cards.this
-						.getSystemService(Context.NOTIFICATION_SERVICE);
-				nm.cancel(AlarmReceiver.ALARMEXISTID);
-				AlarmController.sharedInstance().clearAlarm();
+                AlarmController.sharedInstance().removeAlarm(routeTrip);
 			}
 		};
 		new AlertDialog.Builder(this).setMessage(alarmString).setPositiveButton("Remove", onRemoveClick)

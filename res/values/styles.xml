@@ -1,19 +1,45 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-<style name="DarkText" parent="android:style/Theme.NoTitleBar"><item name="android:textColor">#FF333333</item>
-</style>
-<style name="GreyText"><item name="android:textColor">#FF999999</item>
-</style>
-<style name="Cards" parent="android:style/Theme.Light.NoTitleBar">
-    <item name="android:textColor">#FF333333</item>
-    <item name="android:windowBackground">@color/background_gray</item>
-    <item name="android:scrollbarThumbVertical">@drawable/scrollthumb</item>
-</style>
-<color name="darken">#11000033</color>
-<color name="lighten">#55DDDDFF</color>
-<color name="darkgrey">#FF333333</color>
-<style name="Stopsearch" parent="android:style/Theme.NoTitleBar">
-    <item name="android:windowBackground">@drawable/searchwood_repeat</item>
-</style>
-<color name="lighten_white">#55DDDDDD</color>
+    <style name="DarkText" parent="android:style/Theme.NoTitleBar">
+        <item name="android:textColor">#FF333333</item>
+    </style>
+    <style name="GreyText">
+        <item name="android:textColor">#FF999999</item>
+    </style>
+    <style name="GreyShadowText" parent="GreyText">
+        <item name="android:shadowColor">#ffFFFFFF</item>
+        <item name="android:shadowDx">0</item>
+        <item name="android:shadowDy">1</item>
+        <item name="android:shadowRadius">1</item>
+    </style>
+    <style name="Cards" parent="android:style/Theme.Light.NoTitleBar">
+        <item name="android:textColor">#ff333333</item>
+        <item name="android:windowBackground">@color/background_gray</item>
+        <item name="android:scrollbarThumbVertical">@drawable/scrollthumb</item>
+    </style>
+
+    <style name="HoloDialog" parent="android:style/Theme">
+        <item name="switchStyle">@style/switch_dark</item>
+        <item name="textAppearance">@style/TextAppearance</item>
+        <item name="android:windowBackground">@color/holo_gray</item>
+        <item name="android:windowIsFloating">true</item>
+        <item name="android:windowAnimationStyle">@android:style/Animation.Dialog</item>
+        <item name="android:textColor">#ffFFFFFF</item>
+        <item name="android:textSize">16dp</item>
+        <item name="android:buttonStyle">@style/HoloButton</item>
+    </style>
+    <style name="HoloButton" parent="@android:style/Widget.Button">
+        <item name="android:background">@drawable/holobuttonbg</item>
+        <item name="android:textColor">#ffFFFFFF</item>
+    </style>
+    <color name="holo_gray">#ff282828</color>
+    <color name="holo_light_gray">#ff3A3A3A</color>
+    <color name="holo_blue">#ff33B5E5</color>
+    <color name="darken">#11000033</color>
+    <color name="lighten">#55DDDDFF</color>
+    <color name="darkgrey">#FF333333</color>
+    <style name="Stopsearch" parent="android:style/Theme.NoTitleBar">
+        <item name="android:windowBackground">@drawable/searchwood_repeat</item>
+    </style>
+    <color name="lighten_white">#55DDDDDD</color>
 </resources>

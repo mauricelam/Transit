@@ -12,6 +12,7 @@ import com.mauricelam.transit.Stop;
 import com.mauricelam.transit.TransitApplication;
 import include.GeoPoint;
 import include.Helper;
+import include.Http;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -72,7 +73,7 @@ public class StopDatabase extends SQLiteOpenHelper {
 			return;
 		}
 		String newHash = Helper.md5(stopString);
-		JSONArray stops = Helper.toJSONArray(stopString);
+		JSONArray stops = Http.toJSONArray(stopString);
 		if (stops != null) {
 			addStopsFromJSON(stops, newHash);
 		}
@@ -146,17 +147,20 @@ public class StopDatabase extends SQLiteOpenHelper {
 //		return getStop(cursor);
 //	}
 //
-//	public Stop getStop(String query) {
-//		SQLiteDatabase db = this.getReadableDatabase();
-//
-//		Cursor cursor = db.query(STOPS_TABLE,
-//				new String[] { "name", "code", "query", "lat", "lng" }, "query=?",
-//				new String[] { String.valueOf(query) }, null, null, null, null);
-//		if (cursor != null)
-//			cursor.moveToFirst();
-//
-//		return getStop(cursor);
-//	}
+	public Stop getStop(String query) throws IllegalAccessException {
+		SQLiteDatabase db = this.getReadableDatabase();
+
+		Cursor cursor = db.query(STOPS_TABLE,
+				new String[] { "name", "code", "query", "lat", "lng" }, "query=?",
+				new String[] { String.valueOf(query) }, null, null, null, null);
+        if (cursor != null)
+            cursor.moveToFirst();
+
+        if (cursor == null || cursor.getCount() == 0)
+            throw new IllegalAccessException("No stop matched");
+
+		return getStop(cursor);
+	}
 //
 //	public Stop[] getStopsByName(String needle) {
 //		SQLiteDatabase db = this.getReadableDatabase();

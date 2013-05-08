@@ -3,6 +3,8 @@ package com.mauricelam.transit;
 import android.content.Context;
 import android.graphics.drawable.Drawable;
 import android.graphics.drawable.GradientDrawable;
+import android.os.Parcel;
+import android.os.Parcelable;
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -11,7 +13,7 @@ import java.util.Date;
 /**
  * This class should be immutable
  */
-public class Route {
+public class Route implements Parcelable {
 	private String name;
 	private Date arrival;
     private String trip;
@@ -52,13 +54,7 @@ public class Route {
         return realtime;
     }
 
-//	private static Drawable[] bubbles = new Drawable[19];
-
-	private static Drawable getBubble(Context context, int id, int color, boolean shiny) {
-//		if (bubbles[id] != null) {
-//			return bubbles[id];
-//		}
-
+	private static Drawable getBubble(Context context, int color, boolean shiny) {
 		GradientDrawable gd;
 		if (!shiny) {
 			Drawable d = context.getResources().getDrawable(R.drawable.route_bubble);
@@ -67,9 +63,54 @@ public class Route {
 		} else {
 			gd = (GradientDrawable) context.getResources().getDrawable(color);
 		}
-//		bubbles[id] = gd;
 		return gd;
 	}
+
+    public int getColor () {
+        return getRouteColor(this.name);
+    }
+
+    public static int getRouteColor(String name) {
+        if (name.contains("Illini")) {
+            return 0xff663399;
+        } else if (name.contains("Yellow")) {
+            return 0xffFFCC33;
+        } else if (name.contains("Green")) {
+            return 0xff009900;
+        } else if (name.contains("Silver")) {
+            return 0xffCCCCCC;
+        } else if (name.contains("Gold")) {
+            return 0xffC7994A;
+        } else if (name.contains("Teal")) {
+            return 0xFF008080;
+        } else if (name.contains("Red")) {
+            return 0xFFCC0033;
+        } else if (name.contains("Blue")) {
+            return 0xFF003399;
+        } else if (name.contains("Orange")) {
+            return 0xFFFF9933;
+        } else if (name.contains("Brown")) {
+            return 0xFF663300;
+        } else if (name.contains("Navy")) {
+            return 0xFF000066;
+        } else if (name.contains("Ruby")) {
+            return 0xFFDE1E64;
+        } else if (name.contains("Lime")) {
+            return 0xFF6FBE44;
+        } else if (name.contains("Bronze")) {
+            return 0xff9E8966;
+        } else if (name.contains("Grey")) {
+            return 0xFF666666;
+        } else if (name.contains("Air")) {
+            return 0xFF99CCFF;
+        } else if (name.contains("Lavender")) {
+            return 0xFF9966CC;
+        } else if (name.contains("Sport")) {
+            return 0xFFC04D66;
+        } else {
+            return 0xFFCCCCC;
+        }
+    }
 
 	/**
 	 * Returns a drawable (a colored circle) from the name of the route
@@ -78,87 +119,44 @@ public class Route {
 	 * @return The colored circle drawable
 	 */
 	public static Drawable getRouteColor(Context context, String name) {
-		if (name.contains("Illini")) {
-			return getBubble(context, 0, 0xFF663399, false);
-		} else if (name.contains("Yellow")) {
-			return getBubble(context, 1, 0xFFFFCC33, false);
-		} else if (name.contains("Green")) {
-			return getBubble(context, 2, 0xFF009900, false);
-		} else if (name.contains("Silver")) {
-			return getBubble(context, 3, R.drawable.shiny_silver, true);
+		if (name.contains("Silver")) {
+			return getBubble(context, R.drawable.shiny_silver, true);
 		} else if (name.contains("Gold")) {
-			return getBubble(context, 4, R.drawable.shiny_gold, true);
-		} else if (name.contains("Teal")) {
-			return getBubble(context, 5, 0xFF008080, false);
-		} else if (name.contains("Red")) {
-			return getBubble(context, 6, 0xFFCC0033, false);
-		} else if (name.contains("Blue")) {
-			return getBubble(context, 7, 0xFF003399, false);
-		} else if (name.contains("Orange")) {
-			return getBubble(context, 8, 0xFFFF9933, false);
-		} else if (name.contains("Brown")) {
-			return getBubble(context, 9, 0xFF663300, false);
-		} else if (name.contains("Navy")) {
-			return getBubble(context, 10, 0xFF000066, false);
-		} else if (name.contains("Ruby")) {
-			return getBubble(context, 11, 0xFFDE1E64, false);
-		} else if (name.contains("Lime")) {
-			return getBubble(context, 12, 0xFF6FBE44, false);
+			return getBubble(context, R.drawable.shiny_gold, true);
 		} else if (name.contains("Bronze")) {
-			return getBubble(context, 13, R.drawable.shiny_bronze, true);
-		} else if (name.contains("Grey")) {
-			return getBubble(context, 14, 0xFF666666, false);
-		} else if (name.contains("Air")) {
-			return getBubble(context, 15, 0xFF99CCFF, false);
-		} else if (name.contains("Lavender")) {
-			return getBubble(context, 16, 0xFF9966CC, false);
-		} else if (name.contains("Sport")) {
-			return getBubble(context, 17, 0xFFC04D66, false);
+			return getBubble(context, R.drawable.shiny_bronze, true);
 		} else {
-			return getRouteColorCaseInsensitive(context, name);
+            return getBubble(context, getRouteColor(name), false);
 		}
 	}
 
-	private static Drawable getRouteColorCaseInsensitive(Context context, String name) {
-		name = name.toUpperCase();
-		if (name.contains("ILLINI")) {
-			return getBubble(context, 0, 0xFF663399, false);
-		} else if (name.contains("YELLOW")) {
-			return getBubble(context, 1, 0xFFFFCC33, false);
-		} else if (name.contains("GREEN")) {
-			return getBubble(context, 2, 0xFF009900, false);
-		} else if (name.contains("SILVER")) {
-			return getBubble(context, 3, R.drawable.shiny_silver, true);
-		} else if (name.contains("GOLD")) {
-			return getBubble(context, 4, R.drawable.shiny_gold, true);
-		} else if (name.contains("TEAL")) {
-			return getBubble(context, 5, 0xFF008080, false);
-		} else if (name.contains("RED")) {
-			return getBubble(context, 6, 0xFFCC0033, false);
-		} else if (name.contains("BLUE")) {
-			return getBubble(context, 7, 0xFF003399, false);
-		} else if (name.contains("ORANGE")) {
-			return getBubble(context, 8, 0xFFFF9933, false);
-		} else if (name.contains("BROWN")) {
-			return getBubble(context, 9, 0xFF663300, false);
-		} else if (name.contains("NAVY")) {
-			return getBubble(context, 10, 0xFF000066, false);
-		} else if (name.contains("RUBY")) {
-			return getBubble(context, 11, 0xFFDE1E64, false);
-		} else if (name.contains("LIME")) {
-			return getBubble(context, 12, 0xFF6FBE44, false);
-		} else if (name.contains("BRONZE")) {
-			return getBubble(context, 13, R.drawable.shiny_bronze, true);
-		} else if (name.contains("GREY")) {
-			return getBubble(context, 14, 0xFF666666, false);
-		} else if (name.contains("AIR")) {
-			return getBubble(context, 15, 0xFF99CCFF, false);
-		} else if (name.contains("LAVENDER")) {
-			return getBubble(context, 16, 0xFF9966CC, false);
-		} else if (name.contains("SPORT")) {
-			return getBubble(context, 17, 0xFFC04D66, false);
-		} else {
-			return getBubble(context, 18, 0xFFCCCCC, false);
-		}
-	}
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
+    public void writeToParcel(Parcel parcel, int flags) {
+        parcel.writeString(name);
+        parcel.writeLong(arrival.getTime());
+        parcel.writeString(trip);
+        parcel.writeInt((realtime) ? 1 : 0);
+    }
+
+    public static final Creator<Route> CREATOR = new Creator<Route>() {
+
+        @Override
+        public Route createFromParcel(Parcel parcel) {
+            String name = parcel.readString();
+            Date arrival = new Date(parcel.readLong());
+            String trip = parcel.readString();
+            boolean realtime = parcel.readInt() > 0;
+            return new Route(name, arrival, trip, realtime);
+        }
+
+        @Override
+        public Route[] newArray(int i) {
+            return new Route[i];
+        }
+    };
 }

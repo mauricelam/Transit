@@ -1,23 +1,20 @@
 package com.mauricelam.transit;
 
+import android.os.Parcel;
+import android.os.Parcelable;
 import include.GeoPoint;
 
 import org.json.JSONObject;
 
 import android.util.Log;
 
-public class Stop {
+public class Stop implements Parcelable {
 	private String name;
 	private String query;
 	private GeoPoint location;
 	private int code;
 
-	/**
-	 * Default constructor to create a meaningless copy of a Stop For use with
-	 * DBEntry
-	 */
-	public Stop() {
-	}
+	public Stop() {}
 
 	public Stop(String name, String query, int code, int lat, int lng) {
 		this.name = name;
@@ -87,4 +84,44 @@ public class Stop {
 	public GeoPoint getLocation() {
 		return location;
 	}
+
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
+    public void writeToParcel(Parcel parcel, int flags) {
+        parcel.writeString(name);
+        parcel.writeString(query);
+        parcel.writeInt(code);
+        if (location != null) {
+            parcel.writeInt(location.getLatitudeE6());
+            parcel.writeInt(location.getLongitudeE6());
+        } else {
+            parcel.writeInt(0);
+            parcel.writeInt(0);
+        }
+    }
+
+    public static final Creator<Stop> CREATOR = new Creator<Stop>() {
+        @Override
+        public Stop createFromParcel(Parcel parcel) {
+            String name = parcel.readString();
+            String query = parcel.readString();
+            int code = parcel.readInt();
+            int lat = parcel.readInt();
+            int lng = parcel.readInt();
+            if (lat == 0 && lng == 0) {
+                return new Stop(name, query, code);
+            } else {
+                return new Stop(name, query, code, lat, lng);
+            }
+        }
+
+        @Override
+        public Stop[] newArray(int i) {
+            return new Stop[i];
+        }
+    };
 }
