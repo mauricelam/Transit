@@ -2,11 +2,9 @@ package com.mauricelam.transit;
 
 import android.os.Parcel;
 import android.os.Parcelable;
-import include.GeoPoint;
-
-import org.json.JSONObject;
-
 import android.util.Log;
+import include.GeoPoint;
+import org.json.JSONObject;
 
 public class Stop implements Parcelable {
 	private String name;

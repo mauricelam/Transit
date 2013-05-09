@@ -1,6 +1,7 @@
 package include;
 
 import android.content.Context;
+import android.graphics.Color;
 import android.util.Log;
 import android.util.TypedValue;
 import android.widget.Toast;
@@ -113,10 +114,17 @@ public class Helper {
 		return dateFormat.format(date);
 	}
 
-	public static int dp2Px(Context context, int dip) {
-		return (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, dip, context.getResources()
+	public static float dp2Px(Context context, float dip) {
+		return TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, dip, context.getResources()
 				.getDisplayMetrics());
 	}
+
+    public static int lighterColor(int color, int lighter) {
+        int r = Math.max(Math.min(Color.red(color) + lighter, 255), 0);
+        int g = Math.max(Math.min(Color.green(color) + lighter, 255), 0);
+        int b = Math.max(Math.min(Color.blue(color) + lighter, 255), 0);
+        return Color.rgb(r, g, b);
+    }
 	
 	public static String md5(final String string) {
 		try {

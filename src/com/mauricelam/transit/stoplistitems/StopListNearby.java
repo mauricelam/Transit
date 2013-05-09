@@ -1,12 +1,11 @@
 package com.mauricelam.transit.stoplistitems;
 
-import java.util.ArrayList;
-
 import android.content.Context;
 import android.graphics.drawable.Drawable;
-
 import com.mauricelam.transit.R;
 import com.mauricelam.transit.Stop;
+
+import java.util.ArrayList;
 
 public class StopListNearby extends StopListStop {
 	private Context context;

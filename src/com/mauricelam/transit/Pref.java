@@ -1,12 +1,11 @@
 package com.mauricelam.transit;
 
-import org.json.JSONArray;
-import org.json.JSONException;
-
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.preference.PreferenceManager;
 import android.util.Log;
+import org.json.JSONArray;
+import org.json.JSONException;
 
 public class Pref {
 	protected static final String TAG = "Preferences";

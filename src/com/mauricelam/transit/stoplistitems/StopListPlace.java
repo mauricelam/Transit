@@ -1,14 +1,12 @@
 package com.mauricelam.transit.stoplistitems;
 
+import android.content.Context;
+import android.graphics.drawable.Drawable;
+import com.mauricelam.transit.Place;
+import com.mauricelam.transit.R;
 import include.GeoPoint;
 
 import java.util.ArrayList;
-
-import android.content.Context;
-import android.graphics.drawable.Drawable;
-
-import com.mauricelam.transit.Place;
-import com.mauricelam.transit.R;
 
 public class StopListPlace implements StopListItem {
 	private Context context;

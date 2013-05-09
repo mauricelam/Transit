@@ -4,7 +4,6 @@ import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
-import android.database.sqlite.SQLiteException;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.util.Log;
 import include.GeoPoint;
@@ -19,7 +18,7 @@ import java.util.List;
  * Time: 1:43 AM
  */
 public class StopWatchDB extends SQLiteOpenHelper {
-    private static final int DATABASE_VERSION = 8;
+    private static final int DATABASE_VERSION = 10;
     private static final String DATABASE_NAME = "transit";
     private static final String STOPWATCH_TABLE = "stopwatch";
     private static final String CARDS_TABLE = "cards";
@@ -32,7 +31,7 @@ public class StopWatchDB extends SQLiteOpenHelper {
         SQLiteDatabase db = this.getReadableDatabase();
 
         Cursor cursor = db.query(STOPWATCH_TABLE,
-                new String[] { "name", "arrival", "trip", "realtime" },
+                new String[] { "name", "arrival", "trip", "realtime", "istop" },
                 "stopcode=? and arrival >= ?",
                 new String[] { String.valueOf(stopcode), String.valueOf(new Date().getTime()) },
                 null, null, "arrival ASC", "40");
@@ -41,7 +40,13 @@ public class StopWatchDB extends SQLiteOpenHelper {
         List<Route> routes = new ArrayList<Route>(cursor.getCount());
         if (cursor.moveToFirst()) {
             do {
-                routes.add(new Route(cursor.getString(0), new Date(cursor.getLong(1)), cursor.getString(2), cursor.getInt(3) > 0));
+                routes.add(new Route(
+                        cursor.getString(0),
+                        new Date(cursor.getLong(1)),
+                        cursor.getString(2),
+                        cursor.getInt(3) > 0,
+                        cursor.getInt(4) > 0
+                ));
             } while (cursor.moveToNext());
         }
         cursor.close();
@@ -53,11 +58,11 @@ public class StopWatchDB extends SQLiteOpenHelper {
 
         db.beginTransaction();
         for (Route route : routes) {
-            try {
-                db.insertOrThrow(STOPWATCH_TABLE, null, routeCV(route, stopcode));
-            } catch (SQLiteException e) {
-                Log.w("Transit DB", e.getMessage() + "");
-            }
+//            try {
+            db.insert(STOPWATCH_TABLE, null, routeCV(route, stopcode));
+//            } catch (SQLiteException e) {
+//                Log.w("Transit DB", e.getMessage() + "");
+//            }
         }
         db.setTransactionSuccessful();
         db.endTransaction();
@@ -86,12 +91,12 @@ public class StopWatchDB extends SQLiteOpenHelper {
         cv.put("arrival", route.getArrival().getTime());
         cv.put("trip", route.getTrip());
         cv.put("realtime", route.isRealTime() ? 1 : 0);
+        cv.put("istop", route.isIStop()? 1 : 0);
         return cv;
     }
 
     public void clearExpiredRoutes() {
         SQLiteDatabase db = this.getWritableDatabase();
-
         db.delete(STOPWATCH_TABLE, "arrival < ?", new String[]{ String.valueOf(new Date().getTime()) });
     }
 
@@ -188,6 +193,7 @@ public class StopWatchDB extends SQLiteOpenHelper {
                 "name TEXT, " +
                 "arrival INTEGER, " +
                 "realtime INTEGER, " +
+                "istop INTEGER, " +
                 "UNIQUE(stopcode, trip))";
         db.execSQL(CREATE_STOPWATCH_SQL);
 
@@ -206,6 +212,9 @@ public class StopWatchDB extends SQLiteOpenHelper {
 
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
+        // Since we dropped the table, also set the count to 0, so everything starts fresh
+        // FIXME this will require a restart before the "initial card" is shown
+        Pref.setInt("com.mauricelam.transit.Cards.cardCount", 0);
         db.execSQL("DROP TABLE IF EXISTS " + STOPWATCH_TABLE);
         db.execSQL("DROP TABLE IF EXISTS " + CARDS_TABLE);
         onCreate(db);
@@ -214,6 +223,6 @@ public class StopWatchDB extends SQLiteOpenHelper {
     @Override
     public void close() {
         super.close();
-        Log.d("Transit db", "close!");
+        Log.d("Transit db", "close");
     }
 }

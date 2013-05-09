@@ -1,9 +1,8 @@
 package com.mauricelam.transit;
 
-import include.GeoPoint;
 import android.os.AsyncTask;
-
 import com.mauricelam.transit.stopdatabase.StopDatabase;
+import include.GeoPoint;
 
 public class LocationListModel {
 	private static final String TAG = "Transit LocationListModel";

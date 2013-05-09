@@ -1,7 +1,5 @@
 package com.mauricelam.transit;
 
-import java.util.ArrayList;
-
 import android.content.Intent;
 import android.content.res.Resources;
 import android.database.Cursor;
@@ -11,7 +9,6 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
-
 import com.google.android.maps.GeoPoint;
 import com.google.android.maps.MapActivity;
 import com.mauricelam.bettermaps.BetterMapView;
@@ -21,6 +18,8 @@ import com.mauricelam.bettermaps.OverlayListItem;
 import com.mauricelam.moreviews.VerticalLoader;
 import com.mauricelam.transit.LocationListModel.LocationListDelegate;
 import com.mauricelam.transit.stopdatabase.StopDatabase;
+
+import java.util.ArrayList;
 
 public class PlacesMap extends MapActivity implements LocationListDelegate {
 	private static final String TAG = "Transit PlacesMap";

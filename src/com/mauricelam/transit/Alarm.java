@@ -1,14 +1,14 @@
 package com.mauricelam.transit;
 
-import java.util.Date;
-import java.util.Formatter;
-
 import android.app.AlarmManager;
 import android.app.Notification;
 import android.app.NotificationManager;
 import android.app.PendingIntent;
 import android.content.Context;
 import android.content.Intent;
+
+import java.util.Date;
+import java.util.Formatter;
 
 /**
  * A Model and Controller class for bus alarms, notifying the user of
@@ -39,8 +39,8 @@ public class Alarm {
         long triggerTime = route.getArrival().getTime() - (timeAhead * 60000);
 		AlarmManager am = (AlarmManager) context.getSystemService(Context.ALARM_SERVICE);
 		am.set(AlarmManager.RTC_WAKEUP, triggerTime, alarmPendingIntent);
-		StringBuilder sb = new StringBuilder("Alarm set in ").append(route.getMins() - timeAhead).append(" minutes");
-		createNotification(sb.toString(), route);
+		String alarmString = "Alarm set in " + (route.getMins() - timeAhead) + " minutes";
+		createNotification(alarmString, route);
 	}
 
     public void remove() {

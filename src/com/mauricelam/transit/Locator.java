@@ -1,7 +1,5 @@
 package com.mauricelam.transit;
 
-import com.mauricelam.transit.stopdatabase.StopDatabase;
-import include.GeoPoint;
 import android.content.Context;
 import android.location.Location;
 import android.location.LocationListener;
@@ -9,8 +7,8 @@ import android.location.LocationManager;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.util.Log;
-
-import java.util.List;
+import com.mauricelam.transit.stopdatabase.StopDatabase;
+import include.GeoPoint;
 
 public class Locator {
 	private static final String TAG = "Transit Locator";

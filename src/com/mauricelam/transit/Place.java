@@ -1,10 +1,8 @@
 package com.mauricelam.transit;
 
-import include.GeoPoint;
-
-import org.json.JSONObject;
-
 import android.util.Log;
+import include.GeoPoint;
+import org.json.JSONObject;
 
 public class Place {
 	private String title;

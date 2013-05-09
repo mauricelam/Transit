@@ -1,17 +1,16 @@
 package com.mauricelam.transit;
 
+import android.content.Context;
+import android.content.Intent;
+import android.content.pm.PackageManager;
+import android.net.Uri;
+import android.util.Log;
 import include.GeoPoint;
 import include.Helper;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.TimeZone;
-
-import android.content.Context;
-import android.content.Intent;
-import android.content.pm.PackageManager;
-import android.net.Uri;
-import android.util.Log;
 
 public class TripPlanner {
 

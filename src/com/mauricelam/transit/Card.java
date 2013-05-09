@@ -1,16 +1,5 @@
 package com.mauricelam.transit;
 
-import android.support.v4.app.FragmentManager;
-import include.AutowidthTextView;
-import include.GeoPoint;
-import include.Helper;
-
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Calendar;
-import java.util.Date;
-import java.util.Formatter;
-
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
@@ -19,28 +8,23 @@ import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Vibrator;
+import android.support.v4.app.FragmentManager;
 import android.support.v4.app.ListFragment;
 import android.util.Log;
-import android.view.GestureDetector;
+import android.view.*;
 import android.view.GestureDetector.SimpleOnGestureListener;
-import android.view.LayoutInflater;
-import android.view.MotionEvent;
-import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.View.OnLongClickListener;
 import android.view.View.OnTouchListener;
-import android.view.ViewGroup;
 import android.view.ViewTreeObserver.OnGlobalLayoutListener;
-import android.widget.AdapterView;
+import android.widget.*;
 import android.widget.AdapterView.OnItemClickListener;
-import android.widget.ArrayAdapter;
-import android.widget.ImageView;
-import android.widget.LinearLayout;
-import android.widget.ListView;
-import android.widget.ProgressBar;
-import android.widget.TextView;
-
 import com.mauricelam.moreviews.StopMapImageView;
+import include.AutowidthTextView;
+import include.GeoPoint;
+import include.Helper;
+
+import java.util.*;
 
 public class Card extends ListFragment implements CardModel.CardDelegate {
 	/**
@@ -330,10 +314,7 @@ public class Card extends ListFragment implements CardModel.CardDelegate {
 			}
 			Route obj = getItem(position);
 			if (obj != null) {
-				listItem.setName(obj.getName());
-				listItem.setTime(obj.getArrival());
-                listItem.setRealTime(obj.isRealTime());
-//                listItem.setAlpha(obj.isRealTime() ? 1.0f : 0.5f);
+                listItem.setRoute(obj);
 			} else {
 				listItem.setNoRouteFound();
 			}

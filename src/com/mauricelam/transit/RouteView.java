@@ -39,12 +39,12 @@ public class RouteView extends TextView {
         super.onDraw(canvas);
         Context context = this.getContext();
 
-        int centerX = dp2Px(context, 7);
-        int lineWidth = dp2Px(context, 7);
-        int lineHeight = canvas.getHeight();
-        int stopSeparation = this.getLineHeight();
-        int stopRadius = dp2Px(context, 7);
-        int padTop = dp2Px(context, 12), padBottom = stopSeparation;
+        float centerX = dp2Px(context, 7);
+        float lineWidth = dp2Px(context, 7);
+        float lineHeight = canvas.getHeight();
+        float stopSeparation = this.getLineHeight();
+        float stopRadius = dp2Px(context, 7);
+        float padTop = dp2Px(context, 12), padBottom = stopSeparation;
 
         Paint paint = new Paint();
         paint.setAntiAlias(true);
@@ -53,7 +53,7 @@ public class RouteView extends TextView {
         canvas.drawLine(centerX, padTop, centerX, lineHeight - padBottom, paint);
 
         paint.setStrokeWidth(0);
-        for (int i = padTop; i < lineHeight; i += stopSeparation) {
+        for (int i = (int) padTop; i < lineHeight; i += (int) stopSeparation) {
             canvas.drawCircle(centerX, i, stopRadius, paint);
         }
     }

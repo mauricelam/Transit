@@ -1,9 +1,5 @@
 package com.mauricelam.transit;
 
-import include.GeoPoint;
-
-import java.util.ArrayList;
-
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
@@ -12,17 +8,14 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.ViewGroup;
-import android.widget.AdapterView;
+import android.widget.*;
 import android.widget.AdapterView.OnItemClickListener;
-import android.widget.ArrayAdapter;
-import android.widget.ImageView;
-import android.widget.LinearLayout;
-import android.widget.ListView;
-import android.widget.TextView;
-
 import com.mauricelam.transit.LocationListModel.LocationListDelegate;
 import com.mauricelam.transit.stoplistitems.StopListItem;
 import com.mauricelam.transit.stoplistitems.StopListStop;
+import include.GeoPoint;
+
+import java.util.ArrayList;
 
 public class LocationList extends Activity implements LocationListDelegate {
     private ArrayList<StopListItem> items = new ArrayList<StopListItem>(0);

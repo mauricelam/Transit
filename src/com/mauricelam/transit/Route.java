@@ -1,8 +1,5 @@
 package com.mauricelam.transit;
 
-import android.content.Context;
-import android.graphics.drawable.Drawable;
-import android.graphics.drawable.GradientDrawable;
 import android.os.Parcel;
 import android.os.Parcelable;
 import org.json.JSONException;
@@ -18,12 +15,14 @@ public class Route implements Parcelable {
 	private Date arrival;
     private String trip;
     private boolean realtime;
+    private boolean iStop;
 
-	public Route(String name, Date arrival, String trip, boolean realtime) {
+	public Route(String name, Date arrival, String trip, boolean realtime, boolean iStop) {
 		this.name = name;
 		this.arrival = arrival;
         this.trip = trip;
         this.realtime = realtime;
+        this.iStop = iStop;
 	}
 
 	public static Route routeFromJSON(JSONObject jObj, boolean realtime) throws JSONException {
@@ -31,7 +30,9 @@ public class Route implements Parcelable {
 		Long expectedLong = jObj.getLong("e");
 		Date expected = new Date(expectedLong * 1000);
         String trip = jObj.getString("t");
-        return new Route(jName, expected, trip, realtime);
+        String flags = jObj.has("f") ? jObj.getString("f") : "";
+        boolean iStop = flags.contains("i");
+        return new Route(jName, expected, trip, realtime, iStop);
 	}
 
 	public String getName() {
@@ -54,20 +55,32 @@ public class Route implements Parcelable {
         return realtime;
     }
 
-	private static Drawable getBubble(Context context, int color, boolean shiny) {
-		GradientDrawable gd;
-		if (!shiny) {
-			Drawable d = context.getResources().getDrawable(R.drawable.route_bubble);
-			gd = (GradientDrawable) d.mutate();
-			gd.setColor(color);
-		} else {
-			gd = (GradientDrawable) context.getResources().getDrawable(color);
-		}
-		return gd;
-	}
+    public boolean isIStop() {
+        return iStop;
+    }
+
+//	private static Drawable getBubble(Context context, int color, boolean shiny) {
+//        Drawable d = context.getResources().getDrawable(R.drawable.route_bubble);
+//        GradientDrawable gd = (GradientDrawable) d.mutate();
+//        if (!shiny) {
+//			gd.setColor(color);
+//		} else {
+//            int brighter = Color.rgb(Color.red(color) + 50, Color.green(color) + 50, Color.blue(color) + 50);
+//            gd.setColors(new int[] { color, brighter,  color});
+//		}
+//		return gd;
+//	}
+
+    public boolean isShiny () {
+        return getRouteShiny(this.name);
+    }
 
     public int getColor () {
         return getRouteColor(this.name);
+    }
+
+    public static boolean getRouteShiny(String name) {
+        return name.contains("Silver") || name.contains("Gold") || name.contains("Bronze");
     }
 
     public static int getRouteColor(String name) {
@@ -112,24 +125,6 @@ public class Route implements Parcelable {
         }
     }
 
-	/**
-	 * Returns a drawable (a colored circle) from the name of the route
-	 * 
-	 * @param name Name of the route
-	 * @return The colored circle drawable
-	 */
-	public static Drawable getRouteColor(Context context, String name) {
-		if (name.contains("Silver")) {
-			return getBubble(context, R.drawable.shiny_silver, true);
-		} else if (name.contains("Gold")) {
-			return getBubble(context, R.drawable.shiny_gold, true);
-		} else if (name.contains("Bronze")) {
-			return getBubble(context, R.drawable.shiny_bronze, true);
-		} else {
-            return getBubble(context, getRouteColor(name), false);
-		}
-	}
-
     @Override
     public int describeContents() {
         return 0;
@@ -140,7 +135,7 @@ public class Route implements Parcelable {
         parcel.writeString(name);
         parcel.writeLong(arrival.getTime());
         parcel.writeString(trip);
-        parcel.writeInt((realtime) ? 1 : 0);
+        parcel.writeBooleanArray(new boolean[] { realtime, iStop });
     }
 
     public static final Creator<Route> CREATOR = new Creator<Route>() {
@@ -150,8 +145,12 @@ public class Route implements Parcelable {
             String name = parcel.readString();
             Date arrival = new Date(parcel.readLong());
             String trip = parcel.readString();
-            boolean realtime = parcel.readInt() > 0;
-            return new Route(name, arrival, trip, realtime);
+
+            boolean[] bools = new boolean[2];
+            parcel.readBooleanArray(bools);
+            boolean realtime = bools[0];
+            boolean iStop = bools[1];
+            return new Route(name, arrival, trip, realtime, iStop);
         }
 
         @Override

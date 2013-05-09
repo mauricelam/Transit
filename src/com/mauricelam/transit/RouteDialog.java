@@ -58,7 +58,8 @@ public class RouteDialog extends DialogFragment {
         view = inflater.inflate(R.layout.routedialog, null);
 
         TextView title = (TextView) view.findViewById(R.id.title);
-        title.setText(route.getName());
+        title.setText(route.getName().toUpperCase());
+        title.setSelected(true);
 
         Button close = (Button) view.findViewById(R.id.close_button);
         close.setOnClickListener(new View.OnClickListener() {
@@ -89,7 +90,9 @@ public class RouteDialog extends DialogFragment {
         dialog.setCanceledOnTouchOutside(true);
 
         Display display = getActivity().getWindowManager().getDefaultDisplay();
-        dialog.getWindow().setLayout(display.getWidth() - 80, Math.min(500, display.getHeight() - 50));
+        int dialogWidth = display.getWidth() - 80;
+        dialog.getWindow().setLayout(dialogWidth, Math.min(500, display.getHeight() - 50));
+        title.setMaxWidth(dialogWidth * 3 / 5);
 
         if (savedInstanceState != null)
             this.trip = savedInstanceState.getParcelable("trip");
@@ -104,10 +107,9 @@ public class RouteDialog extends DialogFragment {
 
     private void loadTripInfo () {
         TextView tagline = (TextView) view.findViewById(R.id.tagline);
-        if (trip == null) {
+        if (trip == null)
             return;
-        }
-        tagline.setText(trip.getHeadSign());
+        tagline.setText(trip.getHeadSign().toUpperCase());
 
         List<Stop> stops = trip.getStops();
         if (stops.size() > 0) {

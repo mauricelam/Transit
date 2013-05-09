@@ -3,9 +3,7 @@ package com.mauricelam.transit;
 import android.content.Context;
 import android.graphics.Color;
 import android.util.AttributeSet;
-import android.util.Log;
 import android.view.View;
-import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
@@ -16,7 +14,7 @@ public class RouteListItem extends LinearLayout {
 	
 	private TextView nameLabel;
 	private TextView timeLabel;
-	private ImageView bubble;
+	private RouteBubble bubble;
 	private Context context;
 	
 	public RouteListItem(Context context, AttributeSet attrs, int defStyle) {
@@ -39,7 +37,7 @@ public class RouteListItem extends LinearLayout {
 			nameLabel = (TextView) this.findViewById(R.id.routeitem_name);
 		}
 		if (bubble == null) {
-			bubble = (ImageView) this.findViewById(R.id.routeitem_bubble);
+			bubble = (RouteBubble) this.findViewById(R.id.routeitem_bubble);
 		}
 		if (timeLabel == null) {
 			timeLabel = (TextView) this.findViewById(R.id.routeitem_time);
@@ -50,10 +48,24 @@ public class RouteListItem extends LinearLayout {
 		loadViews();
 		if (name != null && name.length() > 0) {
 			nameLabel.setText(name);
-			bubble.setImageDrawable(Route.getRouteColor(context, name));
+            bubble.setColor(Route.getRouteColor(name), Route.getRouteShiny(name));
+            bubble.setIStop(false);
+//			bubble.setImageDrawable(Route.getRouteColor(context, name));
 			bubble.setVisibility(View.VISIBLE);
 		}
 	}
+
+    public void setRoute(Route route) {
+        loadViews();
+        if (route != null && route.getName().length() > 0) {
+            nameLabel.setText(route.getName());
+            bubble.setColor(route.getColor(), route.isShiny());
+            bubble.setIStop(route.isIStop());
+            bubble.setVisibility(View.VISIBLE);
+            setTime(route.getArrival());
+            setRealTime(route.isRealTime());
+        }
+    }
 
     private static int getMinsAway(Date time) {
         return (int) Math.floor((time.getTime() - new Date().getTime()) / 60000);

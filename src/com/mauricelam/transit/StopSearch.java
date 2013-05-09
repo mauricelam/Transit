@@ -1,12 +1,5 @@
 package com.mauricelam.transit;
 
-import android.support.v4.app.FragmentActivity;
-import include.GeoPoint;
-import include.Helper;
-
-import java.util.ArrayList;
-import java.util.Locale;
-
 import android.app.SearchManager;
 import android.content.Context;
 import android.content.Intent;
@@ -14,37 +7,25 @@ import android.content.res.Configuration;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.Handler;
+import android.support.v4.app.FragmentActivity;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.util.Log;
-import android.view.KeyEvent;
-import android.view.LayoutInflater;
-import android.view.Menu;
-import android.view.MenuInflater;
-import android.view.MenuItem;
-import android.view.View;
-import android.view.ViewGroup;
-import android.view.ViewStub;
+import android.view.*;
 import android.view.inputmethod.EditorInfo;
 import android.view.inputmethod.InputMethodManager;
-import android.widget.AbsListView;
+import android.widget.*;
 import android.widget.AbsListView.OnScrollListener;
-import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
-import android.widget.ArrayAdapter;
-import android.widget.ImageView;
-import android.widget.ListView;
-import android.widget.TextView;
 import android.widget.TextView.OnEditorActionListener;
-
 import com.mauricelam.moreviews.VerticalLoader;
 import com.mauricelam.transit.StopSearchModel.StopSearchDelegate;
-import com.mauricelam.transit.stoplistitems.StopListItem;
-import com.mauricelam.transit.stoplistitems.StopListMyLocation;
-import com.mauricelam.transit.stoplistitems.StopListNearby;
-import com.mauricelam.transit.stoplistitems.StopListPlace;
-import com.mauricelam.transit.stoplistitems.StopListRecent;
-import com.mauricelam.transit.stoplistitems.StopListStop;
+import com.mauricelam.transit.stoplistitems.*;
+import include.GeoPoint;
+import include.Helper;
+
+import java.util.ArrayList;
+import java.util.Locale;
 
 /**
  * Activity for typing in and displaying search results.

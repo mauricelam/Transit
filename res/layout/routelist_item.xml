@@ -7,14 +7,10 @@
     android:orientation="horizontal"
     android:padding="5sp" >
 
-    <ImageView
+    <com.mauricelam.transit.RouteBubble
         android:id="@+id/routeitem_bubble"
-        android:layout_width="15dp"
-        android:layout_height="15dp"
-        android:clickable="false"
-        android:longClickable="false"
-        android:src="@drawable/route_bubble"
-        android:contentDescription="@string/accessibility_routebubble"
+        android:layout_width="16dp"
+        android:layout_height="16dp"
     />
 
     <TextView

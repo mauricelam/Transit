@@ -1,7 +1,5 @@
 package com.mauricelam.transit;
 
-import java.util.Date;
-
 import android.app.AlarmManager;
 import android.app.Notification;
 import android.app.NotificationManager;
@@ -11,6 +9,8 @@ import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
 import android.util.Log;
+
+import java.util.Date;
 
 /**
  * Receive broadcast when the an alarm is invoked, that is, a bus in coming in
