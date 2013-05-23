@@ -19,6 +19,8 @@ import java.util.List;
  */
 public class StopWatchDB extends SQLiteOpenHelper {
     private static final int DATABASE_VERSION = 10;
+    private static final int STOPTABLE_VERSION = 10;
+    private static final int CARDSTABLE_VERSION = 10;
     private static final String DATABASE_NAME = "transit";
     private static final String STOPWATCH_TABLE = "stopwatch";
     private static final String CARDS_TABLE = "cards";
@@ -109,7 +111,10 @@ public class StopWatchDB extends SQLiteOpenHelper {
 
     public void setCard(int cardNumber, Stop stop, Date update, Date scheduleUpdated) {
         SQLiteDatabase db = this.getWritableDatabase();
+        setCard(db, cardNumber, stop, update, scheduleUpdated);
+    }
 
+    public void setCard(SQLiteDatabase db, int cardNumber, Stop stop, Date update, Date scheduleUpdated) {
         ContentValues cv = new ContentValues();
         cv.put("cardIndex", cardNumber);
         if (update != null)
@@ -184,8 +189,7 @@ public class StopWatchDB extends SQLiteOpenHelper {
         return null;
     }
 
-    @Override
-    public void onCreate(SQLiteDatabase db) {
+    private void createStopWatchTable(SQLiteDatabase db) {
         final String CREATE_STOPWATCH_SQL = "CREATE TABLE " + STOPWATCH_TABLE + " (" +
                 "id INTEGER PRIMARY KEY, " +
                 "trip TEXT, " +
@@ -196,7 +200,9 @@ public class StopWatchDB extends SQLiteOpenHelper {
                 "istop INTEGER, " +
                 "UNIQUE(stopcode, trip))";
         db.execSQL(CREATE_STOPWATCH_SQL);
+    }
 
+    private void createCardsTable(SQLiteDatabase db) {
         final String CREATE_CARDS_SQL = "CREATE TABLE " + CARDS_TABLE + " (" +
                 "id INTEGER PRIMARY KEY, " +
                 "cardIndex INTEGER UNIQUE, " +
@@ -210,14 +216,59 @@ public class StopWatchDB extends SQLiteOpenHelper {
         db.execSQL(CREATE_CARDS_SQL);
     }
 
+    /*******************
+     * Update mechanism
+     *******************/
+
+    private void upgradeCard (int id, SQLiteDatabase db) {
+        int stopCode = Pref.getInt(prefKey("stopCode", id), -1);
+        String stopName = Pref.getString(prefKey("stopName", id), "");
+        if (stopName == null) return;
+        int lat = Pref.getInt(prefKey("stopLatitude", id), 0);
+        int lng = Pref.getInt(prefKey("stopLongitude", id), 0);
+
+        Stop stop = new Stop(stopName, null, stopCode, lat, lng);
+
+        this.setCard(db, id, stop, new Date(0), new Date(0));
+
+        Pref.remove(prefKey("stopCode", id));
+        Pref.remove(prefKey("stopName", id));
+        Pref.remove(prefKey("stopLatitude", id));
+        Pref.remove(prefKey("stopLongitude", id));
+    }
+
+    private void upgradeFromPref (SQLiteDatabase db) {
+        int card = Pref.getInt("com.mauricelam.transit.Cards.cardCount", 0);
+        for (int i = 0; i < card; i++) {
+            upgradeCard(i, db);
+        }
+    }
+
+    private static String prefKey(String key, int id) {
+        return "modelpack" + id + '_' + key;
+    }
+
+    @Override
+    public void onCreate(SQLiteDatabase db) {
+        createStopWatchTable(db);
+        createCardsTable(db);
+        upgradeFromPref(db);
+    }
+
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
+
         // Since we dropped the table, also set the count to 0, so everything starts fresh
         // FIXME this will require a restart before the "initial card" is shown
-        Pref.setInt("com.mauricelam.transit.Cards.cardCount", 0);
-        db.execSQL("DROP TABLE IF EXISTS " + STOPWATCH_TABLE);
-        db.execSQL("DROP TABLE IF EXISTS " + CARDS_TABLE);
-        onCreate(db);
+        if (STOPTABLE_VERSION == newVersion) {
+            db.execSQL("DROP TABLE IF EXISTS " + STOPWATCH_TABLE);
+            createStopWatchTable(db);
+        }
+        if (CARDSTABLE_VERSION == newVersion) {
+            Pref.setInt("com.mauricelam.transit.Cards.cardCount", 0);
+            db.execSQL("DROP TABLE IF EXISTS " + CARDS_TABLE);
+            createCardsTable(db);
+        }
     }
 
     @Override

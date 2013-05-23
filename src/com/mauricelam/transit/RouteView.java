@@ -17,6 +17,7 @@ import static include.Helper.dp2Px;
 public class RouteView extends TextView {
 
     private int color = Color.BLACK;
+    private boolean noinfo = true;
 
     public RouteView(Context context) {
         super(context);
@@ -35,8 +36,20 @@ public class RouteView extends TextView {
     }
 
     @Override
+    public void setText(CharSequence text, BufferType type) {
+        super.setText(text, type);
+        if (text.length() == 0) {
+            super.setText("No route information");
+            noinfo = true;
+        }
+        noinfo = false;
+        this.setHorizontallyScrolling(true);
+    }
+
+    @Override
     protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
+        if (noinfo) return;
         Context context = this.getContext();
 
         float centerX = dp2Px(context, 7);

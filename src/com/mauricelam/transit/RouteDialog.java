@@ -107,19 +107,19 @@ public class RouteDialog extends DialogFragment {
 
     private void loadTripInfo () {
         TextView tagline = (TextView) view.findViewById(R.id.tagline);
-        if (trip == null)
-            return;
-        tagline.setText(trip.getHeadSign().toUpperCase());
+        if (trip != null) {
+            tagline.setText(trip.getHeadSign().toUpperCase());
 
-        List<Stop> stops = trip.getStops();
-        if (stops.size() > 0) {
-            TextView message = (TextView) view.findViewById(R.id.routeview);
-            StringBuilder sb = new StringBuilder();
-            for (Stop stop : stops) {
-                sb.append(stop.getName()).append('\n');
+            List<Stop> stops = trip.getStops();
+            if (stops.size() > 0) {
+                RouteView message = (RouteView) view.findViewById(R.id.routeview);
+                StringBuilder sb = new StringBuilder();
+                for (Stop stop : stops) {
+                    sb.append(stop.getName()).append('\n');
+                }
+                sb.setLength(sb.length()-1);
+                message.setText(sb.toString());
             }
-            sb.setLength(sb.length()-1);
-            message.setText(sb.toString());
         }
         setLoading(false);
     }

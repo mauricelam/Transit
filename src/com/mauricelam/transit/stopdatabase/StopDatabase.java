@@ -79,14 +79,32 @@ public class StopDatabase extends SQLiteOpenHelper {
 		}
 	}
 
-	public Cursor getAllStops() {
+    public Cursor getAllStops() {
+        return getAllStops(null);
+    }
+
+	public Cursor getAllStops(String orderBy) {
 		SQLiteDatabase db = this.getReadableDatabase();
 
-		String selectQuery = "SELECT * FROM " + STOPS_TABLE;
-		Cursor cursor = db.rawQuery(selectQuery, null);
+        Cursor cursor = db.query(STOPS_TABLE,
+                null,
+                null,
+                null,
+                null, null, orderBy, null);
 		cursor.moveToFirst();
 		return cursor;
 	}
+
+    public Cursor getAllStopsByDistance(GeoPoint location) {
+        SQLiteDatabase db = this.getReadableDatabase();
+
+        int lat = location.getLatitudeE6(), lng = location.getLongitudeE6();
+        String distance = "(lng - " + lng + ") * (lng - " + lng + ") * " + COSLAT + " + (lat - " + lat + ") * (lat - " + lat + ")";
+        String selectQuery = "SELECT name, query, code, lat, lng, (" + distance + ") AS distance FROM " + STOPS_TABLE + " ORDER BY distance";
+        Cursor cursor = db.rawQuery(selectQuery, null);
+        cursor.moveToFirst();
+        return cursor;
+    }
 
     private static float COSLAT = 0.644257f; // cos(approx latitude of Champaign)
 
@@ -95,7 +113,10 @@ public class StopDatabase extends SQLiteOpenHelper {
 
         int lat = location.getLatitudeE6(), lng = location.getLongitudeE6();
         String distance = "(lng - " + lng + ") * (lng - " + lng + ") * " + COSLAT + " + (lat - " + lat + ") * (lat - " + lat + ")";
-        String selectQuery = "SELECT name, query, code, lat, lng, (" + distance + ") AS distance FROM " + STOPS_TABLE + " ORDER BY distance LIMIT " + limit;
+        String selectQuery = "SELECT name, query, code, lat, lng, (" + distance + ") AS distance FROM " + STOPS_TABLE + " ORDER BY distance";
+        if (limit > 0) {
+            selectQuery += " LIMIT " + limit;
+        }
         Cursor cursor = db.rawQuery(selectQuery, null);
         List<Stop> stops = new ArrayList<Stop>(limit);
         if (cursor.moveToFirst()) {

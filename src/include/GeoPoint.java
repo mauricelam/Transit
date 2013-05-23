@@ -8,7 +8,12 @@ public class GeoPoint {
 		lng = lngE6;
 	}
 
-	public int getLatitudeE6() {
+    public GeoPoint(double latitude, double longitude) {
+        lat = (int) (latitude * 1e6);
+        lng = (int) (longitude * 1e6);
+    }
+
+    public int getLatitudeE6() {
 		return lat;
 	}
 

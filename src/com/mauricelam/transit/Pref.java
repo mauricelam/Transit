@@ -28,22 +28,22 @@ public class Pref {
 		}
 	}
 
-//	public static String[] getStringArray(String key) {
-//		SharedPreferences prefs = getPref(TransitApplication.getContext());
-//		String saveString = prefs.getString(key, "[]");
-//		try {
-//			JSONArray jArray = new JSONArray(saveString);
-//			int arrayLength = jArray.length();
-//			String[] output = new String[arrayLength];
-//			for (int i = 0; i < arrayLength; i++) {
-//				output[i] = jArray.getString(i);
-//			}
-//			return output;
-//		} catch (Exception e) {
-//			Log.e("getStringArray", e.getMessage());
-//			return new String[0];
-//		}
-//	}
+	public static String[] getStringArray(String key) {
+		SharedPreferences prefs = getPref(TransitApplication.getContext());
+		String saveString = prefs.getString(key, "[]");
+		try {
+			JSONArray jArray = new JSONArray(saveString);
+			int arrayLength = jArray.length();
+			String[] output = new String[arrayLength];
+			for (int i = 0; i < arrayLength; i++) {
+				output[i] = jArray.getString(i);
+			}
+			return output;
+		} catch (Exception e) {
+			Log.e("getStringArray", e.getMessage());
+			return new String[0];
+		}
+	}
 //
 //	public static void setLongArray(final String key, final long[] value) {
 //		SharedPreferences prefs = getPref(TransitApplication.getContext());
@@ -57,21 +57,21 @@ public class Pref {
 //		}
 //	}
 //
-//	public static long[] getLongArray(String key) {
-//		SharedPreferences prefs = getPref(TransitApplication.getContext());
-//		String saveString = prefs.getString(key, "[]");
-//		try {
-//			JSONArray jArray = new JSONArray(saveString);
-//			long[] output = new long[jArray.length()];
-//			for (int i = 0; i < jArray.length(); i++) {
-//				output[i] = jArray.getLong(i);
-//			}
-//			return output;
-//		} catch (Exception e) {
-//			Log.e("getStringArray", e.getMessage());
-//			return new long[0];
-//		}
-//	}
+	public static long[] getLongArray(String key) {
+		SharedPreferences prefs = getPref(TransitApplication.getContext());
+		String saveString = prefs.getString(key, "[]");
+		try {
+			JSONArray jArray = new JSONArray(saveString);
+			long[] output = new long[jArray.length()];
+			for (int i = 0; i < jArray.length(); i++) {
+				output[i] = jArray.getLong(i);
+			}
+			return output;
+		} catch (Exception e) {
+			Log.e("getStringArray", e.getMessage());
+			return new long[0];
+		}
+	}
 
 	public static String getString(String key, String def) {
 		SharedPreferences prefs = getPref(TransitApplication.getContext());

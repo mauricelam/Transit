@@ -20,7 +20,6 @@ public class RouteBubble extends View {
     private boolean shiny = false;
     private LinearGradient shader;
 
-    private Bitmap bitmap;
     private Paint paint;
 
     public RouteBubble(Context context) {
@@ -73,11 +72,10 @@ public class RouteBubble extends View {
                     Shader.TileMode.REPEAT
             );
         }
-        this.bitmap = null;
     }
 
-    private void drawBitmap (int width, int height) {
-        bitmap = Bitmap.createBitmap(width, height, Bitmap.Config.ARGB_8888);
+    private Bitmap drawBitmap (int width, int height) {
+        Bitmap bitmap = Bitmap.createBitmap(width, height, Bitmap.Config.ARGB_8888);
         Canvas canvas = new Canvas(bitmap);
 
         paint.setColor(this.color);
@@ -116,13 +114,15 @@ public class RouteBubble extends View {
         paint.setColor(Color.rgb(80, 80, 80));
         paint.setStyle(Paint.Style.STROKE);
         canvas.drawCircle(centerX, centerY, centerX - 1, paint);
+
+        return bitmap;
     }
 
     @Override
     protected void onDraw(Canvas canvas) {
-        if (bitmap == null)
-            drawBitmap(canvas.getWidth(), canvas.getHeight());
+        Bitmap bitmap = drawBitmap(canvas.getWidth(), canvas.getHeight());
         canvas.drawBitmap(bitmap, 0, 0, new Paint());
+        bitmap.recycle();
     }
 
 }

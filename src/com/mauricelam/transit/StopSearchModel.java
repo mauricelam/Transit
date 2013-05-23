@@ -66,8 +66,7 @@ public class StopSearchModel {
 	 * @return
 	 */
 	public Stop[] loadRecentStops(int numResults) {
-		Uri uri = Uri
-				.parse("content://com.mauricelam.transit.Suggester/suggestions");
+		Uri uri = Uri.parse("content://com.mauricelam.transit.Suggester/suggestions");
 		try {
 			Cursor cursor = Suggester.currentProvider.query(uri, null, null,
 					null, "date DESC");
@@ -141,7 +140,7 @@ public class StopSearchModel {
 			return nearbyStops;
 		if (nearbyStops == null)
 			return null;
-		ArrayList<Stop> stops = new ArrayList<Stop>(0);
+		ArrayList<Stop> stops = new ArrayList<Stop>();
         for (Stop nearbyStop : nearbyStops) {
             if (stringFilter(nearbyStop.getName(), filter)) {
                 stops.add(nearbyStop);
@@ -155,7 +154,7 @@ public class StopSearchModel {
 			return stopList;
 		if (stopList == null)
 			return null;
-		ArrayList<Stop> stops = new ArrayList<Stop>(0);
+		ArrayList<Stop> stops = new ArrayList<Stop>();
         for (Stop stop : stopList) {
             if (stringFilter(stop.getName(), filter)) {
                 stops.add(stop);
@@ -169,7 +168,7 @@ public class StopSearchModel {
 			return places;
 		if (places == null)
 			return null;
-		ArrayList<Place> output = new ArrayList<Place>(0);
+		ArrayList<Place> output = new ArrayList<Place>();
         for (Place place : places) {
             try { // patch that weird (concurrency?) bug
                 if (stringFilter(place.getTitle(), filter)
@@ -212,7 +211,8 @@ public class StopSearchModel {
 		@Override
 		protected String doInBackground(String... params) {
 			String escQuery = Uri.encode(params[0]);
-			stopList = Connector.getStopsByName(escQuery);
+			Stop[] stops = Connector.getStopsByName(escQuery);
+            if (stops != null) stopList = stops;
 			return params[0];
 		}
 
