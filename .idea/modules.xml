@@ -8,6 +8,7 @@
       <module fileurl="file://$PROJECT_DIR$/../SwitchCompatLibrary/SwitchCompatLibrary.iml" filepath="$PROJECT_DIR$/../SwitchCompatLibrary/SwitchCompatLibrary.iml" />
       <module fileurl="file://$PROJECT_DIR$/Transit.iml" filepath="$PROJECT_DIR$/Transit.iml" />
       <module fileurl="file://$PROJECT_DIR$/../android-mapviewballoons/android-mapviewballoons.iml" filepath="$PROJECT_DIR$/../android-mapviewballoons/android-mapviewballoons.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../../android-sdk-macosx/extras/google/google_play_services/libproject/google-play-services_lib/google-play-services_lib.iml" filepath="$PROJECT_DIR$/../../android-sdk-macosx/extras/google/google_play_services/libproject/google-play-services_lib/google-play-services_lib.iml" />
     </modules>
   </component>
 </project>

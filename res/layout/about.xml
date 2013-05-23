@@ -107,7 +107,7 @@
 
             <TextView
                 android:id="@+id/TextView07"
-                android:layout_width="fill_parent"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="5dp"
                 android:drawableBottom="@drawable/about_google"
@@ -131,6 +131,26 @@
                 android:text="@string/about_artwork"
                 android:textSize="12dp" >
             </TextView>
+
+            <TextView
+                android:paddingTop="50dp"
+                android:id="@+id/googlePlayHeader"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:textSize="15dp"
+                android:text="Google Play Services License Information"
+                />
+
+            <TextView
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"
+                android:id="@+id/googlePlay"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="12dp"
+                android:text="This product includes software from Google Play services and Android Open Source project."
+            />
 
         </LinearLayout>
     </ScrollView>

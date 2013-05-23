@@ -347,7 +347,7 @@ public class StopSearch extends FragmentActivity {
 				placesIntent.putExtra("smallText", smallText);
 				placesIntent.putExtra("query", getQuery());
 				MapReflector.startActivity(StopSearch.this, placesIntent,
-						"com.mauricelam.transit.PlacesMap",
+						"com.mauricelam.transit.PlacesMap2",
 						"com.mauricelam.transit.LocationList");
 			} else {
 				Log.w(TAG, "Click on unknown item type");
@@ -377,7 +377,6 @@ public class StopSearch extends FragmentActivity {
 		if (currentString.length() == 0) {
 			StopListMyLocation.addToList(items, this, MapReflector.isMapAvailable());
 		}
-		// items.add(new StopListMyLocation(this));
 		Stop[] nearbyStops = model.getLoadedNearbyStops(currentString);
 		if (nearbyStops != null)
 			StopListNearby.appendToItemList(items, this, nearbyStops);
@@ -400,7 +399,6 @@ public class StopSearch extends FragmentActivity {
 		// show "no result" prompt when no result is found
         if (items.size() == 0 && searchState == DONE && getQuery().length() > 0) {
             setSearchState(NORESULT);
-//            setFooter(FOOTER_NOTFOUND);
         }
 
 		setAdapterItems(items);

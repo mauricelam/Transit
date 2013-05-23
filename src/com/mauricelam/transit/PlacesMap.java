@@ -30,8 +30,7 @@ public class PlacesMap extends MapActivity implements LocationListDelegate {
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		// setContentView(R.layout.placesmap_debug);
-		setContentView(R.layout.placesmap);
+		setContentView(R.layout.placesmap2);
 
 		BetterMapView mapView = getMapView();
 		mapView.setBuiltInZoomControls(true);

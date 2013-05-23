@@ -273,7 +273,7 @@ public class Card extends ListFragment implements CardModel.CardDelegate {
 			mapIntent.putExtra("longitude", stop.getLocation().getLongitudeE6());
 			mapIntent.putExtra("bigText", stop.getName());
 			mapIntent.putExtra("smallText", "MTD " + stop.getCodeString());
-			MapReflector.startActivity(context, mapIntent, "com.mauricelam.transit.PlacesMap");
+			MapReflector.startActivity(context, mapIntent, "com.mauricelam.transit.PlacesMap2");
 		}
 	};
 

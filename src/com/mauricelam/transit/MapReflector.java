@@ -1,8 +1,12 @@
 package com.mauricelam.transit;
 
+import android.app.ActivityManager;
 import android.content.Context;
 import android.content.Intent;
+import android.content.pm.ConfigurationInfo;
 import android.util.Log;
+import com.google.android.gms.common.ConnectionResult;
+import com.google.android.gms.common.GooglePlayServicesUtil;
 
 public class MapReflector {
 	private static final String TAG = "Transit MapReflector";
@@ -39,9 +43,15 @@ public class MapReflector {
 
 	public static boolean isMapAvailable() {
 		try {
-			Class.forName("com.google.android.maps.MapActivity");
-			return true;
-		} catch (Exception e) {
+            Context context = TransitApplication.getContext();
+            int available = GooglePlayServicesUtil.isGooglePlayServicesAvailable(context);
+            boolean googleplay = available == ConnectionResult.SUCCESS;
+
+            ActivityManager manager = (ActivityManager) context.getSystemService(Context.ACTIVITY_SERVICE);
+            ConfigurationInfo config = manager.getDeviceConfigurationInfo();
+            boolean gl2 = config.reqGlEsVersion >= 0x20000;
+            return googleplay && gl2;
+        } catch (Exception e) {
 			return false;
 		}
 	}
