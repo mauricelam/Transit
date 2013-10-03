@@ -50,14 +50,13 @@ public class RouteView extends TextView {
     protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
         if (noinfo) return;
-        Context context = this.getContext();
 
-        float centerX = dp2Px(context, 7);
-        float lineWidth = dp2Px(context, 7);
-        float lineHeight = canvas.getHeight();
+        float centerX = dp2Px(7);
+        float lineWidth = dp2Px(7);
+        float lineHeight = this.getHeight();
         float stopSeparation = this.getLineHeight();
-        float stopRadius = dp2Px(context, 7);
-        float padTop = dp2Px(context, 12), padBottom = stopSeparation;
+        float stopRadius = dp2Px(7);
+        float padTop = dp2Px(12), padBottom = stopSeparation;
 
         Paint paint = new Paint();
         paint.setAntiAlias(true);

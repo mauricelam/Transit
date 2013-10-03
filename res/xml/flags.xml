@@ -6,22 +6,21 @@
         android:key="cat_general"
         android:title="General settings" >
         <com.mauricelam.moreviews.SeekBarPreference
-            android:defaultValue="1"
+            android:defaultValue="5"
             android:key="foregroundInterval"
             android:max="60"
             android:summary="Time between foreground updates"
             moreviews:units=" mins"
             android:title="Foreground update interval"
-            moreviews:min="1" />
-
+            moreviews:min="3" />
         <ListPreference
-            android:defaultValue="30"
-            android:entries="@array/bg_interval"
-            android:entryValues="@array/bg_interval_value"
-            android:key="backgroundInterval"
-            android:persistent="true"
-            android:summary="Time between background updates"
-            android:title="Background Update interval" />
+                android:defaultValue="30"
+                android:entries="@array/bg_interval"
+                android:entryValues="@array/bg_interval_value"
+                android:key="backgroundInterval"
+                android:persistent="true"
+                android:summary="Time between background updates"
+                android:title="Background Update interval" />
     </PreferenceCategory>
     <PreferenceCategory
         android:key="cat_alarm"

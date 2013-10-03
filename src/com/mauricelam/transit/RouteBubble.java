@@ -82,15 +82,15 @@ public class RouteBubble extends View {
         paint.setStyle(Paint.Style.FILL);
         if (this.shiny)
             paint.setShader(this.shader);
-        float centerX = canvas.getWidth() / 2.0f;
-        float centerY = canvas.getHeight() / 2.0f;
+        float centerX = width / 2.0f;
+        float centerY = height / 2.0f;
         canvas.drawColor(0);
         canvas.drawCircle(centerX, centerY, centerX - 1, paint);
         paint.setShader(null);
 
         if (this.istop) {
-            float iradius = dp2Px(getContext(), 2.5f);
-            float halfIWidth = dp2Px(getContext(), 2.2f);
+            float iradius = dp2Px(2.5f);
+            float halfIWidth = dp2Px(2.2f);
 
             int brighter = Helper.lighterColor(color, 30);
             paint.setColor(brighter);
@@ -120,7 +120,7 @@ public class RouteBubble extends View {
 
     @Override
     protected void onDraw(Canvas canvas) {
-        Bitmap bitmap = drawBitmap(canvas.getWidth(), canvas.getHeight());
+        Bitmap bitmap = drawBitmap(this.getWidth(), this.getHeight());
         canvas.drawBitmap(bitmap, 0, 0, new Paint());
         bitmap.recycle();
     }

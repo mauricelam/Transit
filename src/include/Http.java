@@ -137,8 +137,6 @@ public class Http {
         } catch (MalformedURLException e) {
             e.printStackTrace();
             ret.status = 400;
-        } catch (SocketTimeoutException e) {
-            ret.status = 400;
         } catch (IOException e) {
             ret.status = 400;
         }

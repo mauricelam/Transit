@@ -83,6 +83,11 @@ public class StopSearch extends FragmentActivity {
 	}
 
     @Override
+    protected void onDestroy() {
+        super.onDestroy();
+    }
+
+    @Override
     protected void onPostCreate(Bundle savedInstanceState) {
         super.onPostCreate(savedInstanceState);
         TextView searchBox = (TextView) findViewById(R.id.stopsearch_searchbox);
@@ -408,6 +413,10 @@ public class StopSearch extends FragmentActivity {
 
 	private void setAdapterItems(ArrayList<StopListItem> list) {
 		ListView listView = (ListView) findViewById(R.id.stopsearch_list);
+        if (listView == null) {
+            return;
+        }
+
 		if (listView.getAdapter() == null || adapter == null) {
 			adapter = new StopListAdapter(this, R.layout.stoplist_item, list);
 			listView.setAdapter(adapter);

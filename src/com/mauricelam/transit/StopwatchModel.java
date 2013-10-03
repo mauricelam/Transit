@@ -183,7 +183,7 @@ public class StopwatchModel {
         @Override
         public void onUpdateComplete(boolean success, Stop stop, Route[] routes) {
             Log.v(TAG, "Update completed, success: " + success);
-            if (success && context != null && stop != null && routes != null) {
+            if (success && stop != null && routes != null) {
                 StopwatchModel.saveSchedule(fragmentNum, routes, stop);
             }
         }
@@ -206,7 +206,7 @@ public class StopwatchModel {
 		@Override
 		public void onUpdateComplete(boolean success, Stop stop, Route[] routes) {
 			Log.v(TAG, "Update completed, success: " + success);
-            if (success && context != null && stop != null && routes != null) {
+            if (success && stop != null && routes != null) {
                 StopwatchModel.saveUpdate(fragmentNum, routes, stop);
             }
 		}

@@ -113,20 +113,25 @@ public class CardModel {
 
 	public void onUpdateComplete() {
 //		Log.d(TAG, "card on finish update");
-		if (model != null && context != null) {
-			model.reloadFromPack(fragmentNumber);
-			setLoadVisible(false);
-			setListVisible(true);
-			if (delegate != null)
-				delegate.reloadList(model);
-			else
-				Log.w(TAG, "Cannot reload list. Model delegate " + fragmentNumber + " is null");
-		} else if (model == null) {
-			Log.w(TAG, "cannot finish update: model is null");
-		} else {
-			Log.w(TAG, "cannot finish update: context is null");
-		}
+        onUpdateNextStep();
+        setLoadVisible(false);
 	}
+
+    public void onUpdateNextStep() {
+//        Log.v(TAG, "Update next step " + fragmentNumber);
+        if (model != null && context != null) {
+            model.reloadFromPack(fragmentNumber);
+            setListVisible(true);
+            if (delegate != null)
+                delegate.reloadList(model);
+            else
+                Log.w(TAG, "Cannot reload list. Model delegate " + fragmentNumber + " is null");
+        } else if (model == null) {
+            Log.w(TAG, "cannot finish update: model is null");
+        } else {
+            Log.w(TAG, "cannot finish update: context is null");
+        }
+    }
 
 //	public void onUpdateError() {
 //		if (model != null && context != null) {
@@ -135,21 +140,6 @@ public class CardModel {
 //		} else {
 //			Log.w(TAG, "cannot show error message: model is null");
 //		}
-//	}
-
-//	public String getStopStaticMapURL(int width) {
-//		StringBuilder sb = new StringBuilder("http://maps.googleapis.com/maps/api/staticmap?");
-//		String locationString = getLocationString(model.getStopLocation());
-//		if (locationString == null)
-//			return null;
-//		sb.append("center=").append(locationString);
-//		sb.append("&zoom=").append(17);
-//		int height = width / 3;
-//		sb.append("&size=").append(width).append('x').append(height);
-//		sb.append("&sensor=false");
-//		sb.append("&markers=color:blue|").append(locationString);
-//		Log.w("map URL", sb.toString());
-//		return sb.toString();
 //	}
 
 	public boolean getListVisibility() {

@@ -90,6 +90,7 @@ public class Cards extends FragmentActivity {
 	@Override
 	protected void onPause() {
 		super.onPause();
+        Log.v(TAG, "pause");
 		Pref.setInt("com.mauricelam.transit.Cards.selectedCard", pager.getCurrentItem());
 		Updater.toBackground(this);
 		locator = null;
@@ -99,6 +100,7 @@ public class Cards extends FragmentActivity {
 	@Override
 	protected void onResume() {
 		super.onResume();
+        Log.v(TAG, "resume");
 
 		Handler handler = new Handler();
 		Runnable runLocator = new Runnable() {
@@ -210,10 +212,15 @@ public class Cards extends FragmentActivity {
 
 	public void refreshAll(boolean forced) {
 		Intent intent = new Intent(this, Updater.class);
-		intent.setAction("Cards refreshAll");
 		intent.putExtra("forced", forced);
 		sendBroadcast(intent);
 	}
+
+    public void refresh(int cardIndex) {
+        Intent intent = new Intent(this, Updater.class);
+        intent.putExtra("cardIndex", cardIndex);
+        sendBroadcast(intent);
+    }
 
 	/**
 	 * Shows the toast to tell user how to use bookmark shortcut
@@ -393,7 +400,7 @@ public class Cards extends FragmentActivity {
 			}
 			Log.d(TAG, "adapterCount: " + adapter.getCount());
 			pager.setCurrentItem(adapter.getCount() - 1, false);
-            refreshAll(true);
+            refresh(adapter.getCount() - 1);
 		}
 	}
 
@@ -513,31 +520,55 @@ public class Cards extends FragmentActivity {
 		public void onReceive(Context context, Intent intent) {
 			int status = intent.getIntExtra("updateStatus", 0);
 			if (status == UpdateService.UPDATESTARTED) {
-				onUpdateStart();
+				onUpdateStart(intent);
+            } else if (status == UpdateService.UPDATENEXTSTEP) {
+                onUpdateNextStep(intent);
 			} else if (status == UpdateService.UPDATECOMPLETE) {
-				onUpdateComplete();
+				onUpdateComplete(intent);
 			} else if (status == UpdateService.UPDATEERROR) {
-				onUpdateError(intent.getBooleanExtra("forced", false));
+				onUpdateError(intent);
 			} else {
 				Log.w(TAG, "Broadcast status not recognized");
 			}
 		}
 
-		private void onUpdateStart() {
+		private void onUpdateStart(Intent intent) {
 //			Log.v(TAG, "on update start broadcast");
+            int cardIndex = intent.getIntExtra("cardIndex", -1);
+            if (cardIndex > -1) {
+                cardsArray.get(cardIndex).onUpdateStart();
+                return;
+            }
             for (CardModel cardModel : cardsArray) {
                 cardModel.onUpdateStart();
             }
 		}
 
-		private void onUpdateComplete() {
+        private void onUpdateNextStep(Intent intent) {
+            int cardIndex = intent.getIntExtra("cardIndex", -1);
+            if (cardIndex > -1) {
+                cardsArray.get(cardIndex).onUpdateNextStep();
+                return;
+            }
+            for (CardModel cardModel : cardsArray) {
+                cardModel.onUpdateNextStep();
+            }
+        }
+
+		private void onUpdateComplete(Intent intent) {
 //			Log.v(TAG, "on update complete broadcast");
+            int cardIndex = intent.getIntExtra("cardIndex", -1);
+            if (cardIndex > -1) {
+                cardsArray.get(cardIndex).onUpdateComplete();
+                return;
+            }
             for (CardModel cardModel : cardsArray) {
                 cardModel.onUpdateComplete();
             }
 		}
 
-		private void onUpdateError(boolean forced) {
+		private void onUpdateError(Intent intent) {
+            boolean forced = intent.getBooleanExtra("forced", false);
 			if (forced) {
 				Helper.createToast(Cards.this, "Cannot connect to server");
 			}

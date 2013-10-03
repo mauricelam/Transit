@@ -24,7 +24,7 @@ public class Settings extends PreferenceActivity implements
 	}
 
 	private void setAboutClick() {
-		Preference about = (Preference) findPreference("about");
+		Preference about = findPreference("about");
 		about.setOnPreferenceClickListener(new OnPreferenceClickListener() {
 			public boolean onPreferenceClick(Preference preference) {
 				Intent intent = new Intent(Settings.this, About.class);

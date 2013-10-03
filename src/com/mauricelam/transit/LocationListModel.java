@@ -1,6 +1,7 @@
 package com.mauricelam.transit;
 
 import android.os.AsyncTask;
+import android.util.Log;
 import com.mauricelam.transit.stopdatabase.StopDatabase;
 import include.GeoPoint;
 
@@ -33,6 +34,7 @@ public class LocationListModel {
 		@Override
 		protected GeoPoint doInBackground(GeoPoint... params) {
 			if (params.length == 0 || params[0] == null) {
+                Log.v(TAG, "Location list update db");
 				StopDatabase.sharedInstance().updateFromServer();
 				return null;
 			} else {

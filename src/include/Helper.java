@@ -1,10 +1,13 @@
 package include;
 
 import android.content.Context;
+import android.content.res.Resources;
 import android.graphics.Color;
+import android.util.DisplayMetrics;
 import android.util.Log;
 import android.util.TypedValue;
 import android.widget.Toast;
+import com.mauricelam.transit.TransitApplication;
 
 import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
@@ -114,9 +117,9 @@ public class Helper {
 		return dateFormat.format(date);
 	}
 
-	public static float dp2Px(Context context, float dip) {
-		return TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, dip, context.getResources()
-				.getDisplayMetrics());
+	public static float dp2Px(float dip) {
+        DisplayMetrics metrics = TransitApplication.getContext().getResources().getDisplayMetrics();
+        return TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, dip, metrics);
 	}
 
     public static int lighterColor(int color, int lighter) {

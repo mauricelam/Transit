@@ -60,11 +60,7 @@ public class StopWatchDB extends SQLiteOpenHelper {
 
         db.beginTransaction();
         for (Route route : routes) {
-//            try {
-            db.insert(STOPWATCH_TABLE, null, routeCV(route, stopcode));
-//            } catch (SQLiteException e) {
-//                Log.w("Transit DB", e.getMessage() + "");
-//            }
+            db.insertWithOnConflict(STOPWATCH_TABLE, null, routeCV(route, stopcode), SQLiteDatabase.CONFLICT_IGNORE);
         }
         db.setTransactionSuccessful();
         db.endTransaction();

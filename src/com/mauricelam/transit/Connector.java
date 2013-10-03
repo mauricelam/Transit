@@ -17,7 +17,7 @@ public class Connector {
 	private static final String TAG = "Transit Connector";
     private static final int API_VERSION = 4;
     public static final String SERVER_ADDRESS = "http://projects.mauricelam.com/mtd/" + API_VERSION + "/";
-	public static final String FALLBACK_SERVER_ADDRESS = "http://transit.hostizzo.com/mtd/" + API_VERSION + "/";
+	public static final String FALLBACK_SERVER_ADDRESS = "http://transit.byethost14.com/mtd/" + API_VERSION + "/";
 
 	// The number of trials before using fallback server
 	private static final int FALLBACK_TRIALS = 3;

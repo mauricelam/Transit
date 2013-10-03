@@ -60,7 +60,23 @@ public class UpdateAggregator {
 		}
 	}
 
-	private void destroy() {
+    public static boolean updateSchedule() {
+        if (instance != null) {
+            instance.executeSchedule();
+            return true;
+        } else {
+            Log.w(TAG, "update failed: instance is null");
+            return false;
+        }
+    }
+
+    public static void destroyInstance() {
+        if (instance != null) {
+            instance.destroy();
+        }
+    }
+
+	public void destroy() {
         data = null;
 		instance = null;
 		// Log.i(TAG, "Update aggregator destroyed");
@@ -97,7 +113,9 @@ public class UpdateAggregator {
         } else {
             Log.w(TAG, "jObj is null");
         }
+	}
 
+    private void executeSchedule () {
         // schedules
         for (UpdateRequest request : schedules) {
             try {
@@ -114,9 +132,7 @@ public class UpdateAggregator {
                 e.printStackTrace();
             }
         }
-
-		destroy();
-	}
+    }
 
 	private Stop getStopFromJSON(JSONObject jObj) throws JSONException {
         return Stop.stopFromJSON(jObj.getJSONObject("s"));

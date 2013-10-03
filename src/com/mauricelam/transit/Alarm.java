@@ -7,6 +7,7 @@ import android.app.PendingIntent;
 import android.content.Context;
 import android.content.Intent;
 
+import java.util.Calendar;
 import java.util.Date;
 import java.util.Formatter;
 
@@ -69,8 +70,8 @@ public class Alarm {
 	private void createNotification(String shortString, Route route) {
 		Context context = TransitApplication.getContext();
 		// Get the formatted string of the time of the route
-		Date arrive = new Date();
-		arrive.setMinutes(arrive.getMinutes() + route.getMins());
+        Calendar arrive = Calendar.getInstance();
+        arrive.set(Calendar.MINUTE, arrive.get(Calendar.MINUTE) + route.getMins());
 		Formatter formatter = new Formatter();
 		String arriveTime = formatter.format("%tH:%tM", arrive, arrive).toString();
 		formatter.close();

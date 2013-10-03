@@ -33,13 +33,14 @@ public class Locator {
 				return;
 			}
 			// suggest through best fix if nothing is available yet
-			if (nearbyStops == null) {
-				GeoPoint bestFix = locationToGeoPoint(getBestHistory());
-				if (bestFix != null) {
-					suggestStops(bestFix);
-				} else
-					Log.w(TAG, "best fix is null");
-			}
+            // Don't do this because this will all allstops twice
+//			if (nearbyStops == null) {
+//				GeoPoint bestFix = locationToGeoPoint(getBestHistory());
+//				if (bestFix != null) {
+//					suggestStops(bestFix);
+//				} else
+//					Log.w(TAG, "best fix is null");
+//			}
 			try {
 				locationManager.requestLocationUpdates(LocationManager.NETWORK_PROVIDER, 0, 0,
 						locationListener);
@@ -65,6 +66,7 @@ public class Locator {
 
 		@Override
 		protected Stop[] doInBackground(GeoPoint... locations) {
+            Log.v(TAG, "Locator update db");
             StopDatabase db = StopDatabase.sharedInstance();
             db.updateFromServer();
             return db.getNearby(locations[0], 2);
@@ -90,28 +92,28 @@ public class Locator {
 		return location;
 	}
 
-	private GeoPoint locationToGeoPoint(Location l) {
-		if (l == null)
-			return null;
-		int lat = (int) (l.getLatitude() * 1E6);
-		int lng = (int) (l.getLongitude() * 1E6);
-		return new GeoPoint(lat, lng);
-	}
-
-	private Location getBestHistory() {
-		Location gpsLocation = locationManager.getLastKnownLocation(LocationManager.GPS_PROVIDER);
-		Location netLocation = locationManager
-				.getLastKnownLocation(LocationManager.NETWORK_PROVIDER);
-		if (gpsLocation == null)
-			return netLocation;
-		if (netLocation == null)
-			return gpsLocation;
-		if (System.currentTimeMillis() - gpsLocation.getTime() < 300000) {
-			return gpsLocation;
-		} else {
-			return netLocation;
-		}
-	}
+//	private GeoPoint locationToGeoPoint(Location l) {
+//		if (l == null)
+//			return null;
+//		int lat = (int) (l.getLatitude() * 1E6);
+//		int lng = (int) (l.getLongitude() * 1E6);
+//		return new GeoPoint(lat, lng);
+//	}
+//
+//	private Location getBestHistory() {
+//		Location gpsLocation = locationManager.getLastKnownLocation(LocationManager.GPS_PROVIDER);
+//		Location netLocation = locationManager
+//				.getLastKnownLocation(LocationManager.NETWORK_PROVIDER);
+//		if (gpsLocation == null)
+//			return netLocation;
+//		if (netLocation == null)
+//			return gpsLocation;
+//		if (System.currentTimeMillis() - gpsLocation.getTime() < 300000) {
+//			return gpsLocation;
+//		} else {
+//			return netLocation;
+//		}
+//	}
 
 	private LocationListener locationListener = new LocationListener() {
 

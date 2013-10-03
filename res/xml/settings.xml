@@ -13,11 +13,11 @@
             android:title="Nearby Stops" >
         </CheckBoxPreference>
         <CheckBoxPreference
-            android:defaultValue="false"
-            android:key="backgroundupdate"
-            android:summaryOff="Background update disabled"
-            android:summaryOn="Background update on WiFi"
-            android:title="Background Update" />
+                android:defaultValue="false"
+                android:key="backgroundupdate"
+                android:summaryOff="Background update disabled"
+                android:summaryOn="Background update on WiFi"
+                android:title="Background Update" />
         <CheckBoxPreference
             android:defaultValue="true"
             android:key="showmaps"

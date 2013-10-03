@@ -5,6 +5,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
+import android.os.SystemClock;
 import android.util.Log;
 
 public class UpdateService extends IntentService {
@@ -13,6 +14,7 @@ public class UpdateService extends IntentService {
 	public static final int UPDATESTARTED = 1;
 	public static final int UPDATECOMPLETE = 2;
 	public static final int UPDATEERROR = 3;
+    public static final int UPDATENEXTSTEP = 4;
 	public static final String UPDATEDACTION = "com.mauricelam.transit.actions.UPDATED";
 
 	public UpdateService() {
@@ -21,40 +23,62 @@ public class UpdateService extends IntentService {
 
 	@Override
 	protected void onHandleIntent(Intent intent) {
-		boolean forced = intent.getBooleanExtra("forced", false);
-        Log.v(TAG, "Update service intent received, forced: " + forced);
-        updateModel(forced);
+        int cardIndex = intent.getIntExtra("cardIndex", -1);
+        if (cardIndex == -1) {
+            boolean forced = intent.getBooleanExtra("forced", false);
+            Log.v(TAG, "Update service intent received, forced: " + forced);
+            updateAllModels(forced);
+        } else {
+            Log.v(TAG, "Update single card");
+            updateSingleModel(cardIndex);
+        }
 	}
 
-	private void updateModel(boolean forced) {
-		Log.v(TAG, "Updating models");
-
-        Log.e(TAG, "Update model through service");
+	private void updateAllModels(boolean forced) {
+		Log.v(TAG, "Updating models through service");
 
 		/** Wifi is not availble **/
 		if (Updater.inBackground && !isWifiAvailable()) {
 			Log.w(TAG, "Wifi not available. Update aborted");
-			Intent intent = getStatusIntent(UPDATEERROR);
-			intent.putExtra("forced", forced);
-			sendBroadcast(intent);
+			sendBroadcast(getStatusIntent(UPDATEERROR, -1, forced));
 			return; // only update on WiFi
 		}
 
 		/** Wifi is available **/
 		int cardCount = Pref.getInt("com.mauricelam.transit.Cards.cardCount", 0);
 		long refreshInterval = getRefreshInterval();
-		long timeTolerance = (forced) ? 0 : refreshInterval / 2;
+		long timeTolerance = (forced) ? 0 : refreshInterval * 3 / 4;
 		for (int i = 0; i < cardCount; i++) {
 			StopwatchModel.commitRefreshData(this, i, timeTolerance);
 		}
-		sendBroadcast(getStatusIntent(UPDATESTARTED));
+		sendBroadcast(getStatusIntent(UPDATESTARTED, -1));
 		UpdateAggregator.update();
-		sendBroadcast(getStatusIntent(UPDATECOMPLETE));
+        sendBroadcast(getStatusIntent(UPDATENEXTSTEP, -1));
+//        SystemClock.sleep(1000);
+        UpdateAggregator.updateSchedule();
+        UpdateAggregator.destroyInstance();
+		sendBroadcast(getStatusIntent(UPDATECOMPLETE, -1));
 	}
 
-	private Intent getStatusIntent(int statusCode) {
+    private void updateSingleModel(int cardIndex) {
+        StopwatchModel.commitRefreshData(this, cardIndex, 0);
+        sendBroadcast(getStatusIntent(UPDATESTARTED, cardIndex));
+        UpdateAggregator.update();
+        sendBroadcast(getStatusIntent(UPDATENEXTSTEP, cardIndex));
+        UpdateAggregator.updateSchedule();
+        UpdateAggregator.destroyInstance();
+        sendBroadcast(getStatusIntent(UPDATECOMPLETE, cardIndex));
+    }
+
+    private Intent getStatusIntent(int statusCode, int cardIndex) {
+        return getStatusIntent(statusCode, cardIndex, false);
+    }
+
+	private Intent getStatusIntent(int statusCode, int cardIndex, boolean forced) {
 		Intent broadcastIntent = new Intent(UPDATEDACTION);
 		broadcastIntent.putExtra("updateStatus", statusCode);
+        broadcastIntent.putExtra("cardIndex", cardIndex);
+        broadcastIntent.putExtra("forced", forced);
 		return broadcastIntent;
 	}
 
@@ -66,12 +90,7 @@ public class UpdateService extends IntentService {
 	}
 
 	private static long getRefreshInterval() {
-		if (Updater.inBackground) {
-			String bgInterval = Pref.getString("backgroundInterval", "30");
-			return Integer.valueOf(bgInterval) * 60000;
-		} else {
-			return Pref.getInt("foregroundInterval", 1) * 60000;
-		}
+		return Pref.getInt("foregroundInterval", 1) * 60000;
 	}
 
 }
