@@ -38,8 +38,10 @@
     <color name="darken">#11000033</color>
     <color name="lighten">#55DDDDFF</color>
     <color name="darkgrey">#FF333333</color>
+    <color name="searchBg">#FF111111</color>
     <style name="Stopsearch" parent="android:style/Theme.NoTitleBar">
-        <item name="android:windowBackground">@drawable/searchwood_repeat</item>
+        <item name="android:windowBackground">@color/searchBg</item>
     </style>
     <color name="lighten_white">#55DDDDDD</color>
+    <color name="background_gray">#FF333333</color>
 </resources>

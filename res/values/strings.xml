@@ -39,7 +39,6 @@
     <string name="s_unknown">Unknown</string>
     <string name="menu_cards">Cards</string>
     <string name="stopsearch_back">&lt; Back</string>
-    <color name="background_gray">#FF333333</color>
     <string-array name="bg_interval">
         <item >15 minutes</item>
         <item >30 minutes</item>
