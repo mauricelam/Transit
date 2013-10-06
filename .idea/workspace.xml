@@ -44,24 +44,18 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="51d1c76c-de3e-4078-b4de-2b1dd0a268dd" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/res/drawable/searchwood.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/res/drawable/searchwood_repeat.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/res/layout/placesmap2.xml" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/res/drawable/divider_dark.bmp" afterPath="$PROJECT_DIR$/res/drawable/divider_dark.bmp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/res/layout/stopsearch.xml" afterPath="$PROJECT_DIR$/res/layout/stopsearch.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/res/values/strings.xml" afterPath="$PROJECT_DIR$/res/values/strings.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/res/values/styles.xml" afterPath="$PROJECT_DIR$/res/values/styles.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/AndroidManifest.xml" afterPath="$PROJECT_DIR$/AndroidManifest.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="Transit.iws" />
     <ignored path=".idea/workspace.xml" />
     <file path="/fragment.java" changelist="51d1c76c-de3e-4078-b4de-2b1dd0a268dd" time="1380782671696" ignored="false" />
     <file path="/Connector.java" changelist="51d1c76c-de3e-4078-b4de-2b1dd0a268dd" time="1367793949509" ignored="false" />
-    <file path="/a.dummy" changelist="51d1c76c-de3e-4078-b4de-2b1dd0a268dd" time="1362726259513" ignored="false" />
-    <file path="/*.regexp" changelist="51d1c76c-de3e-4078-b4de-2b1dd0a268dd" time="1380658802741" ignored="false" />
+    <file path="/a.dummy" changelist="51d1c76c-de3e-4078-b4de-2b1dd0a268dd" time="1381091469784" ignored="false" />
+    <file path="/*.regexp" changelist="51d1c76c-de3e-4078-b4de-2b1dd0a268dd" time="1381091460172" ignored="false" />
     <file path="/StopwatchModel.java" changelist="51d1c76c-de3e-4078-b4de-2b1dd0a268dd" time="1363906500455" ignored="false" />
     <file path="/UpdateAggregator.java" changelist="51d1c76c-de3e-4078-b4de-2b1dd0a268dd" time="1380610135802" ignored="false" />
-    <file path="/Dummy.txt" changelist="51d1c76c-de3e-4078-b4de-2b1dd0a268dd" time="1380855276690" ignored="false" />
+    <file path="/Dummy.txt" changelist="51d1c76c-de3e-4078-b4de-2b1dd0a268dd" time="1381091400008" ignored="false" />
     <file path="/Helper.java" changelist="51d1c76c-de3e-4078-b4de-2b1dd0a268dd" time="1369291641998" ignored="false" />
     <file path="/Route.java" changelist="51d1c76c-de3e-4078-b4de-2b1dd0a268dd" time="1368068319529" ignored="false" />
     <file path="/StopWatchDBHelper.java" changelist="51d1c76c-de3e-4078-b4de-2b1dd0a268dd" time="1363681273044" ignored="false" />
@@ -128,16 +122,17 @@
     <file path="/route_bubble.xml" changelist="51d1c76c-de3e-4078-b4de-2b1dd0a268dd" time="1368049351811" ignored="false" />
     <file path="/LocationListModel.java" changelist="51d1c76c-de3e-4078-b4de-2b1dd0a268dd" time="1380729900869" ignored="false" />
     <file path="$PROJECT_DIR$/../BetterMaps2/project.properties" changelist="51d1c76c-de3e-4078-b4de-2b1dd0a268dd" time="1380779988830" ignored="false" />
-    <file path="$PROJECT_DIR$/../BetterMaps2/gen/com/mauricelam/bettermaps/BuildConfig.java" changelist="51d1c76c-de3e-4078-b4de-2b1dd0a268dd" time="1380827052956" ignored="false" />
+    <file path="$PROJECT_DIR$/../BetterMaps2/gen/com/mauricelam/bettermaps/BuildConfig.java" changelist="51d1c76c-de3e-4078-b4de-2b1dd0a268dd" time="1381091424722" ignored="false" />
     <file path="$PROJECT_DIR$/../android-mapviewballoons/gen/com/readystatesoftware/mapviewballoons/R.java" changelist="51d1c76c-de3e-4078-b4de-2b1dd0a268dd" time="1380779989783" ignored="false" />
     <file path="$PROJECT_DIR$/../android-mapviewballoons/gen/com/readystatesoftware/mapviewballoons/Manifest.java" changelist="51d1c76c-de3e-4078-b4de-2b1dd0a268dd" time="1380779989783" ignored="false" />
-    <file path="/PageControl.java" changelist="51d1c76c-de3e-4078-b4de-2b1dd0a268dd" time="1380780558279" ignored="false" />
-    <file path="$PROJECT_DIR$/../android-mapviewballoons/gen/com/readystatesoftware/mapviewballoons/BuildConfig.java" changelist="51d1c76c-de3e-4078-b4de-2b1dd0a268dd" time="1380827052956" ignored="false" />
-    <file path="$PROJECT_DIR$/../MultiFingerGestureDetector2/gen/com/mauricelam/multifingergesturedetector/BuildConfig.java" changelist="51d1c76c-de3e-4078-b4de-2b1dd0a268dd" time="1380827052955" ignored="false" />
-    <file path="$PROJECT_DIR$/gen/com/mauricelam/transit/BuildConfig.java" changelist="51d1c76c-de3e-4078-b4de-2b1dd0a268dd" time="1380827052956" ignored="false" />
-    <file path="$PROJECT_DIR$/../SwitchCompatLibrary/gen/de/ankri/BuildConfig.java" changelist="51d1c76c-de3e-4078-b4de-2b1dd0a268dd" time="1380827052956" ignored="false" />
-    <file path="$PROJECT_DIR$/../MoreViews/gen/com/mauricelam/moreviews/BuildConfig.java" changelist="51d1c76c-de3e-4078-b4de-2b1dd0a268dd" time="1380827052956" ignored="false" />
+    <file path="/PageControl.java" changelist="51d1c76c-de3e-4078-b4de-2b1dd0a268dd" time="1381091465913" ignored="false" />
+    <file path="$PROJECT_DIR$/../android-mapviewballoons/gen/com/readystatesoftware/mapviewballoons/BuildConfig.java" changelist="51d1c76c-de3e-4078-b4de-2b1dd0a268dd" time="1381091424722" ignored="false" />
+    <file path="$PROJECT_DIR$/../MultiFingerGestureDetector2/gen/com/mauricelam/multifingergesturedetector/BuildConfig.java" changelist="51d1c76c-de3e-4078-b4de-2b1dd0a268dd" time="1381091424722" ignored="false" />
+    <file path="$PROJECT_DIR$/../SwitchCompatLibrary/gen/de/ankri/BuildConfig.java" changelist="51d1c76c-de3e-4078-b4de-2b1dd0a268dd" time="1381091424722" ignored="false" />
+    <file path="$PROJECT_DIR$/../MoreViews/gen/com/mauricelam/moreviews/BuildConfig.java" changelist="51d1c76c-de3e-4078-b4de-2b1dd0a268dd" time="1381091424722" ignored="false" />
     <file path="/stopsearch.xml" changelist="51d1c76c-de3e-4078-b4de-2b1dd0a268dd" time="1380900217652" ignored="false" />
+    <file path="$PROJECT_DIR$/gen/com/mauricelam/transit/BuildConfig.java" changelist="51d1c76c-de3e-4078-b4de-2b1dd0a268dd" time="1381091424722" ignored="false" />
+    <file path="$PROJECT_DIR$/../../android-sdk-macosx/extras/google/google_play_services/libproject/google-play-services_lib/gen/com/google/android/gms/BuildConfig.java" changelist="51d1c76c-de3e-4078-b4de-2b1dd0a268dd" time="1381091424722" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -160,8 +155,6 @@
     <disable_hints />
   </component>
   <component name="DebuggerManager">
-    <line_breakpoints default_suspend_policy="SuspendAll" default_condition_enabled="true" />
-    <ui_properties default_suspend_policy="SuspendAll" default_condition_enabled="true" />
     <breakpoint_any default_suspend_policy="SuspendAll" default_condition_enabled="true">
       <breakpoint>
         <option name="NOTIFY_CAUGHT" value="true" />
@@ -198,6 +191,8 @@
         <option name="LOG_MESSAGE" value="" />
       </breakpoint>
     </breakpoint_any>
+    <line_breakpoints default_suspend_policy="SuspendAll" default_condition_enabled="true" />
+    <ui_properties default_suspend_policy="SuspendAll" default_condition_enabled="true" />
     <breakpoint_rules />
     <ui_properties />
   </component>
@@ -207,22 +202,10 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="stopsearch.xml" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/res/layout/stopsearch.xml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="60" column="31" selection-start="2193" selection-end="2193" vertical-scroll-proportion="0.44341803">
-              <folding />
-            </state>
-          </provider>
-          <provider editor-type-id="android-designer">
-            <state />
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="styles.xml" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="styles.xml" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/res/values/styles.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="40" column="36" selection-start="1955" selection-end="1955" vertical-scroll-proportion="0.0">
+            <state line="26" column="107" selection-start="1306" selection-end="1306" vertical-scroll-proportion="0.57939917">
               <folding />
             </state>
           </provider>
@@ -258,13 +241,11 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/AndroidManifest.xml" />
         <option value="$PROJECT_DIR$/src/com/mauricelam/transit/LocationListModel.java" />
         <option value="$PROJECT_DIR$/src/com/mauricelam/transit/Cards.java" />
         <option value="$PROJECT_DIR$/src/com/mauricelam/transit/Locator.java" />
         <option value="$PROJECT_DIR$/src/com/mauricelam/transit/RouteDialog.java" />
         <option value="$PROJECT_DIR$/src/com/mauricelam/transit/Alarm.java" />
-        <option value="$PROJECT_DIR$/../MoreViews/src/com/mauricelam/moreviews/PageControl.java" />
         <option value="$PROJECT_DIR$/src/com/mauricelam/transit/Settings.java" />
         <option value="$PROJECT_DIR$/src/include/Http.java" />
         <option value="$PROJECT_DIR$/res/xml/flags.xml" />
@@ -274,6 +255,8 @@
         <option value="$PROJECT_DIR$/res/values/strings.xml" />
         <option value="$PROJECT_DIR$/res/values/styles.xml" />
         <option value="$PROJECT_DIR$/res/layout/stopsearch.xml" />
+        <option value="$PROJECT_DIR$/../MoreViews/src/com/mauricelam/moreviews/PageControl.java" />
+        <option value="$PROJECT_DIR$/AndroidManifest.xml" />
       </list>
     </option>
   </component>
@@ -282,7 +265,7 @@
   </component>
   <component name="ProjectFrameBounds">
     <option name="y" value="22" />
-    <option name="width" value="1420" />
+    <option name="width" value="1440" />
     <option name="height" value="848" />
   </component>
   <component name="ProjectInspectionProfilesVisibleTreeState">
@@ -381,41 +364,6 @@
       <sortByType />
     </navigator>
     <panes>
-      <pane id="Scope" />
-      <pane id="PackagesPane">
-        <subPane>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Transit" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Transit" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageViewModuleNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Transit" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Transit" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageViewModuleNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="com.mauricelam.transit" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageElementNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Transit" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageViewProjectNode" />
-            </PATH_ELEMENT>
-          </PATH>
-        </subPane>
-      </pane>
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -500,6 +448,41 @@
           </PATH>
         </subPane>
       </pane>
+      <pane id="Scope" />
+      <pane id="PackagesPane">
+        <subPane>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Transit" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Transit" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageViewModuleNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Transit" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Transit" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageViewModuleNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="com.mauricelam.transit" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageElementNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Transit" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageViewProjectNode" />
+            </PATH_ELEMENT>
+          </PATH>
+        </subPane>
+      </pane>
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -508,7 +491,7 @@
     <property name="OverrideImplement.combined" value="false" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="options.splitter.main.proportions" value="0.30000004" />
-    <property name="ExportedApkPath" value="$PROJECT_DIR$/Transit_2.10_rc1.apk" />
+    <property name="ExportedApkPath" value="$PROJECT_DIR$/Transit_2.11_rc1.apk" />
     <property name="MemberChooser.sorted" value="false" />
     <property name="recentsLimit" value="5" />
     <property name="options.lastSelected" value="reference.settingsdialog.IDE.editor.colors.Android Logcat" />
@@ -762,25 +745,25 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="22" width="1420" height="848" extended-state="0" />
+    <frame x="0" y="22" width="1440" height="848" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32967034" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="JetGradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32969433" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24635568" sideWeight="0.6" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32969433" sideWeight="0.6703297" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.30958903" sideWeight="0.4970888" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3997253" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32967034" sideWeight="0.5058224" order="11" side_tool="true" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32967034" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32054794" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32142857" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Android" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33150685" sideWeight="0.496361" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3260274" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32969433" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.23289666" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.21501458" sideWeight="0.6703297" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.21162124" sideWeight="0.6785714" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32967034" sideWeight="0.49417758" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32969433" sideWeight="0.6703297" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.19213974" sideWeight="0.68406594" order="3" side_tool="false" content_ui="tabs" />
@@ -788,8 +771,8 @@
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.20887919" sideWeight="0.6703297" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.20378457" sideWeight="0.68406594" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24635568" sideWeight="0.6" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.31456044" sideWeight="0.4970888" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Dependency Viewer" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32967034" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4010989" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
     </layout>
@@ -862,16 +845,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/res/xml/flags.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="17" column="49" selection-start="738" selection-end="738" vertical-scroll-proportion="0.59130436" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/mauricelam/transit/Connector.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="199" column="32" selection-start="6588" selection-end="6588" vertical-scroll-proportion="6.53913" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/res/drawable-mdpi/search.png">
       <provider selected="true" editor-type-id="images">
         <state />
@@ -928,30 +901,44 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/res/layout/placesmap.xml">
+      <provider editor-type-id="android-designer">
+        <state />
+      </provider>
       <provider selected="true" editor-type-id="text-editor">
         <state line="33" column="23" selection-start="1301" selection-end="1301" vertical-scroll-proportion="0.7975831">
           <folding />
         </state>
       </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/res/layout/stopsearch.xml">
       <provider editor-type-id="android-designer">
         <state />
+      </provider>
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="61" column="55" selection-start="2204" selection-end="2204" vertical-scroll-proportion="0.43239227">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../MoreViews/src/com/mauricelam/moreviews/PageControl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="387" column="49" selection-start="10512" selection-end="10512" vertical-scroll-proportion="0.6302521">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/AndroidManifest.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="12" column="64" selection-start="488" selection-end="488" vertical-scroll-proportion="0.41201717">
+          <folding />
+        </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/res/values/styles.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="40" column="36" selection-start="1955" selection-end="1955" vertical-scroll-proportion="0.0">
+        <state line="26" column="107" selection-start="1306" selection-end="1306" vertical-scroll-proportion="0.57939917">
           <folding />
         </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/res/layout/stopsearch.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="60" column="31" selection-start="2193" selection-end="2193" vertical-scroll-proportion="0.44341803">
-          <folding />
-        </state>
-      </provider>
-      <provider editor-type-id="android-designer">
-        <state />
       </provider>
     </entry>
   </component>
