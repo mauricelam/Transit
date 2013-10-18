@@ -52,21 +52,31 @@ public class UpdateService extends IntentService {
 			StopwatchModel.commitRefreshData(this, i, timeTolerance);
 		}
 		sendBroadcast(getStatusIntent(UPDATESTARTED, -1));
-		UpdateAggregator.update();
+        UpdateAggregator aggregator = UpdateAggregator.getInstance();
+        if (aggregator == null) {
+            sendBroadcast(getStatusIntent(UPDATEERROR, -1));
+            return;
+        }
+        aggregator.execute();
         sendBroadcast(getStatusIntent(UPDATENEXTSTEP, -1));
 //        SystemClock.sleep(1000);
-        UpdateAggregator.updateSchedule();
-        UpdateAggregator.destroyInstance();
+        aggregator.executeSchedule();
+        aggregator.destroy();
 		sendBroadcast(getStatusIntent(UPDATECOMPLETE, -1));
 	}
 
     private void updateSingleModel(int cardIndex) {
         StopwatchModel.commitRefreshData(this, cardIndex, 0);
         sendBroadcast(getStatusIntent(UPDATESTARTED, cardIndex));
-        UpdateAggregator.update();
+        UpdateAggregator aggregator = UpdateAggregator.getInstance();
+        if (aggregator == null) {
+            sendBroadcast(getStatusIntent(UPDATEERROR, -1));
+            return;
+        }
+        aggregator.execute();
         sendBroadcast(getStatusIntent(UPDATENEXTSTEP, cardIndex));
-        UpdateAggregator.updateSchedule();
-        UpdateAggregator.destroyInstance();
+        aggregator.executeSchedule();
+        aggregator.destroy();
         sendBroadcast(getStatusIntent(UPDATECOMPLETE, cardIndex));
     }
 

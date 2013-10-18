@@ -153,12 +153,6 @@ public class Card extends ListFragment implements CardModel.CardDelegate {
 	@Override
 	public void onResume() {
 		super.onResume();
-		// StopMapImageView map = (StopMapImageView)
-		// root.findViewById(R.id.map);
-		// int visibility = (Pref.getBoolean(this.context, "showmaps", true)) ?
-		// View.VISIBLE
-		// : View.GONE;
-		// map.setVisibility(visibility);
 		mHandler.removeCallbacks(updateTask);
 		mHandler.postDelayed(updateTask, RELOAD_FREQUENCY);
 	}
@@ -358,7 +352,6 @@ public class Card extends ListFragment implements CardModel.CardDelegate {
 			res = R.drawable.card_background_search;
 			bookmarkRes = R.drawable.bookmark_inactive;
 		}
-		// View layout = root.findViewById(R.id.card_linearlayout);
 		ImageView background = (ImageView) root.findViewById(R.id.background);
 		background.setImageResource(res);
 		ImageView bookmark = (ImageView) root.findViewById(R.id.bookmark);
@@ -438,9 +431,15 @@ public class Card extends ListFragment implements CardModel.CardDelegate {
 	private void refreshListVisibility() {
 		int visibility = (cardModel.getListVisibility()) ? View.VISIBLE : View.GONE;
 		if (list == null) {
-			list = getListView();
+            try {
+                list = getListView();
+            } catch (Exception e) {
+                // do nothing
+            }
 		}
-		list.setVisibility(visibility);
+        if (list != null) {
+            list.setVisibility(visibility);
+        }
 	}
 
 	private void refreshLoadBoxVisibility() {
@@ -514,7 +513,6 @@ public class Card extends ListFragment implements CardModel.CardDelegate {
 			if (cardModel != null && cardModel.getModel() != null) {
 				Route[] routes = cardModel.getModel().getRoutes();
 				if (position < 0 || position > routes.length) {
-//					Helper.createToast(context, "Cannot create alarm");
 					return;
 				}
                 Route route = routes[position - 1];

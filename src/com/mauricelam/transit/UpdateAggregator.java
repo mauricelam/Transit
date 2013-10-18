@@ -37,8 +37,8 @@ public class UpdateAggregator {
 
 	public UpdateAggregator() {
 		// Log.v(TAG, "Update Aggregator created");
-        data = new ArrayList<UpdateRequest>();
-        schedules = new ArrayList<UpdateRequest>();
+        data = new ArrayList<>();
+        schedules = new ArrayList<>();
 	}
 
 	public void addStop(int stopCode, String referrer, UpdateCompleteHandler callback) {
@@ -50,31 +50,34 @@ public class UpdateAggregator {
         schedules.add(new UpdateRequest(stopCode, referrer, callback));
     }
 
-	public static boolean update() {
-		if (instance != null) {
-			instance.execute();
-			return true;
-		} else {
-			Log.w(TAG, "update failed: instance is null");
-			return false;
-		}
-	}
+//	public static boolean update() {
+//
+//        Log.d(TAG, Log.getStackTraceString(new Exception()));
+//        if (instance != null) {
+//            instance.execute();
+//            instance = null;
+//            return true;
+//        } else {
+//            Log.w(TAG, "update failed: instance is null");
+//            return false;
+//        }
+//    }
 
-    public static boolean updateSchedule() {
-        if (instance != null) {
-            instance.executeSchedule();
-            return true;
-        } else {
-            Log.w(TAG, "update failed: instance is null");
-            return false;
-        }
-    }
-
-    public static void destroyInstance() {
-        if (instance != null) {
-            instance.destroy();
-        }
-    }
+//    public static boolean updateSchedule() {
+//        if (instance != null) {
+//            instance.executeSchedule();
+//            return true;
+//        } else {
+//            Log.w(TAG, "update failed: instance is null");
+//            return false;
+//        }
+//    }
+//
+//    public static void destroyInstance() {
+//        if (instance != null) {
+//            instance.destroy();
+//        }
+//    }
 
 	public void destroy() {
         data = null;
@@ -82,7 +85,7 @@ public class UpdateAggregator {
 		// Log.i(TAG, "Update aggregator destroyed");
 	}
 
-	private void execute() {
+	public void execute() {
 		// pre execute
 		for (UpdateRequest request : data) {
 			request.callback.onPreExecute();
@@ -115,7 +118,7 @@ public class UpdateAggregator {
         }
 	}
 
-    private void executeSchedule () {
+    public void executeSchedule () {
         // schedules
         for (UpdateRequest request : schedules) {
             try {
