@@ -17,17 +17,17 @@ public class AlarmController {
 		return instance;
 	}
 	
-	public void addAlarm (Route route) {
-        if (hasAlarm(route)) return;
+	public boolean setAlarm(Route route, final int timeAhead) {
+        if (hasAlarm(route)) removeAlarm(route);
 
         Context context = TransitApplication.getContext();
-        final int timeAhead = Pref.getInt("alarmAhead", 5);
         if (route.getMins() <= timeAhead) {
-            Helper.createToast(context, "We give alarms " + timeAhead + " minutes ahead :-)");
-            return;
+            Helper.createToast(context, "The bus is coming in less than " + timeAhead + " minutes");
+            return false;
         }
-		Alarm alarm = new Alarm(route);
+		Alarm alarm = new Alarm(route, timeAhead);
         alarms.put(route.getTrip(), alarm);
+        return true;
 	}
 
     public void removeAlarm (Route route) {
@@ -44,12 +44,9 @@ public class AlarmController {
     public boolean hasAlarm (Route route) {
         return alarms.containsKey(route.getTrip());
     }
-	
-//	public Alarm getAlarm () {
-//		return alarm;
-//	}
-	
-//	public void clearAlarm () {
-//		alarm = null;
-//	}
+
+    public Alarm getAlarm (Route route) {
+        return alarms.get(route.getTrip());
+    }
+
 }

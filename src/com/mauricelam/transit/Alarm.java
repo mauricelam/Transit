@@ -23,6 +23,7 @@ public class Alarm {
 
     private PendingIntent alarmPendingIntent;
     private Route route;
+    private int timeAhead;
 
 	/**
 	 * Constructor for an alarm. The factory method createAlarm should be called
@@ -31,12 +32,12 @@ public class Alarm {
 	 * @param route
 	 *            The route the alarm is for
 	 */
-	public Alarm(Route route) {
+	public Alarm(Route route, int timeAhead) {
         this.route = route;
+        this.timeAhead = timeAhead;
 		Context context = TransitApplication.getContext();
-		final int timeAhead = Pref.getInt("alarmAhead", 5);
 		// intent to do when alarm is invoked
-        alarmPendingIntent = createAlarmPendingIntent(route);
+        alarmPendingIntent = createAlarmPendingIntent(route, timeAhead);
         long triggerTime = route.getArrival().getTime() - (timeAhead * 60000);
 		AlarmManager am = (AlarmManager) context.getSystemService(Context.ALARM_SERVICE);
 		am.set(AlarmManager.RTC_WAKEUP, triggerTime, alarmPendingIntent);
@@ -52,12 +53,13 @@ public class Alarm {
         nm.cancel(route.getTrip(), ALARMEXISTID);
     }
 
-	private static PendingIntent createAlarmPendingIntent(Route route) {
+	private static PendingIntent createAlarmPendingIntent(Route route, int timeAhead) {
 		Context context = TransitApplication.getContext();
 		Intent alarmIntent = new Intent(context, AlarmReceiver.class);
 		alarmIntent.setAction(Intent.ACTION_INSERT);
         alarmIntent.putExtra("routeName", route.getName());
         alarmIntent.putExtra("routeTrip", route.getTrip());
+        alarmIntent.putExtra("timeAhead", timeAhead);
         return PendingIntent.getBroadcast(context, 0, alarmIntent, 0);
 	}
 
@@ -95,4 +97,8 @@ public class Alarm {
 		notification.flags |= Notification.FLAG_ONGOING_EVENT;
 		nm.notify(route.getTrip(), ALARMEXISTID, notification);
 	}
+
+    public int getTimeAhead() {
+        return this.timeAhead;
+    }
 }

@@ -3,6 +3,7 @@ package include;
 import android.content.Context;
 import android.content.res.Resources;
 import android.graphics.Color;
+import android.os.Handler;
 import android.util.DisplayMetrics;
 import android.util.Log;
 import android.util.TypedValue;
@@ -167,5 +168,11 @@ public class Helper {
             Log.w("Transit URL encode", "Unsupported encoding: " + e.getMessage());
             return def;
         }
+    }
+
+    public static Handler setTimeout(Runnable runnable, int timeout) {
+        Handler handler = new Handler();
+        handler.postDelayed(runnable, timeout);
+        return handler;
     }
 }

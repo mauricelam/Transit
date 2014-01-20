@@ -41,11 +41,12 @@ public class AlarmReceiver extends BroadcastReceiver {
 			removeNotification(nm);
             String routeTrip = intent.getStringExtra("routeTrip");
 			String routeName = intent.getStringExtra("routeName");
+            int timeAhead = intent.getIntExtra("timeAhead", 0);
 			if (Pref.getBoolean("obtrusive", false))
-				startObtrusiveAlert(context, routeName);
-			createNotification(context, nm, routeName);
+				startObtrusiveAlert(context, routeName, timeAhead);
+			createNotification(context, nm, routeName, timeAhead);
             AlarmController.sharedInstance().removeAlarm(routeTrip);
-			setRemoveNotification(context);
+			setRemoveNotification(context, timeAhead);
 		}
 	}
 
@@ -53,9 +54,10 @@ public class AlarmReceiver extends BroadcastReceiver {
 	 * Starts the activity of the popup dialog to make sure the user does not
 	 * miss the bus.
 	 */
-	private void startObtrusiveAlert(Context context, String routeName) {
+	private void startObtrusiveAlert(Context context, String routeName, int timeAhead) {
 		Intent intent = new Intent(context, AlarmNotification.class);
 		intent.putExtra("routeName", routeName);
+        intent.putExtra("timeAhead", timeAhead);
 		intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
 		intent.addFlags(Intent.FLAG_ACTIVITY_MULTIPLE_TASK);
 		context.startActivity(intent);
@@ -73,26 +75,21 @@ public class AlarmReceiver extends BroadcastReceiver {
 	 * minutes after the broadcast is received. This is done by sending another
 	 * broadcast to this class with ACTION_DELETE.
 	 */
-	private void setRemoveNotification(Context context) {
+	private void setRemoveNotification(Context context, int timeAhead) {
 		Intent alarmIntent = new Intent(context, AlarmReceiver.class);
 		alarmIntent.setAction(Intent.ACTION_DELETE);
-		PendingIntent pi = PendingIntent.getBroadcast(context, 0, alarmIntent,
-				0);
-		long triggerTime = new Date().getTime() + 60000 * Pref.getInt("alarmAhead", 5);
-		AlarmManager am = (AlarmManager) context
-				.getSystemService(Context.ALARM_SERVICE);
+		PendingIntent pi = PendingIntent.getBroadcast(context, 0, alarmIntent, 0);
+		long triggerTime = new Date().getTime() + 60000 * timeAhead;
+		AlarmManager am = (AlarmManager) context.getSystemService(Context.ALARM_SERVICE);
 		am.set(AlarmManager.RTC_WAKEUP, triggerTime, pi);
 	}
 
 	/**
 	 * Creates the notification on the status bar for the alarm.
 	 */
-	private void createNotification(Context context, NotificationManager nm, String routeName) {
-		int timeAhead = Pref.getInt("alarmAhead", 5);
-
+	private void createNotification(Context context, NotificationManager nm, String routeName, int timeAhead) {
 		Notification notification = new Notification(R.drawable.notify_alert,
-				"Bus arriving in " + timeAhead + " minutes",
-				System.currentTimeMillis());
+				"Bus arriving in " + timeAhead + " minutes", System.currentTimeMillis());
 		String contentTitle = "Bus coming in " + timeAhead + " mins";
 		String contentText = routeName;
 

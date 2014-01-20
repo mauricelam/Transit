@@ -5,8 +5,9 @@
       <filter>
         <option name="logLevel" value="verbose" />
         <option name="logMessagePattern" value="" />
-        <option name="logTagPattern" value="Transit" />
+        <option name="logTagPattern" value="" />
         <option name="name" value="Transit" />
+        <option name="packageNamePattern" value="com.mauricelam.transit" />
         <option name="pid" value="" />
       </filter>
     </filters>
@@ -16,6 +17,7 @@
       <profile>
         <option name="device" value="2.7in QVGA" />
         <option name="deviceConfiguration" value="Portrait" />
+        <option name="localeLanguage" value="en" />
         <option name="targetHashString" value="android-17" />
         <option name="theme" value="Cards" />
       </profile>
@@ -25,14 +27,14 @@
   <component name="AndroidLayoutPreviewToolWindow">
     <option name="state">
       <GlobalState>
-        <option name="device" value="2.7in QVGA" />
-        <option name="dockMode" value="" />
-        <option name="nightMode" value="notnight" />
-        <option name="targetHashString" value="android-17" />
-        <option name="theme" value="Theme" />
         <option name="visible" value="false" />
       </GlobalState>
     </option>
+  </component>
+  <component name="AndroidLayouts">
+    <shared>
+      <config />
+    </shared>
   </component>
   <component name="AndroidLogFilters">
     <option name="TOOL_WINDOW_CONFIGURED_FILTER" value="Transit" />
@@ -44,95 +46,29 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="51d1c76c-de3e-4078-b4de-2b1dd0a268dd" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/AndroidManifest.xml" afterPath="$PROJECT_DIR$/AndroidManifest.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/res/layout/spinner_dropdown_item.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/res/layout/spinner_item.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/mauricelam/transit/Alarm.java" afterPath="$PROJECT_DIR$/src/com/mauricelam/transit/Alarm.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/mauricelam/transit/AlarmController.java" afterPath="$PROJECT_DIR$/src/com/mauricelam/transit/AlarmController.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/mauricelam/transit/AlarmNotification.java" afterPath="$PROJECT_DIR$/src/com/mauricelam/transit/AlarmNotification.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/mauricelam/transit/AlarmReceiver.java" afterPath="$PROJECT_DIR$/src/com/mauricelam/transit/AlarmReceiver.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/gen/com/mauricelam/transit/BuildConfig.java" afterPath="$PROJECT_DIR$/gen/com/mauricelam/transit/BuildConfig.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/mauricelam/transit/Connector.java" afterPath="$PROJECT_DIR$/src/com/mauricelam/transit/Connector.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/include/Helper.java" afterPath="$PROJECT_DIR$/src/include/Helper.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/include/Http.java" afterPath="$PROJECT_DIR$/src/include/Http.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/mauricelam/transit/RouteDialog.java" afterPath="$PROJECT_DIR$/src/com/mauricelam/transit/RouteDialog.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Transit.iml" afterPath="$PROJECT_DIR$/Transit.iml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/mauricelam/transit/TransitApplication.java" afterPath="$PROJECT_DIR$/src/com/mauricelam/transit/TransitApplication.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/mauricelam/transit/Trip.java" afterPath="$PROJECT_DIR$/src/com/mauricelam/transit/Trip.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/modules.xml" afterPath="$PROJECT_DIR$/.idea/modules.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/project.properties" afterPath="$PROJECT_DIR$/project.properties" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/res/layout/routedialog.xml" afterPath="$PROJECT_DIR$/res/layout/routedialog.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/res/values/strings.xml" afterPath="$PROJECT_DIR$/res/values/strings.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/res/values/styles.xml" afterPath="$PROJECT_DIR$/res/values/styles.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="Transit.iws" />
     <ignored path=".idea/workspace.xml" />
-    <file path="/fragment.java" changelist="51d1c76c-de3e-4078-b4de-2b1dd0a268dd" time="1380782671696" ignored="false" />
-    <file path="/Connector.java" changelist="51d1c76c-de3e-4078-b4de-2b1dd0a268dd" time="1367793949509" ignored="false" />
-    <file path="/a.dummy" changelist="51d1c76c-de3e-4078-b4de-2b1dd0a268dd" time="1381091469784" ignored="false" />
-    <file path="/*.regexp" changelist="51d1c76c-de3e-4078-b4de-2b1dd0a268dd" time="1381091460172" ignored="false" />
-    <file path="/StopwatchModel.java" changelist="51d1c76c-de3e-4078-b4de-2b1dd0a268dd" time="1363906500455" ignored="false" />
-    <file path="/UpdateAggregator.java" changelist="51d1c76c-de3e-4078-b4de-2b1dd0a268dd" time="1380610135802" ignored="false" />
-    <file path="/Dummy.txt" changelist="51d1c76c-de3e-4078-b4de-2b1dd0a268dd" time="1381091400008" ignored="false" />
-    <file path="/Helper.java" changelist="51d1c76c-de3e-4078-b4de-2b1dd0a268dd" time="1369291641998" ignored="false" />
-    <file path="/Route.java" changelist="51d1c76c-de3e-4078-b4de-2b1dd0a268dd" time="1368068319529" ignored="false" />
-    <file path="/StopWatchDBHelper.java" changelist="51d1c76c-de3e-4078-b4de-2b1dd0a268dd" time="1363681273044" ignored="false" />
-    <file path="/StopWatchColumns.java" changelist="51d1c76c-de3e-4078-b4de-2b1dd0a268dd" time="1363675835748" ignored="false" />
-    <file path="/StopWatchDB.java" changelist="51d1c76c-de3e-4078-b4de-2b1dd0a268dd" time="1369283333203" ignored="false" />
-    <file path="/CardsDB.java" changelist="51d1c76c-de3e-4078-b4de-2b1dd0a268dd" time="1363715197795" ignored="false" />
-    <file path="/Stop.java" changelist="51d1c76c-de3e-4078-b4de-2b1dd0a268dd" time="1367803390207" ignored="false" />
-    <file path="/Updater.java" changelist="51d1c76c-de3e-4078-b4de-2b1dd0a268dd" time="1380781490363" ignored="false" />
-    <file path="/Card.java" changelist="51d1c76c-de3e-4078-b4de-2b1dd0a268dd" time="1368068388033" ignored="false" />
-    <file path="/Cards.java" changelist="51d1c76c-de3e-4078-b4de-2b1dd0a268dd" time="1380657785292" ignored="false" />
-    <file path="/StopSearchModel.java" changelist="51d1c76c-de3e-4078-b4de-2b1dd0a268dd" time="1367990797552" ignored="false" />
-    <file path="/StopDatabase.java" changelist="51d1c76c-de3e-4078-b4de-2b1dd0a268dd" time="1367821619472" ignored="false" />
-    <file path="/UpdateService.java" changelist="51d1c76c-de3e-4078-b4de-2b1dd0a268dd" time="1380610316072" ignored="false" />
-    <file path="/CardModel.java" changelist="51d1c76c-de3e-4078-b4de-2b1dd0a268dd" time="1369305206246" ignored="false" />
-    <file path="/RouteListItem.java" changelist="51d1c76c-de3e-4078-b4de-2b1dd0a268dd" time="1368068422115" ignored="false" />
-    <file path="/LocationList.java" changelist="51d1c76c-de3e-4078-b4de-2b1dd0a268dd" time="1363884716917" ignored="false" />
-    <file path="/StopSearch.java" changelist="51d1c76c-de3e-4078-b4de-2b1dd0a268dd" time="1369282844081" ignored="false" />
-    <file path="/settings.xml" changelist="51d1c76c-de3e-4078-b4de-2b1dd0a268dd" time="1363886460368" ignored="false" />
-    <file path="/Locator.java" changelist="51d1c76c-de3e-4078-b4de-2b1dd0a268dd" time="1380738489756" ignored="false" />
-    <file path="$APPLICATION_HOME_DIR$/lib/idea.jar!/standardSchemas/xhtml1-transitional.xsd" changelist="51d1c76c-de3e-4078-b4de-2b1dd0a268dd" time="1367688126348" ignored="false" />
-    <file path="$APPLICATION_HOME_DIR$/plugins/xpath/lib/xpath.jar!/org/intellij/lang/xpath/xslt/resources/documentation.xml" changelist="51d1c76c-de3e-4078-b4de-2b1dd0a268dd" time="1367688126349" ignored="false" />
-    <file path="$APPLICATION_HOME_DIR$/plugins/xpath/lib/xpath.jar!/org/intellij/lang/xpath/xslt/resources/xslt-schema.xsd" changelist="51d1c76c-de3e-4078-b4de-2b1dd0a268dd" time="1367688126349" ignored="false" />
-    <file path="$APPLICATION_HOME_DIR$/lib/idea.jar!/standardSchemas/xhtml1-strict.xsd" changelist="51d1c76c-de3e-4078-b4de-2b1dd0a268dd" time="1367688126349" ignored="false" />
-    <file path="$APPLICATION_HOME_DIR$/plugins/xpath/lib/xpath.jar!/org/intellij/lang/xpath/xslt/resources/documentation.xsl" changelist="51d1c76c-de3e-4078-b4de-2b1dd0a268dd" time="1367688126349" ignored="false" />
-    <file path="$APPLICATION_HOME_DIR$/lib/idea.jar!/standardSchemas/xslt-1_0.xsd" changelist="51d1c76c-de3e-4078-b4de-2b1dd0a268dd" time="1367688126349" ignored="false" />
-    <file path="$APPLICATION_HOME_DIR$/plugins/maven/lib/maven.jar!/schemas/maven-4.0.0.xsd" changelist="51d1c76c-de3e-4078-b4de-2b1dd0a268dd" time="1367688126349" ignored="false" />
-    <file path="$APPLICATION_HOME_DIR$/plugins/maven/lib/maven.jar!/schemas/settings-1.0.0.xsd" changelist="51d1c76c-de3e-4078-b4de-2b1dd0a268dd" time="1367688126349" ignored="false" />
-    <file path="$APPLICATION_HOME_DIR$/lib/idea.jar!/standardSchemas/html5/xhtml5.xsd" changelist="51d1c76c-de3e-4078-b4de-2b1dd0a268dd" time="1367688126350" ignored="false" />
-    <file path="$APPLICATION_HOME_DIR$/plugins/maven/lib/maven.jar!/schemas/profiles-1.0.0.xsd" changelist="51d1c76c-de3e-4078-b4de-2b1dd0a268dd" time="1367688126350" ignored="false" />
-    <file path="$APPLICATION_HOME_DIR$/lib/idea.jar!/standardSchemas/catalog.xsd" changelist="51d1c76c-de3e-4078-b4de-2b1dd0a268dd" time="1367688126350" ignored="false" />
-    <file path="$APPLICATION_HOME_DIR$/lib/idea.jar!/resources/relaxng.rng" changelist="51d1c76c-de3e-4078-b4de-2b1dd0a268dd" time="1367688126350" ignored="false" />
-    <file path="$APPLICATION_HOME_DIR$/lib/idea.jar!/standardSchemas/XMLSchema.xsd" changelist="51d1c76c-de3e-4078-b4de-2b1dd0a268dd" time="1367688126350" ignored="false" />
-    <file path="$APPLICATION_HOME_DIR$/lib/idea.jar!/standardSchemas/xhtml1-frameset.xsd" changelist="51d1c76c-de3e-4078-b4de-2b1dd0a268dd" time="1367688126350" ignored="false" />
-    <file path="$APPLICATION_HOME_DIR$/lib/idea.jar!/standardSchemas/xml.xsd" changelist="51d1c76c-de3e-4078-b4de-2b1dd0a268dd" time="1367688126350" ignored="false" />
-    <file path="$APPLICATION_HOME_DIR$/lib/idea.jar!/standardSchemas/xinclude.xsd" changelist="51d1c76c-de3e-4078-b4de-2b1dd0a268dd" time="1367688126350" ignored="false" />
-    <file path="$APPLICATION_HOME_DIR$/lib/idea.jar!/standardSchemas/xslt-2_0.xsd" changelist="51d1c76c-de3e-4078-b4de-2b1dd0a268dd" time="1367688126351" ignored="false" />
-    <file path="$APPLICATION_HOME_DIR$/lib/idea.jar!/standardSchemas/XMLSchema-instance.xsd" changelist="51d1c76c-de3e-4078-b4de-2b1dd0a268dd" time="1367688126351" ignored="false" />
-    <file path="$APPLICATION_HOME_DIR$/plugins/android/lib/android.jar!/org/jetbrains/android/android.xsd" changelist="51d1c76c-de3e-4078-b4de-2b1dd0a268dd" time="1380777835179" ignored="false" />
-    <file path="/a.xml" changelist="51d1c76c-de3e-4078-b4de-2b1dd0a268dd" time="1368078302257" ignored="false" />
-    <file path="/alarm.xml" changelist="51d1c76c-de3e-4078-b4de-2b1dd0a268dd" time="1367705030102" ignored="false" />
-    <file path="/strings.xml" changelist="51d1c76c-de3e-4078-b4de-2b1dd0a268dd" time="1367705194444" ignored="false" />
-    <file path="/routelist_item.xml" changelist="51d1c76c-de3e-4078-b4de-2b1dd0a268dd" time="1368074143202" ignored="false" />
-    <file path="/PlacesMap.java" changelist="51d1c76c-de3e-4078-b4de-2b1dd0a268dd" time="1367705888184" ignored="false" />
-    <file path="/RouteDialog.java" changelist="51d1c76c-de3e-4078-b4de-2b1dd0a268dd" time="1380779665766" ignored="false" />
-    <file path="/AndroidManifest.xml" changelist="51d1c76c-de3e-4078-b4de-2b1dd0a268dd" time="1367708497555" ignored="false" />
-    <file path="/styles.xml" changelist="51d1c76c-de3e-4078-b4de-2b1dd0a268dd" time="1380856391938" ignored="false" />
-    <file path="/holobuttonbg.xml" changelist="51d1c76c-de3e-4078-b4de-2b1dd0a268dd" time="1367714704078" ignored="false" />
-    <file path="/holoswitch.xml" changelist="51d1c76c-de3e-4078-b4de-2b1dd0a268dd" time="1367715644012" ignored="false" />
-    <file path="/routedialog.xml" changelist="51d1c76c-de3e-4078-b4de-2b1dd0a268dd" time="1368075066993" ignored="false" />
-    <file path="/Trip.java" changelist="51d1c76c-de3e-4078-b4de-2b1dd0a268dd" time="1367821290217" ignored="false" />
-    <file path="/AlarmController.java" changelist="51d1c76c-de3e-4078-b4de-2b1dd0a268dd" time="1367800484633" ignored="false" />
-    <file path="/Alarm.java" changelist="51d1c76c-de3e-4078-b4de-2b1dd0a268dd" time="1380780252056" ignored="false" />
-    <file path="/AlarmReceiver.java" changelist="51d1c76c-de3e-4078-b4de-2b1dd0a268dd" time="1367800034766" ignored="false" />
-    <file path="/RouteView.java" changelist="51d1c76c-de3e-4078-b4de-2b1dd0a268dd" time="1369292337903" ignored="false" />
-    <file path="/Http.java" changelist="51d1c76c-de3e-4078-b4de-2b1dd0a268dd" time="1380781218412" ignored="false" />
-    <file path="/card.xml" changelist="51d1c76c-de3e-4078-b4de-2b1dd0a268dd" time="1367980311501" ignored="false" />
-    <file path="/loader.xml" changelist="51d1c76c-de3e-4078-b4de-2b1dd0a268dd" time="1367971615837" ignored="false" />
-    <file path="/TextVerticalLoader.java" changelist="51d1c76c-de3e-4078-b4de-2b1dd0a268dd" time="1367980558999" ignored="false" />
-    <file path="/textverticalloader.xml" changelist="51d1c76c-de3e-4078-b4de-2b1dd0a268dd" time="1367973258631" ignored="false" />
-    <file path="/VerticalLoader.java" changelist="51d1c76c-de3e-4078-b4de-2b1dd0a268dd" time="1367983257260" ignored="false" />
-    <file path="/Loader.java" changelist="51d1c76c-de3e-4078-b4de-2b1dd0a268dd" time="1367980035934" ignored="false" />
-    <file path="/istop.xml" changelist="51d1c76c-de3e-4078-b4de-2b1dd0a268dd" time="1368035973558" ignored="false" />
-    <file path="/RouteBubble.java" changelist="51d1c76c-de3e-4078-b4de-2b1dd0a268dd" time="1369292302136" ignored="false" />
-    <file path="/route_bubble.xml" changelist="51d1c76c-de3e-4078-b4de-2b1dd0a268dd" time="1368049351811" ignored="false" />
-    <file path="/LocationListModel.java" changelist="51d1c76c-de3e-4078-b4de-2b1dd0a268dd" time="1380729900869" ignored="false" />
-    <file path="$PROJECT_DIR$/../BetterMaps2/project.properties" changelist="51d1c76c-de3e-4078-b4de-2b1dd0a268dd" time="1380779988830" ignored="false" />
-    <file path="$PROJECT_DIR$/../BetterMaps2/gen/com/mauricelam/bettermaps/BuildConfig.java" changelist="51d1c76c-de3e-4078-b4de-2b1dd0a268dd" time="1381091424722" ignored="false" />
-    <file path="$PROJECT_DIR$/../android-mapviewballoons/gen/com/readystatesoftware/mapviewballoons/R.java" changelist="51d1c76c-de3e-4078-b4de-2b1dd0a268dd" time="1380779989783" ignored="false" />
-    <file path="$PROJECT_DIR$/../android-mapviewballoons/gen/com/readystatesoftware/mapviewballoons/Manifest.java" changelist="51d1c76c-de3e-4078-b4de-2b1dd0a268dd" time="1380779989783" ignored="false" />
-    <file path="/PageControl.java" changelist="51d1c76c-de3e-4078-b4de-2b1dd0a268dd" time="1381091465913" ignored="false" />
-    <file path="$PROJECT_DIR$/../android-mapviewballoons/gen/com/readystatesoftware/mapviewballoons/BuildConfig.java" changelist="51d1c76c-de3e-4078-b4de-2b1dd0a268dd" time="1381091424722" ignored="false" />
-    <file path="$PROJECT_DIR$/../MultiFingerGestureDetector2/gen/com/mauricelam/multifingergesturedetector/BuildConfig.java" changelist="51d1c76c-de3e-4078-b4de-2b1dd0a268dd" time="1381091424722" ignored="false" />
-    <file path="$PROJECT_DIR$/../SwitchCompatLibrary/gen/de/ankri/BuildConfig.java" changelist="51d1c76c-de3e-4078-b4de-2b1dd0a268dd" time="1381091424722" ignored="false" />
-    <file path="$PROJECT_DIR$/../MoreViews/gen/com/mauricelam/moreviews/BuildConfig.java" changelist="51d1c76c-de3e-4078-b4de-2b1dd0a268dd" time="1381091424722" ignored="false" />
-    <file path="/stopsearch.xml" changelist="51d1c76c-de3e-4078-b4de-2b1dd0a268dd" time="1380900217652" ignored="false" />
-    <file path="$PROJECT_DIR$/gen/com/mauricelam/transit/BuildConfig.java" changelist="51d1c76c-de3e-4078-b4de-2b1dd0a268dd" time="1381091424722" ignored="false" />
-    <file path="$PROJECT_DIR$/../../android-sdk-macosx/extras/google/google_play_services/libproject/google-play-services_lib/gen/com/google/android/gms/BuildConfig.java" changelist="51d1c76c-de3e-4078-b4de-2b1dd0a268dd" time="1381091424722" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -155,6 +91,8 @@
     <disable_hints />
   </component>
   <component name="DebuggerManager">
+    <line_breakpoints default_suspend_policy="SuspendAll" default_condition_enabled="true" />
+    <ui_properties default_suspend_policy="SuspendAll" default_condition_enabled="true" />
     <breakpoint_any default_suspend_policy="SuspendAll" default_condition_enabled="true">
       <breakpoint>
         <option name="NOTIFY_CAUGHT" value="true" />
@@ -191,8 +129,6 @@
         <option name="LOG_MESSAGE" value="" />
       </breakpoint>
     </breakpoint_any>
-    <line_breakpoints default_suspend_policy="SuspendAll" default_condition_enabled="true" />
-    <ui_properties default_suspend_policy="SuspendAll" default_condition_enabled="true" />
     <breakpoint_rules />
     <ui_properties />
   </component>
@@ -202,10 +138,30 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="styles.xml" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/res/values/styles.xml">
+      <file leaf-file-name="RouteDialog.java" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/com/mauricelam/transit/RouteDialog.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="26" column="107" selection-start="1306" selection-end="1306" vertical-scroll-proportion="0.57939917">
+            <state line="107" column="101" selection-start="3990" selection-end="3990" vertical-scroll-proportion="0.96043956" vertical-offset="1147" max-vertical-offset="2896">
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Helper.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/include/Helper.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="149" column="0" selection-start="4909" selection-end="4909" vertical-scroll-proportion="0.0" vertical-offset="2121" max-vertical-offset="2672">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="AlarmController.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/com/mauricelam/transit/AlarmController.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="24" column="97" selection-start="728" selection-end="735" vertical-scroll-proportion="0.0" vertical-offset="409" max-vertical-offset="864">
               <folding />
             </state>
           </provider>
@@ -241,22 +197,27 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/src/com/mauricelam/transit/LocationListModel.java" />
-        <option value="$PROJECT_DIR$/src/com/mauricelam/transit/Cards.java" />
-        <option value="$PROJECT_DIR$/src/com/mauricelam/transit/Locator.java" />
-        <option value="$PROJECT_DIR$/src/com/mauricelam/transit/RouteDialog.java" />
-        <option value="$PROJECT_DIR$/src/com/mauricelam/transit/Alarm.java" />
-        <option value="$PROJECT_DIR$/src/com/mauricelam/transit/Settings.java" />
-        <option value="$PROJECT_DIR$/src/include/Http.java" />
-        <option value="$PROJECT_DIR$/res/xml/flags.xml" />
         <option value="$PROJECT_DIR$/res/xml/settings.xml" />
-        <option value="$PROJECT_DIR$/src/com/mauricelam/transit/Connector.java" />
         <option value="$PROJECT_DIR$/src/com/mauricelam/transit/Updater.java" />
-        <option value="$PROJECT_DIR$/res/values/strings.xml" />
-        <option value="$PROJECT_DIR$/res/values/styles.xml" />
         <option value="$PROJECT_DIR$/res/layout/stopsearch.xml" />
         <option value="$PROJECT_DIR$/../MoreViews/src/com/mauricelam/moreviews/PageControl.java" />
+        <option value="$PROJECT_DIR$/src/com/mauricelam/transit/TransitApplication.java" />
+        <option value="$PROJECT_DIR$/../HoloEverywhere/library/src/org/holoeverywhere/app/Application.java" />
         <option value="$PROJECT_DIR$/AndroidManifest.xml" />
+        <option value="$PROJECT_DIR$/src/com/mauricelam/transit/AlarmReceiver.java" />
+        <option value="$PROJECT_DIR$/src/com/mauricelam/transit/AlarmNotification.java" />
+        <option value="$PROJECT_DIR$/src/include/Http.java" />
+        <option value="$PROJECT_DIR$/src/com/mauricelam/transit/Trip.java" />
+        <option value="$PROJECT_DIR$/src/com/mauricelam/transit/Connector.java" />
+        <option value="$PROJECT_DIR$/res/values/strings.xml" />
+        <option value="$PROJECT_DIR$/src/com/mauricelam/transit/Alarm.java" />
+        <option value="$PROJECT_DIR$/res/values/styles.xml" />
+        <option value="$PROJECT_DIR$/res/layout/spinner_dropdown_item.xml" />
+        <option value="$PROJECT_DIR$/res/layout/spinner_item.xml" />
+        <option value="$PROJECT_DIR$/res/layout/routedialog.xml" />
+        <option value="$PROJECT_DIR$/src/com/mauricelam/transit/AlarmController.java" />
+        <option value="$PROJECT_DIR$/src/include/Helper.java" />
+        <option value="$PROJECT_DIR$/src/com/mauricelam/transit/RouteDialog.java" />
       </list>
     </option>
   </component>
@@ -266,7 +227,7 @@
   <component name="ProjectFrameBounds">
     <option name="y" value="22" />
     <option name="width" value="1440" />
-    <option name="height" value="848" />
+    <option name="height" value="835" />
   </component>
   <component name="ProjectInspectionProfilesVisibleTreeState">
     <entry key="Project Default">
@@ -364,6 +325,40 @@
       <sortByType />
     </navigator>
     <panes>
+      <pane id="PackagesPane">
+        <subPane>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Transit" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Transit" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageViewModuleNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Transit" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Transit" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageViewModuleNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="com.mauricelam.transit" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageElementNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Transit" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageViewProjectNode" />
+            </PATH_ELEMENT>
+          </PATH>
+        </subPane>
+      </pane>
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -393,6 +388,24 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Transit" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Transit" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="transit" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -449,45 +462,11 @@
         </subPane>
       </pane>
       <pane id="Scope" />
-      <pane id="PackagesPane">
-        <subPane>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Transit" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Transit" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageViewModuleNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Transit" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Transit" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageViewModuleNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="com.mauricelam.transit" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageElementNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Transit" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageViewProjectNode" />
-            </PATH_ELEMENT>
-          </PATH>
-        </subPane>
-      </pane>
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="GoToFile.includeJavaFiles" value="false" />
-    <property name="project.structure.last.edited" value="Modules" />
+    <property name="project.structure.last.edited" value="Project" />
     <property name="OverrideImplement.combined" value="false" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="options.splitter.main.proportions" value="0.30000004" />
@@ -496,20 +475,21 @@
     <property name="recentsLimit" value="5" />
     <property name="options.lastSelected" value="reference.settingsdialog.IDE.editor.colors.Android Logcat" />
     <property name="ExportedModule" value="Transit" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../android-mapviewballoons" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../MultiFingerGestureDetector2" />
     <property name="AndroidLayoutSelectedEditor" value="text-editor" />
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="ANDROID_EXTENDED_DEVICE_CHOOSER_SERIALS" value="3732BDCA5B8D00EC" />
     <property name="MemberChooser.copyJavadoc" value="false" />
     <property name="GoToClass.toSaveIncludeLibraries" value="false" />
     <property name="AndroidRunProguardForReleaseBuild" value="false" />
-    <property name="ANDROID_EXTENDED_DEVICE_CHOOSER_AVD" value="Gingerbread" />
+    <property name="ANDROID_EXTENDED_DEVICE_CHOOSER_AVD" value="Froyo" />
     <property name="restartRequiresConfirmation" value="true" />
     <property name="MemberChooser.showClasses" value="true" />
     <property name="FullScreen" value="false" />
     <property name="GoToClass.includeLibraries" value="false" />
     <property name="options.searchVisible" value="true" />
     <property name="options.splitter.details.proportions" value="0.2" />
+    <property name="LayoutCode.rearrangeEntriesJava" value="false" />
   </component>
   <component name="RecentsManager">
     <key name="MoveMembersDialog.RECENTS_KEY">
@@ -520,7 +500,7 @@
     </key>
   </component>
   <component name="RunManager" selected="Android Application.Transit">
-    <configuration default="true" type="#org.jetbrains.idea.devkit.run.PluginConfigurationType" factoryName="Plugin">
+    <configuration default="true" type="#org.jetbrains.idea.devkit.run.PluginConfigurationType" factoryName="Plugin" singleton="true">
       <module name="" />
       <option name="VM_PARAMETERS" value="-Xmx512m -Xms256m -XX:MaxPermSize=250m" />
       <option name="PROGRAM_PARAMETERS" />
@@ -534,6 +514,7 @@
       <option name="CLASS_NAME" value="" />
       <option name="PACKAGE_NAME" value="" />
       <option name="TARGET_SELECTION_MODE" value="EMULATOR" />
+      <option name="USE_LAST_SELECTED_DEVICE" value="false" />
       <option name="PREFERRED_AVD" value="" />
       <option name="USE_COMMAND_LINE" value="true" />
       <option name="COMMAND_LINE" value="" />
@@ -542,6 +523,7 @@
       <option name="NETWORK_SPEED" value="full" />
       <option name="NETWORK_LATENCY" value="none" />
       <option name="CLEAR_LOGCAT" value="false" />
+      <option name="SHOW_LOGCAT_AUTOMATICALLY" value="true" />
       <method />
     </configuration>
     <configuration default="true" type="Remote" factoryName="Remote">
@@ -631,7 +613,9 @@
       <option name="ACTIVITY_CLASS" value="" />
       <option name="MODE" value="default_activity" />
       <option name="DEPLOY" value="true" />
+      <option name="ARTIFACT_NAME" value="" />
       <option name="TARGET_SELECTION_MODE" value="SHOW_DIALOG" />
+      <option name="USE_LAST_SELECTED_DEVICE" value="false" />
       <option name="PREFERRED_AVD" value="" />
       <option name="USE_COMMAND_LINE" value="true" />
       <option name="COMMAND_LINE" value="" />
@@ -640,6 +624,7 @@
       <option name="NETWORK_SPEED" value="full" />
       <option name="NETWORK_LATENCY" value="none" />
       <option name="CLEAR_LOGCAT" value="false" />
+      <option name="SHOW_LOGCAT_AUTOMATICALLY" value="true" />
       <method />
     </configuration>
     <configuration default="false" name="Transit" type="AndroidRunConfigurationType" factoryName="Android Application">
@@ -647,7 +632,9 @@
       <option name="ACTIVITY_CLASS" value="" />
       <option name="MODE" value="default_activity" />
       <option name="DEPLOY" value="true" />
+      <option name="ARTIFACT_NAME" value="" />
       <option name="TARGET_SELECTION_MODE" value="USB_DEVICE" />
+      <option name="USE_LAST_SELECTED_DEVICE" value="false" />
       <option name="PREFERRED_AVD" value="" />
       <option name="USE_COMMAND_LINE" value="true" />
       <option name="COMMAND_LINE" value="" />
@@ -656,6 +643,7 @@
       <option name="NETWORK_SPEED" value="full" />
       <option name="NETWORK_LATENCY" value="none" />
       <option name="CLEAR_LOGCAT" value="false" />
+      <option name="SHOW_LOGCAT_AUTOMATICALLY" value="true" />
       <RunnerSettings RunnerId="AndroidDebugRunner" />
       <ConfigurationWrapper RunnerId="AndroidDebugRunner" />
       <method />
@@ -665,7 +653,9 @@
       <option name="ACTIVITY_CLASS" value="" />
       <option name="MODE" value="default_activity" />
       <option name="DEPLOY" value="true" />
+      <option name="ARTIFACT_NAME" value="" />
       <option name="TARGET_SELECTION_MODE" value="SHOW_DIALOG" />
+      <option name="USE_LAST_SELECTED_DEVICE" value="false" />
       <option name="PREFERRED_AVD" value="" />
       <option name="USE_COMMAND_LINE" value="true" />
       <option name="COMMAND_LINE" value="" />
@@ -674,6 +664,7 @@
       <option name="NETWORK_SPEED" value="full" />
       <option name="NETWORK_LATENCY" value="none" />
       <option name="CLEAR_LOGCAT" value="false" />
+      <option name="SHOW_LOGCAT_AUTOMATICALLY" value="true" />
       <RunnerSettings RunnerId="AndroidDebugRunner" />
       <ConfigurationWrapper RunnerId="AndroidDebugRunner" />
       <method />
@@ -745,97 +736,58 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="22" width="1440" height="848" extended-state="0" />
+    <frame x="0" y="22" width="1440" height="835" extended-state="6" />
     <editor active="true" />
     <layout>
+      <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.19010043" sideWeight="0.6703297" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32967034" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="JetGradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32969433" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.20229556" sideWeight="0.6703297" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24635568" sideWeight="0.6" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32969433" sideWeight="0.6703297" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.30958903" sideWeight="0.4970888" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.308094" sideWeight="0.4970888" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3997253" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32967034" sideWeight="0.5058224" order="11" side_tool="true" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32898173" sideWeight="0.50555557" order="11" side_tool="true" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32967034" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32142857" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
-      <window_info id="Android" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33150685" sideWeight="0.496361" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="Build Variants" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.31984335" sideWeight="0.49713057" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Android" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.3694517" sideWeight="0.49426112" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3260274" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32969433" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.23289666" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.21162124" sideWeight="0.6785714" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32967034" sideWeight="0.49417758" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.21111111" sideWeight="0.6703297" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32898173" sideWeight="0.49375" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32969433" sideWeight="0.6703297" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.19213974" sideWeight="0.68406594" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Problems" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32554945" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.20887919" sideWeight="0.6703297" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.20378457" sideWeight="0.68406594" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24635568" sideWeight="0.6" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="JetGradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32969433" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Dependency Viewer" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32967034" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4010989" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
+  <component name="Vcs.Log.UiProperties">
+    <option name="RECENTLY_FILTERED_USERS">
+      <collection />
+    </option>
+  </component>
   <component name="VcsContentAnnotationSettings">
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <option name="OFFER_MOVE_TO_ANOTHER_CHANGELIST_ON_PARTIAL_COMMIT" value="true" />
-    <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="true" />
-    <option name="CHECK_NEW_TODO" value="true" />
     <option name="myTodoPanelSettings">
-      <value>
-        <are-packages-shown value="false" />
-        <are-modules-shown value="false" />
-        <flatten-packages value="false" />
-        <is-autoscroll-to-source value="false" />
-      </value>
+      <TodoPanelSettings />
     </option>
-    <option name="PERFORM_UPDATE_IN_BACKGROUND" value="true" />
-    <option name="PERFORM_COMMIT_IN_BACKGROUND" value="true" />
-    <option name="PERFORM_EDIT_IN_BACKGROUND" value="true" />
-    <option name="PERFORM_CHECKOUT_IN_BACKGROUND" value="true" />
-    <option name="PERFORM_ADD_REMOVE_IN_BACKGROUND" value="true" />
-    <option name="PERFORM_ROLLBACK_IN_BACKGROUND" value="false" />
-    <option name="CHECK_LOCALLY_CHANGED_CONFLICTS_IN_BACKGROUND" value="false" />
-    <option name="CHANGED_ON_SERVER_INTERVAL" value="60" />
-    <option name="SHOW_ONLY_CHANGED_IN_SELECTION_DIFF" value="true" />
-    <option name="CHECK_COMMIT_MESSAGE_SPELLING" value="true" />
-    <option name="DEFAULT_PATCH_EXTENSION" value="patch" />
-    <option name="SHORT_DIFF_HORIZONTALLY" value="true" />
-    <option name="SHORT_DIFF_EXTRA_LINES" value="2" />
-    <option name="SOFT_WRAPS_IN_SHORT_DIFF" value="true" />
-    <option name="INCLUDE_TEXT_INTO_PATCH" value="false" />
-    <option name="INCLUDE_TEXT_INTO_SHELF" value="false" />
-    <option name="SHOW_FILE_HISTORY_DETAILS" value="true" />
-    <option name="SHOW_VCS_ERROR_NOTIFICATIONS" value="true" />
-    <option name="SHOW_DIRTY_RECURSIVELY" value="false" />
-    <option name="LIMIT_HISTORY" value="true" />
-    <option name="MAXIMUM_HISTORY_ROWS" value="1000" />
-    <option name="UPDATE_FILTER_SCOPE_NAME" />
-    <option name="USE_COMMIT_MESSAGE_MARGIN" value="false" />
-    <option name="COMMIT_MESSAGE_MARGIN_SIZE" value="72" />
-    <option name="WRAP_WHEN_TYPING_REACHES_RIGHT_MARGIN" value="false" />
-    <option name="FORCE_NON_EMPTY_COMMENT" value="false" />
-    <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="false" />
-    <option name="LAST_COMMIT_MESSAGE" value="Show if a route is iStop compatible. Styled the route header display." />
-    <option name="MAKE_NEW_CHANGELIST_ACTIVE" value="false" />
-    <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="false" />
-    <option name="CHECK_FILES_UP_TO_DATE_BEFORE_COMMIT" value="false" />
-    <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="false" />
-    <option name="REFORMAT_BEFORE_FILE_COMMIT" value="false" />
-    <option name="FILE_HISTORY_DIALOG_COMMENTS_SPLITTER_PROPORTION" value="0.8" />
-    <option name="FILE_HISTORY_DIALOG_SPLITTER_PROPORTION" value="0.5" />
-    <option name="ACTIVE_VCS_NAME" />
-    <option name="UPDATE_GROUP_BY_PACKAGES" value="false" />
-    <option name="UPDATE_GROUP_BY_CHANGELIST" value="false" />
-    <option name="UPDATE_FILTER_BY_SCOPE" value="false" />
-    <option name="SHOW_FILE_HISTORY_AS_TREE" value="false" />
-    <option name="FILE_HISTORY_SPLITTER_PROPORTION" value="0.6" />
+    <option name="SHOW_VCS_ERROR_NOTIFICATIONS" value="false" />
     <MESSAGE value="Go from sharedpref to sqlite database. Added schedule support." />
     <MESSAGE value="Go from sharedpref to sqlite database. Added schedule support. Moved to IntelliJ, so included .idea files. Fixed bugs in stop search. Added trip info dialog." />
     <MESSAGE value="Show if a route is iStop compatible. Styled the route header display." />
+    <option name="LAST_COMMIT_MESSAGE" value="Show if a route is iStop compatible. Styled the route header display." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -845,99 +797,279 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/res/drawable-mdpi/search.png">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/res/drawable-mdpi/ic_menu_preferences.png">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/res/drawable-mdpi/back.png">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/res/drawable-mdpi/bookmark_inactive.png">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/res/drawable-mdpi/bookmark.png">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/res/drawable-mdpi/icon_mylocation.png">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/res/drawable/card_background.xml">
+    <entry file="file://$PROJECT_DIR$/src/com/mauricelam/transit/PlacesMap2.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/res/values/strings.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="40" column="53" selection-start="3405" selection-end="3405" vertical-scroll-proportion="1.3973799" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/res/drawable/searchbtn_bg.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/include/Http.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="123" column="15" selection-start="3675" selection-end="3675" vertical-scroll-proportion="0.0" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/mauricelam/transit/Updater.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="16" column="0" selection-start="526" selection-end="526" vertical-scroll-proportion="0.022857143" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/res/layout/placesmap.xml">
-      <provider editor-type-id="android-designer">
-        <state />
-      </provider>
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="33" column="23" selection-start="1301" selection-end="1301" vertical-scroll-proportion="0.7975831">
+        <state line="9" column="139" selection-start="124" selection-end="124" vertical-scroll-proportion="0.0" vertical-offset="144" max-vertical-offset="240">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/res/layout/stopsearch.xml">
+    <entry file="file://$PROJECT_DIR$/src/com/mauricelam/transit/RouteDialog.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="58" column="0" selection-start="1699" selection-end="1699" vertical-scroll-proportion="0.0" vertical-offset="928" max-vertical-offset="2848">
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/res/layout/routedialog.xml">
       <provider editor-type-id="android-designer">
         <state />
       </provider>
       <provider selected="true" editor-type-id="text-editor">
-        <state line="61" column="55" selection-start="2204" selection-end="2204" vertical-scroll-proportion="0.43239227">
+        <state line="97" column="26" selection-start="4613" selection-end="4613" vertical-scroll-proportion="0.0" vertical-offset="1264" max-vertical-offset="2080">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/../MoreViews/src/com/mauricelam/moreviews/PageControl.java">
+    <entry file="file://$PROJECT_DIR$/src/com/mauricelam/transit/RouteView.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="387" column="49" selection-start="10512" selection-end="10512" vertical-scroll-proportion="0.6302521">
+        <state line="16" column="13" selection-start="337" selection-end="337" vertical-scroll-proportion="0.0" vertical-offset="256" max-vertical-offset="1248">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/mauricelam/transit/Connector.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="102" column="24" selection-start="3337" selection-end="3337" vertical-scroll-proportion="0.0" vertical-offset="1632" max-vertical-offset="3136">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/mauricelam/transit/PlacesMap2.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="9" column="139" selection-start="124" selection-end="124" vertical-scroll-proportion="0.0" vertical-offset="144" max-vertical-offset="240">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/mauricelam/transit/RouteDialog.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="34" column="146" selection-start="819" selection-end="819" vertical-scroll-proportion="0.0" vertical-offset="544" max-vertical-offset="2640">
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/mauricelam/transit/Connector.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="100" column="23" selection-start="3250" selection-end="3250" vertical-scroll-proportion="0.0" vertical-offset="1600" max-vertical-offset="3088">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/mauricelam/transit/PlacesMap.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="23" column="13" selection-start="823" selection-end="823" vertical-scroll-proportion="0.0" vertical-offset="368" max-vertical-offset="2800">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/mauricelam/transit/PlacesMap2.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="9" column="138" selection-start="124" selection-end="124" vertical-scroll-proportion="0.0" vertical-offset="144" max-vertical-offset="240">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/mauricelam/transit/PlacesMap.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="23" column="13" selection-start="823" selection-end="823" vertical-scroll-proportion="0.0" vertical-offset="368" max-vertical-offset="2800">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/mauricelam/transit/Connector.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="19" column="69" selection-start="637" selection-end="637" vertical-scroll-proportion="0.0" vertical-offset="304" max-vertical-offset="3328">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../HoloEverywhere/addons/preferences/src/org/holoeverywhere/preference/PreferenceFragment.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="26" column="49" selection-start="886" selection-end="886" vertical-scroll-proportion="0.54176074" vertical-offset="0" max-vertical-offset="0" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../HoloEverywhere/library/src/org/holoeverywhere/preference/PreferenceManagerHelper.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="37" column="0" selection-start="1136" selection-end="1136" vertical-scroll-proportion="0.3501144" vertical-offset="0" max-vertical-offset="0" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../HoloEverywhere/library/src/org/holoeverywhere/app/Application.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="195" column="69" selection-start="6066" selection-end="6066" vertical-scroll-proportion="6.017391" vertical-offset="0" max-vertical-offset="0" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/mauricelam/transit/Pref.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="14" column="0" selection-start="397" selection-end="397" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="0" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../HoloEverywhere/library/AndroidManifest.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/mauricelam/transit/TransitApplication.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="39" column="14" selection-start="1033" selection-end="1033" vertical-scroll-proportion="0.15954416" vertical-offset="0" max-vertical-offset="0" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/res/xml/settings.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="48" column="25" selection-start="1963" selection-end="1963" vertical-scroll-proportion="0.3318584" vertical-offset="0" max-vertical-offset="0" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../HoloEverywhere/library/res/values/styles.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="292" column="17" selection-start="16525" selection-end="16525" vertical-scroll-proportion="0.03661327" vertical-offset="0" max-vertical-offset="0">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/AndroidManifest.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="12" column="64" selection-start="488" selection-end="488" vertical-scroll-proportion="0.41201717">
+        <state line="43" column="58" selection-start="1618" selection-end="1618" vertical-scroll-proportion="0.13913043" vertical-offset="0" max-vertical-offset="0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/mauricelam/transit/AlarmReceiver.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="108" column="51" selection-start="4108" selection-end="4108" vertical-scroll-proportion="0.45217392" vertical-offset="0" max-vertical-offset="0" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/mauricelam/transit/AlarmNotification.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="29" column="20" selection-start="849" selection-end="849" vertical-scroll-proportion="0.76521736" vertical-offset="0" max-vertical-offset="0" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/include/Http.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="50" column="17" selection-start="1418" selection-end="1418" vertical-scroll-proportion="0.56082475" vertical-offset="352" max-vertical-offset="2352">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/mauricelam/transit/RouteBubble.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="15" column="13" selection-start="287" selection-end="287" vertical-scroll-proportion="0.29690722" vertical-offset="0" max-vertical-offset="2016" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/mauricelam/transit/PlacesMap.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="23" column="13" selection-start="823" selection-end="823" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="2448">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/mauricelam/transit/Trip.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="46" column="0" selection-start="1258" selection-end="1258" vertical-scroll-proportion="0.76082474" vertical-offset="191" max-vertical-offset="1264">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/res/values/strings.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="52" column="17" selection-start="3752" selection-end="3752" vertical-scroll-proportion="0.78280544" vertical-offset="486" max-vertical-offset="1024">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/mauricelam/transit/PlacesMap2.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="9" column="139" selection-start="124" selection-end="124" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="240">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/mauricelam/transit/RouteView.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="16" column="13" selection-start="337" selection-end="337" vertical-scroll-proportion="-0.25925925" vertical-offset="256" max-vertical-offset="1104">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/res/values/styles.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="26" column="107" selection-start="1306" selection-end="1306" vertical-scroll-proportion="0.57939917">
+        <state line="26" column="65" selection-start="1289" selection-end="1289" vertical-scroll-proportion="0.45714286" vertical-offset="208" max-vertical-offset="816">
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/mauricelam/transit/Alarm.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="101" column="30" selection-start="4032" selection-end="4032" vertical-scroll-proportion="0.6666667" vertical-offset="1184" max-vertical-offset="1616">
+          <folding>
+            <element signature="e#4000#4001#0" expanded="true" />
+            <element signature="e#4037#4038#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/mauricelam/transit/Connector.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="159" column="78" selection-start="5243" selection-end="5243" vertical-scroll-proportion="0.6791209" vertical-offset="2059" max-vertical-offset="2960">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/res/layout/spinner_dropdown_item.xml">
+      <provider editor-type-id="android-designer">
+        <state />
+      </provider>
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="9" column="28" selection-start="370" selection-end="370" vertical-scroll-proportion="0.3364486" vertical-offset="0" max-vertical-offset="428">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/res/layout/spinner_item.xml">
+      <provider editor-type-id="android-designer">
+        <state />
+      </provider>
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="9" column="26" selection-start="366" selection-end="366" vertical-scroll-proportion="0.3364486" vertical-offset="0" max-vertical-offset="428">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/res/layout/routedialog.xml">
+      <provider editor-type-id="android-designer">
+        <state />
+      </provider>
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="68" column="46" selection-start="3206" selection-end="3206" vertical-scroll-proportion="0.42409638" vertical-offset="912" max-vertical-offset="2032">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/mauricelam/transit/AlarmController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="24" column="97" selection-start="728" selection-end="735" vertical-scroll-proportion="0.0" vertical-offset="169" max-vertical-offset="864">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/include/Helper.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="149" column="0" selection-start="4909" selection-end="4909" vertical-scroll-proportion="0.0" vertical-offset="2121" max-vertical-offset="2672">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/mauricelam/transit/RouteDialog.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="107" column="101" selection-start="3990" selection-end="3990" vertical-scroll-proportion="0.96043956" vertical-offset="1147" max-vertical-offset="2896">
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -995,7 +1127,7 @@
       </state>
       <state key="ModuleStructureConfigurable.UI">
         <settings>
-          <last-edited>Transit</last-edited>
+          <last-edited>MultiFingerGestureDetector2</last-edited>
           <splitter-proportions>
             <option name="proportions">
               <list>
@@ -1019,7 +1151,7 @@
       </state>
       <state key="ProjectLibrariesConfigurable.UI">
         <settings>
-          <last-edited>android-support-v4</last-edited>
+          <last-edited>support-v4-18.0.11</last-edited>
           <splitter-proportions>
             <option name="proportions">
               <list>

@@ -11,7 +11,6 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
-import java.net.SocketTimeoutException;
 import java.net.URL;
 
 /**
@@ -95,8 +94,7 @@ public class Http {
         if (query.startsWith("http")) {
             return restRawString(query);
         }
-        String[] server = Connector.getServerAddresses();
-        return restRawString(server[0] + query);
+        return restRawString(Connector.API_ADDRESS + query);
     }
 
     public static String restRawString(String url) {

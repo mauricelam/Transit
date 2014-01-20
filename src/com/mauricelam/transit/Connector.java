@@ -16,8 +16,8 @@ import java.util.Date;
 public class Connector {
 	private static final String TAG = "Transit Connector";
     private static final int API_VERSION = 4;
-    public static final String SERVER_ADDRESS = "http://projects.mauricelam.com/mtd/" + API_VERSION + "/";
-	public static final String FALLBACK_SERVER_ADDRESS = "http://transit.byethost14.com/mtd/" + API_VERSION + "/";
+    public static final String API_ADDRESS = "http://transit.mauricelam.com/mtd" + API_VERSION + "/";
+    public static final String DEPARTURES_ADDRESS = "http://transitdepartures.mauricelam.com/mtd" + API_VERSION + "/";
 
 	// The number of trials before using fallback server
 	private static final int FALLBACK_TRIALS = 3;
@@ -28,20 +28,6 @@ public class Connector {
 	// The duration to use the fallback server when connection to main server
 	// failed. In milliseconds.
 	private static final long FALLBACKDURATION = 3600000;
-
-	/**
-	 * Get the current address of the server, automatically switching between
-	 * main server and fallback server.
-	 * 
-	 * @return The address of the server
-	 */
-	public static String[] getServerAddresses() {
-		if (new Date().getTime() > fallbackExpire) {
-			return new String[] { SERVER_ADDRESS, FALLBACK_SERVER_ADDRESS };
-		} else {
-			return new String[] { FALLBACK_SERVER_ADDRESS, SERVER_ADDRESS };
-		}
-	}
 
 	/**
 	 * Call this when the alternate connection is successful. Should only be
@@ -113,6 +99,9 @@ public class Connector {
 	}
 
     static Trip getTripInfo(String tripId, Stop stop) {
+        if (tripId == null) {
+            return null;
+        }
         String address = "trip.php";
         try {
             String params = "trip=" + URLEncoder.encode(tripId, "UTF-8") + "&stop=" + URLEncoder.encode(stop.getQuery(), "UTF-8");
@@ -176,19 +165,7 @@ public class Connector {
         }
 
 		String params = "c=" + codes.toString() + "&r=" + referrers.toString();
-        return getJSONObject(address, params);
-    }
-
-    private static JSONObject getJSONObject(String address, String params) {
-        String[] serverAddresses = getServerAddresses();
-        JSONObject stopInfos = Http.restJSONObject(serverAddresses[0] + address, params);
-        if (stopInfos == null) {
-            stopInfos = Http.restJSONObject(serverAddresses[1], params);
-            if (stopInfos != null) {
-                alternateSuccess();
-            }
-        }
-        return stopInfos;
+        return Http.restJSONObject(DEPARTURES_ADDRESS + address, params);
     }
 
 	static Place[] getPlaces(String query) {

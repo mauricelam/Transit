@@ -57,19 +57,29 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:padding="10dp" android:id="@+id/relativeLayout">
-            <de.ankri.views.Switch
+            <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Alarm"
+                    android:id="@+id/alarmLabel"
+                    android:layout_toLeftOf="@+id/alarmswitch"
+                    android:layout_alignParentTop="true"
+                    android:layout_alignBaseline="@+id/alarmswitch"
+                    android:gravity="center_vertical"
+                    android:textColor="#aaaaaa"
+                    />
+            <org.holoeverywhere.widget.Spinner
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_alignParentTop="true"
                     android:layout_alignParentRight="true"
                     android:id="@+id/alarmswitch"
-                    android:text="Alarm"
-                    android:checked="false"/>
+                    />
             <com.mauricelam.moreviews.Loader
                     android:id="@+id/loader"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:paddingTop="30dp"
+                    android:paddingTop="20dp"
                     android:layout_below="@+id/alarmswitch"
                     android:layout_alignParentLeft="true"
                     android:layout_alignParentRight="true"
@@ -77,9 +87,11 @@
                     />
             <com.mauricelam.transit.RouteView
                     android:layout_marginTop="10dp"
-                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_alignParentLeft="true"
+                    android:layout_alignParentRight="true"
+                    android:layout_alignParentBottom="true"
                     android:layout_below="@+id/alarmswitch"
                     android:lineSpacingMultiplier="2"
                     android:paddingLeft="20dp"
@@ -102,7 +114,7 @@
             android:layout_height="wrap_content"
             android:text="Close"
             android:id="@+id/close_button"
-            android:onClick="close" android:height="44dp"
+            android:height="44dp"
             android:layout_alignParentLeft="true"
             android:layout_alignParentRight="true"
             android:layout_alignParentBottom="true"

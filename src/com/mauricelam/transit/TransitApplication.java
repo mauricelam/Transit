@@ -1,6 +1,5 @@
 package com.mauricelam.transit;
 
-import android.app.Application;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.content.pm.PackageInfo;
@@ -12,7 +11,7 @@ import android.content.pm.PackageManager.NameNotFoundException;
  * @author Maurice Lam
  * 
  */
-public class TransitApplication extends Application {
+public class TransitApplication extends org.holoeverywhere.app.Application {
 	private static final String PREFKEY_VERSION = "transit-version";
 	private static Context context;
 

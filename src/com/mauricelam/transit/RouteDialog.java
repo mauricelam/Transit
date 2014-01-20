@@ -2,14 +2,16 @@ package com.mauricelam.transit;
 
 import android.app.Dialog;
 import android.content.Context;
-import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v4.app.DialogFragment;
+import android.util.Log;
 import android.view.*;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
-import android.widget.CompoundButton;
 import android.widget.TextView;
+import include.Helper;
+import org.holoeverywhere.widget.Spinner;
 
 import java.util.List;
 
@@ -69,19 +71,38 @@ public class RouteDialog extends DialogFragment {
             }
         });
 
-        CompoundButton alarm = (CompoundButton) view.findViewById(R.id.alarmswitch);
-        alarm.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(getActivity(),
+                R.array.alarm_time, R.layout.spinner_item);
+        adapter.setDropDownViewResource(R.layout.spinner_dropdown_item);
+        final Spinner alarmSpinner = (Spinner) view.findViewById(R.id.alarmswitch);
+        alarmSpinner.setAdapter(adapter);
+        alarmSpinner.setOnItemSelectedListener(new org.holoeverywhere.widget.AdapterView.OnItemSelectedListener() {
             @Override
-            public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
-                if (checked) {
-                    AlarmController.sharedInstance().addAlarm(route);
+            public void onItemSelected(org.holoeverywhere.widget.AdapterView<?> parent, View view, int pos, long id) {
+                AlarmController controller = AlarmController.sharedInstance();
+                if (pos > 0) {
+                    int[] alarmTime = new int[]{0, 2, 5, 10};
+                    boolean alarmSet = controller.setAlarm(route, alarmTime[pos]);
+                    if (!alarmSet) {
+                        final Alarm previousAlarm = controller.getAlarm(route);
+                        Helper.setTimeout(new Runnable() {
+                            @Override
+                            public void run() {
+                                setSpinnerValue(alarmSpinner, previousAlarm);
+                            }
+                        }, 100);
+                    }
                 } else {
-                    AlarmController.sharedInstance().removeAlarm(route);
+                    controller.removeAlarm(route);
                 }
             }
+
+            @Override
+            public void onNothingSelected(org.holoeverywhere.widget.AdapterView<?> parent) {
+            }
         });
-        alarm.setChecked(AlarmController.sharedInstance().hasAlarm(route));
-        alarm.setEnabled(route.getMins() > 5);
+        Alarm alarm = AlarmController.sharedInstance().getAlarm(route);
+        setSpinnerValue(alarmSpinner, alarm);
 
         RouteView routeview = (RouteView) view.findViewById(R.id.routeview);
         routeview.setColor(route.getColor());
@@ -103,6 +124,19 @@ public class RouteDialog extends DialogFragment {
         }
 
         return dialog;
+    }
+
+    private void setSpinnerValue(Spinner spinner, Alarm alarm) {
+        if (alarm == null) {
+            spinner.setSelection(0);
+        } else {
+            int pos = 0;
+            int timeAhead = alarm.getTimeAhead();
+            if (timeAhead == 2) pos = 1;
+            else if (timeAhead == 5) pos = 2;
+            else if (timeAhead == 10) pos = 3;
+            spinner.setSelection(pos);
+        }
     }
 
     private void loadTripInfo () {
@@ -134,8 +168,7 @@ public class RouteDialog extends DialogFragment {
     private class RouteTask extends AsyncTask<Void, Void, Void> {
         @Override
         protected Void doInBackground(Void... params) {
-            String escTripId = Uri.encode(route.getTrip());
-            trip = Connector.getTripInfo(escTripId, currentStop);
+            trip = Connector.getTripInfo(route.getTrip(), currentStop);
             if (trip != null)
                 trip.setRoute(route);
             return null;

@@ -2,6 +2,7 @@ package com.mauricelam.transit;
 
 import android.os.Parcel;
 import android.os.Parcelable;
+import android.util.Log;
 import com.mauricelam.transit.stopdatabase.StopDatabase;
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -39,6 +40,7 @@ public class Trip implements Parcelable {
             try {
                 stops.add(StopDatabase.sharedInstance().getStop(jArr.getString(i)));
             } catch (IllegalAccessException e) {
+                e.printStackTrace();
                 // ignore
             }
         }

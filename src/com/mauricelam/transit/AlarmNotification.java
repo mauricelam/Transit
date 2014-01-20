@@ -27,21 +27,21 @@ public class AlarmNotification extends Activity {
 
 		Intent intent = getIntent();
 		String routeName = intent.getStringExtra("routeName");
-		setDialogText(routeName);
+        int timeAhead = intent.getIntExtra("timeAhead", 0);
+		setDialogText(routeName, timeAhead);
 	}
 
 	/**
 	 * Removes the notification of the bus when either button is pressed
 	 */
 	private void removeNotification() {
-		NotificationManager nm = (NotificationManager) this
-				.getSystemService(Context.NOTIFICATION_SERVICE);
+		NotificationManager nm = (NotificationManager) this.getSystemService(Context.NOTIFICATION_SERVICE);
 		nm.cancel(AlarmReceiver.ALARMID);
 	}
 
-	private void setDialogText(String routeName) {
+	private void setDialogText(String routeName, int timeAhead) {
 		TextView textview = (TextView) findViewById(R.id.alarm_dialogtext);
-		String text = routeName + " is coming in " + Pref.getInt("alarmAhead", 5) + " minutes";
+		String text = routeName + " is coming in " + timeAhead + " minutes";
 		textview.setText(text);
 	}
 
